@@ -1,16 +1,32 @@
-// Animation du score "avant"
+// Animation du score "avant" + "après"
 const scoreNumber = document.getElementById("scoreNumber");
 const scoreFill = document.getElementById("scoreFill");
+const scoreAfterFill = document.querySelector(".score-fill.high");
+const scoreAfterNumber = document.querySelector(".score-number.white");
 
-let count = 0;
-const target = 34;
+scoreAfterFill.style.width = "0%";
+scoreAfterNumber.textContent = "0";
+
+let before = 0;
+let after = 0;
+const duration = 1500; // ms
+const steps = 60;
+const interval = duration / steps;
 
 const countUp = setInterval(() => {
-  count++;
-  scoreNumber.textContent = count;
-  scoreFill.style.width = (count / 100 * 100) + "%";
-  if (count >= target) clearInterval(countUp);
-}, 40);
+  before = Math.min(Math.round((34 / steps) * (before / (34 / steps) + 1)), 34);
+  after = Math.min(Math.round((98 / steps) * (after / (98 / steps) + 1)), 98);
+
+  before = Math.min(before + Math.ceil(34 / steps), 34);
+  after = Math.min(after + Math.ceil(98 / steps), 98);
+
+  scoreNumber.textContent = before;
+  scoreFill.style.width = before + "%";
+  scoreAfterNumber.textContent = after;
+  scoreAfterFill.style.width = after + "%";
+
+  if (before >= 34 && after >= 98) clearInterval(countUp);
+}, interval);
 
 // Animation des éléments au scroll
 const observer = new IntersectionObserver((entries) => {

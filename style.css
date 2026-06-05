@@ -70,6 +70,14 @@ body {
   transform: translateY(-1px);
 }
 
+.nav-stars {
+  font-size: 13px;
+  color: #c8f000;
+  letter-spacing: 2px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -193,7 +201,7 @@ body {
 }
 
 .score-card.after .score-label {
-  color: rgba(0,0,0,0.7);
+  color: #1a1a1a;
 }
 
 .score-number {
@@ -216,7 +224,7 @@ body {
 }
 
 .score-card.after .score-sub {
-  color: rgba(0,0,0,0.7);
+  color: #1a1a1a;
 }
 
 .score-bar {
@@ -242,7 +250,7 @@ body {
 }
 
 .score-fill.high {
-  width: 98%;
+  width: 0%;
   background: var(--black);
 }
 
@@ -386,7 +394,7 @@ body {
 }
 
 .service-card.featured p {
-  color: rgba(0,0,0,0.8);
+  color: #1a1a1a;
 }
 
 .service-price {
