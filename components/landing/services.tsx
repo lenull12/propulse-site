@@ -2,21 +2,36 @@ const SERVICES = [
   {
     number: "01",
     title: "Audit de performance",
-    text: "Analyse complète de votre site et de votre fiche Google. Rapport détaillé des points faibles avec plan d'action prioritaire.",
-    price: "Gratuit",
+    text: "Analyse complète de votre écosystème digital. J'identifie les points bloquants qui vous font perdre des clients au quotidien.",
+    features: [
+      "Audit technique SEO complet",
+      "Analyse de vitesse Google PageSpeed",
+      "Rapport détaillé sous 24 heures",
+    ],
+    price: "Offert & Sans engagement",
     featured: false,
   },
   {
     number: "02",
     title: "Refonte de site web",
-    text: "Site ultra-rapide, optimisé mobile, conçu pour convertir vos visiteurs en clients. Score PageSpeed garanti au-dessus de 95/100.",
+    text: "Création d'un site sur-mesure d'une rapidité extrême, optimisé pour transformer vos simples visiteurs en clients actifs.",
+    features: [
+      "Vitesse de chargement garantie > 95%",
+      "Structure UX pensée pour la conversion",
+      "Optimisation SEO locale poussée",
+    ],
     price: "À partir de 1 000 €",
     featured: true,
   },
   {
     number: "03",
     title: "Gestion réputation Google",
-    text: "Système automatisé de collecte d'avis positifs et de filtrage des réclamations. Votre note Google remonte en 15 jours.",
+    text: "Automatisation de la récolte d'avis positifs et traitement privé des insatisfactions pour propulser votre note Google.",
+    features: [
+      "Campagnes automatisées par SMS/Email",
+      "Filtrage intelligent des réclamations",
+      "Amélioration de la note en 15 jours",
+    ],
     price: "À partir de 49 € / mois",
     featured: false,
   },
@@ -24,32 +39,72 @@ const SERVICES = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-background px-6 py-25 md:px-15">
-      <div className="mx-auto max-w-[1200px]">
-        <p className="mb-4 text-xs font-medium uppercase tracking-[3px] text-accent">Ce que je fais</p>
-        <h2 className="mb-15 font-serif text-[clamp(28px,3vw,44px)] font-black leading-[1.2] text-balance text-foreground">
-          Trois leviers pour
+    <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+      {/* Halo lumineux d'ambiance en fond */}
+      <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#c8f000] opacity-[0.03] blur-[150px] pointer-events-none" />
+      
+      <div className="relative z-10 mx-auto max-w-[1400px]">
+        <div className="inline-flex items-center gap-3 mb-4">
+          <span className="w-8 h-px bg-accent/40" />
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-accent">Mon expertise</p>
+        </div>
+        
+        <h2 className="mb-16 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
+          Trois leviers d&apos;impact
           <br />
-          accélérer votre business.
+          pour propulser votre activité.
         </h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {SERVICES.map((s) => (
             <div
               key={s.number}
-              className={
+              className={`group relative flex flex-col justify-between rounded-[16px] border p-8 md:p-10 transition-all duration-500 hover:-translate-y-1.5 ${
                 s.featured
-                  ? "rounded-[12px] border border-accent bg-accent px-8 py-10 text-ink transition-transform hover:-translate-y-1"
-                  : "rounded-[12px] border border-white/10 bg-white/[0.02] px-8 py-10 transition-all hover:-translate-y-1 hover:border-white/20"
-              }
+                  ? "border-accent/40 bg-[#0d0d08] shadow-[0_12px_40px_rgba(200,240,0,0.05)]"
+                  : "border-white/5 bg-[#0a0a0a]/60 hover:border-white/10"
+              }`}
             >
-              <div className={`mb-5 font-serif text-5xl font-black leading-none ${s.featured ? "text-ink/40" : "text-white/40"}`}>
-                {s.number}
+              {s.featured && (
+                <span className="absolute right-6 top-6 rounded-full bg-accent px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-accent-foreground">
+                  Populaire
+                </span>
+              )}
+              
+              <div>
+                <div className={`mb-8 font-serif text-5xl font-black leading-none ${s.featured ? "text-accent/30" : "text-white/10"}`}>
+                  {s.number}
+                </div>
+                
+                <h3 className="mb-4 text-2xl font-bold text-foreground">{s.title}</h3>
+                <p className="mb-8 text-sm font-light leading-relaxed text-gray-400">{s.text}</p>
+                
+                <ul className="mb-10 flex flex-col gap-3.5">
+                  {s.features.map((feat, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm font-light text-gray-300">
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        className="text-accent flex-shrink-0"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className={`mb-3 text-xl font-medium ${s.featured ? "text-ink" : "text-foreground"}`}>{s.title}</h3>
-              <p className={`text-sm font-light leading-relaxed ${s.featured ? "text-ink/80" : "text-gray-400"}`}>
-                {s.text}
-              </p>
-              <p className={`mt-6 text-base font-medium ${s.featured ? "text-ink" : "text-foreground"}`}>{s.price}</p>
+
+              <div className="border-t border-white/5 pt-6 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-wider text-white/40">Investissement</span>
+                <span className={`text-base font-semibold ${s.featured ? "text-accent" : "text-foreground"}`}>
+                  {s.price}
+                </span>
+              </div>
             </div>
           ))}
         </div>

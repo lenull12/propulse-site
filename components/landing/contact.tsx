@@ -17,7 +17,7 @@ export function Contact() {
     const site = (data.get("site") as string)?.trim()
 
     if (!name || !email) {
-      setError("Merci de remplir votre prénom et votre mail.")
+      setError("Merci de remplir votre pr\u00e9nom et votre mail.")
       return
     }
 
@@ -34,70 +34,81 @@ export function Contact() {
         setStatus("success")
       } else {
         setStatus("idle")
-        setError("Une erreur est survenue, veuillez réessayer.")
+        setError("Une erreur est survenue, veuillez r\u00e9essayer.")
       }
     } catch {
       setStatus("idle")
-      setError("Une erreur est survenue, veuillez réessayer.")
+      setError("Une erreur est survenue, veuillez r\u00e9essayer.")
     }
   }
 
   return (
-    <section id="contact" className="bg-background px-6 py-25 md:px-15">
-      <div className="mx-auto max-w-[560px] text-center">
-        <p className="mb-4 text-xs font-medium uppercase tracking-[3px] text-accent">Passons à l&apos;action</p>
-        <h2 className="mb-0 font-serif text-[clamp(28px,3vw,44px)] font-black leading-[1.2] text-foreground">
+    <section id="contact" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+      {/* Halo de fond */}
+      <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#c8f000] opacity-[0.02] blur-[180px] pointer-events-none" />
+      
+      <div className="relative z-10 mx-auto max-w-[640px] text-center">
+        <div className="inline-flex items-center gap-3 mb-4">
+          <span className="w-8 h-px bg-accent/40" />
+          <p className="text-xs font-semibold uppercase tracking-[3px] text-accent">Passons à l'action</p>
+          <span className="w-8 h-px bg-accent/40" />
+        </div>
+        
+        <h2 className="mb-6 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
           Obtenez votre audit
           <br />
-          gratuit aujourd&apos;hui.
+          gratuit aujourd'hui.
         </h2>
-        <p className="mb-10 mt-6 text-base font-light leading-relaxed text-gray-400">
-          Entrez l&apos;URL de votre site et votre mail. Je vous envoie votre rapport sous 24h.
+        
+        <p className="mb-12 text-base font-light leading-relaxed text-gray-400">
+          Entrez l'URL de votre site internet et votre adresse email. Je vous envoie votre rapport technique complet sous 24h.
         </p>
 
         {status === "success" ? (
-          <div className="py-10 text-center">
-            <p className="mb-4 text-3xl" aria-hidden="true">
+          <div className="rounded-2xl border border-accent/25 bg-[#0a0a0a]/60 py-12 px-8 text-center shadow-[0_8px_30px_rgba(200,240,0,0.05)] animate-fade-up">
+            <p className="mb-4 text-4xl" aria-hidden="true">
               ✅
             </p>
-            <p className="text-lg font-medium text-accent">Demande reçue !</p>
-            <p className="mt-2 text-sm text-gray-400">Je vous envoie votre audit sous 24h.</p>
+            <p className="text-xl font-bold text-accent">Demande reçue avec succès !</p>
+            <p className="mt-3 text-sm text-gray-400 font-light">Je commence l'analyse de votre site. Vous recevrez votre rapport complet par e-mail sous 24h.</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3.5 text-left">
-            <input
-              type="text"
-              name="prenom"
-              placeholder="Votre prénom"
-              required
-              className="rounded-[12px] border border-white/10 bg-white/5 px-5 py-4 text-[15px] text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
-            />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="text"
+                name="prenom"
+                placeholder="Votre pr\u00e9nom"
+                required
+                className="rounded-xl border border-white/5 bg-[#0a0a0a]/60 px-5 py-4 text-sm text-foreground outline-none transition-all placeholder:text-gray-500 focus:border-accent/40 focus:bg-[#0c0c0c] focus:shadow-[0_0_20px_rgba(200,240,0,0.08)]"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Votre adresse mail"
+                required
+                className="rounded-xl border border-white/5 bg-[#0a0a0a]/60 px-5 py-4 text-sm text-foreground outline-none transition-all placeholder:text-gray-500 focus:border-accent/40 focus:bg-[#0c0c0c] focus:shadow-[0_0_20px_rgba(200,240,0,0.08)]"
+              />
+            </div>
             <input
               type="url"
               name="site"
-              placeholder="URL de votre site (ex: www.mongarage.fr)"
-              className="rounded-[12px] border border-white/10 bg-white/5 px-5 py-4 text-[15px] text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre adresse mail"
-              required
-              className="rounded-[12px] border border-white/10 bg-white/5 px-5 py-4 text-[15px] text-foreground outline-none transition-colors placeholder:text-gray-400 focus:border-accent"
+              placeholder="URL de votre site (ex: https://mon-entreprise.fr)"
+              className="w-full rounded-xl border border-white/5 bg-[#0a0a0a]/60 px-5 py-4 text-sm text-foreground outline-none transition-all placeholder:text-gray-500 focus:border-accent/40 focus:bg-[#0c0c0c] focus:shadow-[0_0_20px_rgba(200,240,0,0.08)]"
             />
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full rounded-[12px] bg-accent px-4 py-4 text-base font-medium text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(200,240,0,0.3)] disabled:cursor-not-allowed disabled:opacity-70"
+              className="w-full mt-2 rounded-xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.01] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)] disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
             >
-              {status === "loading" ? "Envoi en cours..." : "Recevoir mon audit gratuit"}
+              {status === "loading" ? "Analyse en cours..." : "Recevoir mon audit gratuit"}
             </button>
-            {error && <p className="text-center text-sm text-danger">{error}</p>}
+            {error && <p className="text-center text-sm text-danger mt-2">{error}</p>}
           </form>
         )}
 
-        <p className="mt-4 text-center text-xs text-gray-400">
-          Aucun engagement. Aucune carte bleue. Juste un rapport utile.
+        <p className="mt-6 text-center text-xs text-gray-500 font-light">
+          Aucun engagement. Aucune carte bancaire requise. Juste de la valeur brute.
         </p>
       </div>
     </section>

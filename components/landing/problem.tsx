@@ -1,46 +1,72 @@
 const PROBLEMS = [
   {
     icon: "⚡",
-    title: "Site trop lent",
-    text: "Un site qui met plus de 3 secondes à charger perd 53% de ses visiteurs avant même qu'ils aient vu votre offre.",
+    title: "Vitesse de chargement catastrophique",
+    text: "Un site qui met plus de 3 secondes à charger perd 53% de ses visiteurs avant même qu'ils n'aient pu voir votre offre.",
+    size: "lg:col-span-7",
   },
   {
     icon: "📱",
-    title: "Non adapté mobile",
-    text: "80% de vos clients vous cherchent depuis leur téléphone. Si votre site est illisible, ils appellent le concurrent.",
+    title: "Inadapté aux mobiles",
+    text: "Plus de 80% de vos clients potentiels vous cherchent depuis leur smartphone. Si votre site n'est pas optimisé, ils passeront au suivant.",
+    size: "lg:col-span-5",
   },
   {
     icon: "⭐",
-    title: "Avis négatifs non gérés",
-    text: "Un seul avis 1 étoile sans réponse détruit la confiance de dizaines de prospects potentiels chaque mois.",
+    title: "Avis négatifs ignorés",
+    text: "Un seul avis à 1 étoile non géré ou sans réponse peut détruire instantanément la confiance de dizaines de prospects.",
+    size: "lg:col-span-5",
   },
   {
     icon: "🎯",
-    title: "Aucun appel à l'action",
-    text: "Votre site informe mais ne convertit pas. Sans bouton clair, vos visiteurs repartent sans vous contacter.",
+    title: "Absence d'appels à l'action",
+    text: "Votre site informe mais ne convertit pas. Sans boutons clairs et formulaires optimisés, vos visiteurs repartent bredouilles.",
+    size: "lg:col-span-7",
   },
 ]
 
 export function Problem() {
   return (
-    <section className="bg-paper px-6 py-25 text-ink md:px-15">
-      <div className="mx-auto max-w-[1200px]">
-        <h2 className="mb-15 max-w-[600px] font-serif text-[clamp(28px,3vw,44px)] font-black leading-[1.2] text-balance">
-          Ce que vos clients voient
-          <br />
-          quand ils vous cherchent sur Google.
-        </h2>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {PROBLEMS.map((p) => (
+    <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+      {/* Lueur subtile en arrière-plan */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(200,240,0,0.02)_0%,rgba(5,5,5,0)_60%)] pointer-events-none" />
+      
+      <div className="relative z-10 mx-auto max-w-[1400px]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-px bg-accent/40" />
+              <p className="text-xs font-semibold uppercase tracking-[3px] text-accent">La dure réalité</p>
+            </div>
+            <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
+              Ce que vos prospects voient
+              <br />
+              quand ils vous cherchent sur Google.
+            </h2>
+          </div>
+          <p className="max-w-[380px] text-sm font-light leading-relaxed text-gray-400">
+            Aujourd&apos;hui, une présence en ligne négligée ou obsolète ne fait pas que vous rendre invisible : elle offre activement des clients à vos concurrents.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {PROBLEMS.map((p, index) => (
             <div
-              key={p.title}
-              className="rounded-[12px] border border-gray-200 bg-gray-100 p-8 transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
+              key={index}
+              className={`group relative rounded-[16px] border border-white/5 bg-[#0a0a0a]/60 p-8 md:p-10 transition-all duration-500 hover:border-white/10 hover:bg-[#0c0c0c] hover:-translate-y-1 overflow-hidden ${p.size}`}
             >
-              <span className="mb-4 block text-3xl" aria-hidden="true">
+              {/* Effet lumineux lors du survol */}
+              <div className="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-2xl pointer-events-none" />
+              
+              <span className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/5 text-2xl transition-transform group-hover:scale-110" aria-hidden="true">
                 {p.icon}
               </span>
-              <h3 className="mb-2.5 text-lg font-medium text-ink">{p.title}</h3>
-              <p className="text-sm font-light leading-relaxed text-gray-600">{p.text}</p>
+              <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                {p.title}
+              </h3>
+              <p className="text-sm md:text-base font-light leading-relaxed text-gray-400">
+                {p.text}
+              </p>
             </div>
           ))}
         </div>

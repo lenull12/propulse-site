@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
+  --color-background: #050505;
   --color-foreground: #ffffff;
 
-  --color-ink: #0a0a0a;
+  --color-ink: #050505;
   --color-paper: #ffffff;
-  --color-gray-100: #f7f7f7;
-  --color-gray-200: #e8e8e8;
-  --color-gray-400: #999999;
-  --color-gray-600: #555555;
+  --color-gray-100: #121212;
+  --color-gray-200: #1a1a1a;
+  --color-gray-400: #a1a1aa;
+  --color-gray-600: #52525b;
 
   --color-accent: #c8f000;
-  --color-accent-foreground: #0a0a0a;
+  --color-accent-foreground: #050505;
 
-  --color-danger: #ff4444;
+  --color-danger: #ef4444;
 
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
 
   --radius: 12px;
 }
@@ -37,10 +38,11 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Animations personnalisées */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -50,5 +52,28 @@ body {
 
 .animate-fade-up {
   opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1) translate(-50%, -50%);
+  }
+  50% {
+    opacity: 0.22;
+    transform: scale(1.1) translate(-48%, -52%);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 10s ease-in-out infinite;
+}
+
+/* Grille de fond répétée */
+.bg-grid-cyber {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
 }

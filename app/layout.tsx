@@ -1,20 +1,27 @@
 import type { Metadata, Viewport } from "next"
-import { DM_Sans, Playfair_Display } from "next/font/google"
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google"
 import type { ReactNode } from "react"
 import "./globals.css"
 
-const dmSans = DM_Sans({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  variable: "--font-dm-sans",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument-sans",
   display: "swap",
 })
 
-const playfair = Playfair_Display({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["700", "900"],
+  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-instrument-serif",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 })
 
@@ -35,7 +42,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" className={`${dmSans.variable} ${playfair.variable} bg-background`}>
+    <html lang="fr" className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} bg-background`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
