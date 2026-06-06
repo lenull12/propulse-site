@@ -50,11 +50,11 @@ export function Contact() {
       <div className="relative z-10 mx-auto max-w-[640px] text-center">
         <div className="inline-flex items-center gap-3 mb-4">
           <span className="w-8 h-px bg-accent/40" />
-          <p className="text-xs font-semibold uppercase tracking-[3px] text-accent">Passons à l'action</p>
+          <p className="text-sm font-medium tracking-wide text-accent font-sans">Passons à l'action</p>
           <span className="w-8 h-px bg-accent/40" />
         </div>
         
-        <h2 className="mb-6 font-serif text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
+        <h2 className="mb-6 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
           Obtenez votre audit
           <br />
           gratuit aujourd'hui.

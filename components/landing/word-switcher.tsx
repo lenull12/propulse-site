@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react"
 
 const WORDS = [
-  "travailler pour vous.",
-  "générer des clients.",
-  "charger instantanément.",
-  "automatiser vos ventes.",
-  "propulser votre marque.",
+  "travailler pour vous",
+  "générer des clients",
+  "charger instantanément",
+  "automatiser vos ventes",
+  "propulser votre marque",
 ]
 
 export function WordSwitcher() {
@@ -55,7 +55,7 @@ export function WordSwitcher() {
   return (
     <span className="inline-block">
       <span
-        className={`inline-block font-mono bg-gradient-to-r from-[#c8f000] via-[#00f0ff] to-[#a855f7] bg-clip-text text-transparent transform ${classes}`}
+        className={`inline-block font-mono bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent transform ${classes}`}
       >
         {WORDS[index]}
       </span>

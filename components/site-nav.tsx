@@ -6,6 +6,7 @@ import { NICHES } from "@/lib/niches"
 
 export function SiteNav() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -15,15 +16,31 @@ export function SiteNav() {
       }
     }
     document.addEventListener("click", onClick)
-    return () => document.removeEventListener("click", onClick)
+
+    function onScroll() {
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", onScroll, { passive: true })
+    onScroll()
+
+    return () => {
+      document.removeEventListener("click", onClick)
+      window.removeEventListener("scroll", onScroll)
+    }
   }, [])
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-[#050505]/70 backdrop-blur-lg">
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "border-b border-white/5 bg-[#050505]/70 backdrop-blur-lg"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-12">
-        <Link href="/" className="font-serif text-2xl font-black tracking-tight text-foreground transition-opacity hover:opacity-90">
-          Propulse<span className="text-accent">Dev</span>
-          <span className="ml-3 inline-block align-middle text-[11px] tracking-[1.5px] text-accent">★★★★★</span>
+        <Link href="/" className="flex items-center gap-3 font-mono text-2xl font-black tracking-tight text-foreground transition-opacity hover:opacity-90">
+          <span>Propulse<span className="text-accent">Dev</span></span>
+          <span className="text-[11px] tracking-[1.5px] text-accent flex items-center h-full">★★★★★</span>
         </Link>
 
         <div className="flex items-center gap-8">
