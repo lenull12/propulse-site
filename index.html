@@ -10,11 +10,56 @@
 </head>
 <body>
 
-  <!-- NAVIGATION -->
-  <nav class="nav">
-    <div class="nav-logo">Propulse<span>Dev</span><span class="nav-stars">★★★★★</span></div>
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-logo">Propulse<span>Dev</span><span class="nav-stars">★★★★★</span></div>
+  <div class="nav-right">
+    <div class="nav-demos" id="navDemos">
+      <button class="nav-demos-btn" id="demosTrigger">
+        Démos
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="demos-dropdown" id="demosDropdown">
+        <div class="demos-dropdown-inner">
+          <p class="demos-dropdown-label">Choisissez un secteur</p>
+          <ul class="demos-list">
+            <li>
+              <a href="hub.html?niche=avocats" class="demos-item">
+                <span class="demos-icon">⚖️</span>
+                <div>
+                  <p class="demos-item-title">Avocats</p>
+                  <p class="demos-item-sub">Cabinets juridiques indépendants</p>
+                </div>
+                <svg class="demos-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="hub.html?niche=experts-comptables" class="demos-item">
+                <span class="demos-icon">📊</span>
+                <div>
+                  <p class="demos-item-title">Experts comptables</p>
+                  <p class="demos-item-sub">Cabinets d'expertise comptable</p>
+                </div>
+                <svg class="demos-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="hub.html?niche=architectes" class="demos-item">
+                <span class="demos-icon">🏛️</span>
+                <div>
+                  <p class="demos-item-title">Architectes</p>
+                  <p class="demos-item-sub">Cabinets d'architecture indépendants</p>
+                </div>
+                <svg class="demos-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <a href="#contact" class="nav-cta">Prendre RDV</a>
-  </nav>
+  </div>
+</nav>
 
   <!-- HERO -->
   <section class="hero">

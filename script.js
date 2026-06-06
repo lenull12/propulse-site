@@ -94,3 +94,18 @@ contactForm.addEventListener("submit", async (e) => {
     btn.disabled = false;
   }
 });
+
+// DEMOS DROPDOWN
+const navDemos = document.getElementById("navDemos");
+const demosTrigger = document.getElementById("demosTrigger");
+
+demosTrigger.addEventListener("click", (e) => {
+  e.stopPropagation();
+  navDemos.classList.toggle("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!navDemos.contains(e.target)) {
+    navDemos.classList.remove("open");
+  }
+});

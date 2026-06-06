@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabinet Durand — Avocats à Paris</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23C9A84C%22><path d=%22M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z%22/></svg>">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="demo-banner">
+    Site de démonstration réalisé par Propulse<span>Dev</span> — propulsedev.fr
+    </div>    
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-left">
+    <div class="nav-logo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#C9A84C"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Cabinet Durand
+    </div>
+    <div class="nav-contact-info">
+        <span>01 42 60 XX XX</span>
+        <span class="nav-separator">—</span>
+        <a href="mailto:contact@cabinet-durand.fr">contact@cabinet-durand.fr</a>
+    </div>
+    </div>
+        <ul class="nav-links">
+        <li><a href="#expertise">Expertises</a></li>
+        <li><a href="#infos">Le Cabinet</a></li>
+        <li><a href="#" class="nav-cta" id="openModal">Prendre RDV</a></li>
+        </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <img
+      src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&auto=format&fit=crop&q=80"
+      alt="Cabinet d'avocats"
+      class="hero-bg"
+    />
+    <div class="hero-content">
+      <p class="hero-tag">Cabinet d'avocats — Paris 2<sup>e</sup></p>
+      <h1 class="hero-title">L'excellence juridique<br><em>au service de vos droits.</em></h1>
+      <p class="hero-subtitle">Le Cabinet Durand accompagne particuliers et entreprises dans leurs démarches juridiques avec rigueur, discrétion et engagement.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="openModal">Prendre rendez-vous</button>
+        <a href="#expertise" class="btn-ghost">Nos domaines d'expertise</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
+  <section class="expertise" id="expertise">
+    <div class="expertise-inner">
+      <div class="section-header fade-in">
+        <p class="section-tag">Nos domaines</p>
+        <h2>Une expertise reconnue<br>dans trois domaines clés.</h2>
+      </div>
+      <div class="expertise-grid">
+
+        <div class="expertise-card fade-in">
+          <div class="expertise-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3>Droit des affaires</h3>
+          <p>Accompagnement juridique des entreprises dans leurs opérations courantes et exceptionnelles : contrats, fusions-acquisitions, contentieux commerciaux.</p>
+          <div class="expertise-line"></div>
+        </div>
+
+        <div class="expertise-card fade-in">
+          <div class="expertise-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3>Droit de la famille</h3>
+          <p>Conseil et représentation dans les procédures de divorce, garde d'enfants, successions et règlements de conflits familiaux avec humanité et efficacité.</p>
+          <div class="expertise-line"></div>
+        </div>
+
+        <div class="expertise-card fade-in">
+          <div class="expertise-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Droit immobilier</h3>
+          <p>Sécurisation de vos transactions immobilières, rédaction de baux, gestion des litiges locatifs et accompagnement dans vos projets d'investissement.</p>
+          <div class="expertise-line"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+    <!-- EQUIPE -->
+<section class="equipe" id="equipe">
+  <div class="equipe-inner">
+    <div class="section-header fade-in">
+      <p class="section-tag">Notre équipe</p>
+      <h2>Des juristes d'exception<br>à votre service.</h2>
+    </div>
+    <div class="equipe-grid">
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-photo">
+          <img src="portrait1.jpg" alt="Maître Antoine Durand" />
+        </div>
+        <div class="equipe-info">
+          <h3>Maître Antoine Durand</h3>
+          <p class="equipe-role">Associé fondateur — Barreau de Paris</p>
+          <p class="equipe-desc">Spécialiste en droit des affaires et fusions-acquisitions, Antoine Durand accompagne dirigeants et investisseurs depuis plus de 20 ans.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-photo">
+          <img src="portrait2.jpg" alt="Maître Julien Mercier" />
+        </div>
+        <div class="equipe-info">
+          <h3>Maître Julien Mercier</h3>
+          <p class="equipe-role">Avocat senior — Barreau de Paris</p>
+          <p class="equipe-desc">Expert en droit immobilier et contentieux locatifs, Julien Mercier intervient auprès de promoteurs, investisseurs et particuliers exigeants.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-photo">
+          <img src="portrait3.jpg" alt="Maître Claire Fontaine" />
+        </div>
+        <div class="equipe-info">
+          <h3>Maître Claire Fontaine</h3>
+          <p class="equipe-role">Avocate associée — Barreau de Paris</p>
+          <p class="equipe-desc">Reconnue pour sa maîtrise du droit de la famille et des successions, Claire Fontaine accompagne ses clients avec rigueur et bienveillance.</p>
+        </div>
+      </div>
+
+      <div class="equipe-card fade-in">
+        <div class="equipe-photo">
+          <img src="portrait4.jpg" alt="Maître Sophie Lebreton" />
+        </div>
+        <div class="equipe-info">
+          <h3>Maître Sophie Lebreton</h3>
+          <p class="equipe-role">Avocate — Barreau de Paris</p>
+          <p class="equipe-desc">Spécialisée en droit des affaires et droit commercial, Sophie Lebreton conseille PME et startups dans leurs opérations juridiques stratégiques.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEMOIGNAGES -->
+<section class="temoignages">
+  <div class="temoignages-inner">
+    <div class="section-header fade-in">
+      <p class="section-tag">Témoignages</p>
+      <h2>Ce que disent<br>nos clients.</h2>
+    </div>
+    <div class="temoignages-grid">
+
+      <div class="temoignage-card fade-in">
+        <div class="temoignage-stars">★★★★★</div>
+        <p class="temoignage-text">"Le Cabinet Durand a géré notre restructuration avec une précision remarquable. Une équipe disponible, rigoureuse et d'une discrétion absolue. Je recommande sans réserve."</p>
+        <div class="temoignage-author">
+          <div class="temoignage-initiale">PB</div>
+          <div>
+            <p class="temoignage-nom">Philippe Bertrand</p>
+            <p class="temoignage-qualite">Directeur général, PME industrielle</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="temoignage-card fade-in">
+        <div class="temoignage-stars">★★★★★</div>
+        <p class="temoignage-text">"Maître Fontaine a su gérer notre procédure de divorce avec une humanité et une efficacité que je n'espérais plus trouver. Un accompagnement d'une grande qualité dans un moment difficile."</p>
+        <div class="temoignage-author">
+          <div class="temoignage-initiale">ML</div>
+          <div>
+            <p class="temoignage-nom">Marie Leconte</p>
+            <p class="temoignage-qualite">Particulier — Droit de la famille</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="temoignage-card fade-in">
+        <div class="temoignage-stars">★★★★★</div>
+        <p class="temoignage-text">"Une expertise immobilière pointue et un suivi irréprochable lors de l'acquisition de nos locaux professionnels. Le cabinet a anticipé chaque difficulté avec une longueur d'avance."</p>
+        <div class="temoignage-author">
+          <div class="temoignage-initiale">TR</div>
+          <div>
+            <p class="temoignage-nom">Thomas Renaud</p>
+            <p class="temoignage-qualite">Investisseur — Droit immobilier</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- MAIN GRID -->
+  <section class="main-section" id="infos">
+    <div class="main-grid">
+
+      <!-- COLONNE GAUCHE : Présentation -->
+      <div class="main-content fade-in">
+        <p class="section-tag">Le Cabinet</p>
+        <h2>Une approche humaine<br>et rigoureuse du droit.</h2>
+        <p class="main-text">Fondé à Paris en 2005, le Cabinet Durand s'est imposé comme une référence en matière de conseil juridique pour les particuliers et les professionnels. Notre équipe met un point d'honneur à offrir un accompagnement personnalisé, fondé sur l'écoute et la précision.</p>
+        <p class="main-text">Nous croyons que chaque dossier est unique et mérite une attention entière. C'est pourquoi nous refusons de traiter en masse ce qui doit être traité avec soin.</p>
+        <div class="main-stats">
+          <div class="stat">
+            <span class="stat-number">18</span>
+            <span class="stat-label">Années d'exercice</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">+1200</span>
+            <span class="stat-label">Dossiers traités</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">94%</span>
+            <span class="stat-label">Clients satisfaits</span>
+          </div>
+        </div>
+        <button class="btn-primary" id="openModal2">Prendre rendez-vous</button>
+      </div>
+
+      <!-- COLONNE DROITE : Infos + Carte -->
+      <div class="side-info">
+        <div class="info-block">
+          <h3>Coordonnées</h3>
+          <ul class="info-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              14 rue de la Paix, 75002 Paris
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.62 4.9 2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 17.5z"/></svg>
+              01 42 60 XX XX
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              contact@cabinet-durand.fr
+            </li>
+          </ul>
+
+          <h3>Horaires</h3>
+          <ul class="horaires-list">
+            <li><span>Lundi — Vendredi</span><span>9h00 — 19h00</span></li>
+            <li><span>Samedi</span><span>9h00 — 13h00</span></li>
+            <li><span>Dimanche</span><span>Fermé</span></li>
+          </ul>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.3!2d2.3308!3d48.8694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2s14%20Rue%20de%20la%20Paix%2C%2075002%20Paris!5e0!3m2!1sfr!2sfr!4v1620000000000!5m2!1sfr!2sfr"
+            width="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Cabinet Durand - 14 rue de la Paix Paris">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#C9A84C"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Cabinet Durand
+      </div>
+      <p>14 rue de la Paix — 75002 Paris — <a href="mailto:contact@cabinet-durand.fr">contact@cabinet-durand.fr</a></p>
+      <p class="footer-legal">© 2026 Cabinet Durand. Tous droits réservés. — <a href="#">Mentions légales</a></p>
+    </div>
+  </footer>
+
+  <!-- MODAL RDV -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-tag">Prise de rendez-vous</p>
+      <h3 class="modal-title">Nous vous rappelons<br>dans les 24 heures.</h3>
+      <form class="modal-form" id="modalForm">
+        <div class="form-row">
+          <input type="text" id="modalName" placeholder="Votre nom complet" required />
+          <input type="tel" id="modalPhone" placeholder="Votre téléphone" required />
+        </div>
+        <input type="email" id="modalEmail" placeholder="Votre adresse email" required />
+        <select id="modalDomain">
+          <option value="" disabled selected>Domaine concerné</option>
+          <option value="affaires">Droit des affaires</option>
+          <option value="famille">Droit de la famille</option>
+          <option value="immobilier">Droit immobilier</option>
+          <option value="autre">Autre</option>
+        </select>
+        <textarea id="modalMessage" placeholder="Décrivez brièvement votre situation..." rows="4"></textarea>
+        <button type="submit" class="btn-primary full">Envoyer ma demande</button>
+        <p class="modal-legal">Vos données sont traitées de manière confidentielle et ne sont jamais partagées avec des tiers.</p>
+      </form>
+      <div class="modal-success" id="modalSuccess">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <h3>Demande envoyée</h3>
+        <p>Le Cabinet Durand vous contactera dans les 24 heures ouvrées.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

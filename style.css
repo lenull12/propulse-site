@@ -587,3 +587,138 @@ body {
     text-align: center;
   }
 }
+
+/* NAV RIGHT */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* DEMOS MENU */
+.nav-demos {
+  position: relative;
+}
+
+.nav-demos-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.2s;
+}
+
+.nav-demos-btn:hover {
+  color: var(--accent);
+}
+
+.nav-demos-btn svg {
+  transition: transform 0.2s;
+}
+
+.nav-demos.open .nav-demos-btn svg {
+  transform: rotate(180deg);
+}
+
+.nav-demos.open .nav-demos-btn {
+  color: var(--accent);
+}
+
+.demos-dropdown {
+  position: absolute;
+  top: calc(100% + 16px);
+  right: -20px;
+  width: 320px;
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  overflow: hidden;
+}
+
+.nav-demos.open .demos-dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.demos-dropdown-inner {
+  padding: 8px;
+}
+
+.demos-dropdown-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 12px 16px 8px;
+}
+
+.demos-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.demos-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.demos-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.demos-item:hover .demos-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+.demos-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.demos-item-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.demos-item-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  font-weight: 300;
+}
+
+.demos-arrow {
+  margin-left: auto;
+  color: rgba(255,255,255,0.2);
+  flex-shrink: 0;
+  transition: transform 0.2s, color 0.2s;
+}
