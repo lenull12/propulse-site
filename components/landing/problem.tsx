@@ -1,6 +1,8 @@
 "use client"
 
+import { AnimatedLines } from "./animated-lines"
 import { AnimatedStat } from "./animated-stat"
+import { Typewriter } from "@/components/ui/typewriter"
 
 export function Problem() {
   const problems = [
@@ -39,21 +41,30 @@ export function Problem() {
   ]
 
   return (
-    <section className="relative bg-[#080808] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(200,240,0,0.02)_0%,rgba(5,5,5,0)_60%)] pointer-events-none" />
+      <AnimatedLines opacity={0.025} />
 
       <div className="relative z-10 mx-auto max-w-[1400px]">
         {/* En-tête */}
-        <div className="mb-16">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-accent/40" />
-            <p className="text-sm font-medium tracking-wide text-accent font-sans">La dure réalité</p>
+        <div className="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-px bg-accent/40" />
+              <p className="text-sm font-medium tracking-wide text-accent font-sans">Ce que vos clients voient quand ils vous cherchent</p>
+            </div>
+            <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] leading-[1.15] text-foreground">
+              <Typewriter lines={["Invisible sur Google,", "invisible pour vos clients."]} speed={50} triggerOnView lineClassName={["block font-black", "block font-black text-white/35"]} />
+            </h2>
           </div>
-          <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
-            Invisible sur Google,
-            <br />
-            invisible pour vos clients.
-          </h2>
+          <div className="lg:col-span-5 relative">
+            <img
+              src="/images/sphere.png"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-auto max-w-[400px] mx-auto lg:ml-auto lg:mr-0 opacity-80 select-none pointer-events-none drop-shadow-[0_0_40px_rgba(200,240,0,0.08)]"
+            />
+          </div>
         </div>
 
         {/* Grille 2×2 */}

@@ -49,7 +49,7 @@ export default async function HubPage({ params }: PageProps) {
             Retour
           </Link>
           <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">{data.tag}</p>
-          <h1 className="mb-5 font-serif text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
+          <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
             {data.title}
           </h1>
           <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">{data.subtitle}</p>
@@ -71,7 +71,7 @@ export default async function HubPage({ params }: PageProps) {
           <p className="text-[11px] uppercase tracking-[3px] text-accent">
             Vous ne trouvez pas ce que vous cherchez ?
           </p>
-          <h2 className="font-serif text-[clamp(28px,3vw,42px)] font-black leading-[1.2] text-balance text-foreground">
+          <h2 className="font-mono text-[clamp(28px,3vw,42px)] font-black leading-[1.2] text-balance text-foreground">
             Chaque site est créé
             <br />
             sur mesure pour vous.

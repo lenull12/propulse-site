@@ -6,7 +6,7 @@ import { NICHES } from "@/lib/niches"
 
 export const metadata: Metadata = {
   title: "Nos démos — Propulse Dev",
-  description: "Explorez nos designs par secteur d'activité.",
+  description: "Explorez nos designs par secteur d'activité",
 }
 
 export default function DemosIndexPage() {
@@ -17,7 +17,7 @@ export default function DemosIndexPage() {
       <section className="border-b border-white/10 bg-background px-6 pb-20 pt-40 md:px-15">
         <div className="mx-auto max-w-[800px]">
           <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Démos</p>
-          <h1 className="mb-5 font-serif text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
+          <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
             Nos démos
           </h1>
           <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
@@ -37,7 +37,7 @@ export default function DemosIndexPage() {
               <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-white/5 text-3xl">
                 {niche.icon}
               </span>
-              <h2 className="font-serif text-2xl font-bold text-foreground">{niche.title}</h2>
+              <h2 className="font-mono text-2xl font-bold text-foreground">{niche.title}</h2>
               <p className="flex-1 text-sm font-light leading-relaxed text-gray-400">{niche.menuSub}</p>
               <span className="flex items-center gap-1.5 text-[13px] font-medium text-accent transition-all group-hover:gap-2.5">
                 Voir les designs

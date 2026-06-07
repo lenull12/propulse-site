@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
+import { Typewriter } from "@/components/ui/typewriter"
 
 const STEPS = [
   {
@@ -41,20 +42,33 @@ const STEPS = [
 export function Process() {
   const [activeStep, setActiveStep] = useState(0)
   const [progress, setProgress] = useState(0)
+  const timerRef = useRef<number | null>(null)
+
+  const resetTimer = () => {
+    if (timerRef.current) {
+      window.clearInterval(timerRef.current)
+    }
+    timerRef.current = window.setInterval(() => {
+      setProgress((prev) => prev + 2)
+    }, 100)
+  }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          setActiveStep((curr) => (curr + 1) % STEPS.length)
-          return 0
-        }
-        return prev + 2 // Avancement de 2% toutes les 100ms (5 secondes au total)
-      })
-    }, 100)
-
-    return () => clearInterval(timer)
+    resetTimer()
+    return () => {
+      if (timerRef.current) {
+        window.clearInterval(timerRef.current)
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep])
+
+  useEffect(() => {
+    if (progress >= 100) {
+      setActiveStep((curr) => (curr + 1) % STEPS.length)
+      setProgress(0)
+    }
+  }, [progress])
 
   const handleStepClick = (idx: number) => {
     setActiveStep(idx)
@@ -73,9 +87,16 @@ export function Process() {
         </div>
         
         <h2 className="mb-16 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
-          Un processus fluide.
-          <br />
-          Zéro friction, des résultats rapides.
+          <Typewriter
+            lines={["Un processus fluide.", "Zéro friction,", "des résultats rapides."]}
+            speed={50}
+            triggerOnView
+            lineClassName={[
+              "block",
+              "block text-gray-500",
+              "block bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent",
+            ]}
+          />
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
@@ -95,14 +116,14 @@ export function Process() {
                 >
                   <div className="flex items-center gap-5">
                     <span
-                      className={`font-serif text-3xl font-black transition-colors duration-300 ${
+                      className={`font-mono text-3xl font-black transition-colors duration-300 ${
                         isActive ? "text-accent" : "text-white/20 group-hover:text-white/40"
                       }`}
                     >
                       {step.num}
                     </span>
                     <div>
-                      <h3 className="font-bold text-lg text-foreground">{step.title}</h3>
+                      <h3 className="font-mono font-bold text-lg text-foreground">{step.title}</h3>
                       <span className="text-xs font-light text-white/45">{step.tagline}</span>
                     </div>
                   </div>
@@ -125,7 +146,7 @@ export function Process() {
           <div className="lg:col-span-7 flex">
             <div className="w-full flex flex-col justify-between rounded-[20px] border border-white/5 bg-[#0a0a0a]/40 p-8 md:p-12 relative overflow-hidden">
               {/* Filigrane géant en arrière-plan */}
-              <div className="absolute -right-6 -bottom-10 font-serif text-[180px] font-black text-white/[0.01] select-none pointer-events-none">
+              <div className="absolute -right-6 -bottom-10 font-mono text-[180px] font-black text-white/[0.01] select-none pointer-events-none">
                 {STEPS[activeStep].num}
               </div>
               

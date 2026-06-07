@@ -1,3 +1,8 @@
+"use client"
+
+import { ParticlesBackground } from "./particles-background"
+import { Typewriter } from "@/components/ui/typewriter"
+
 const SERVICES = [
   {
     number: "01",
@@ -40,20 +45,30 @@ const SERVICES = [
 export function Services() {
   return (
     <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+      <ParticlesBackground count={50} connectDistance={100} color="200,240,0" />
       {/* Halo lumineux d'ambiance en fond */}
       <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#c8f000] opacity-[0.03] blur-[150px] pointer-events-none" />
       
       <div className="relative z-10 mx-auto max-w-[1400px]">
-        <div className="inline-flex items-center gap-3 mb-4">
-          <span className="w-8 h-px bg-accent/40" />
-          <p className="text-sm font-medium tracking-wide text-accent font-sans">Mon expertise</p>
+        <div className="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-px bg-accent/40" />
+              <p className="text-sm font-medium tracking-wide text-accent font-sans">Notre expertise à votre service</p>
+            </div>
+            <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
+              <Typewriter lines={["Votre site.", "Votre fiche Google.", "Votre croissance"]} speed={50} triggerOnView lineClassName={["block", "block text-white/50", "block text-accent"]} />
+            </h2>
+          </div>
+          <div className="lg:col-span-5 relative">
+            <img
+              src="/images/futuristicweb.png"
+              alt=""
+              aria-hidden="true"
+              className="w-full h-auto mx-auto lg:ml-auto lg:mr-0 opacity-90 select-none pointer-events-none"
+            />
+          </div>
         </div>
-        
-        <h2 className="mb-16 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
-          Trois leviers d'impact
-          <br />
-          pour propulser votre activité.
-        </h2>
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {SERVICES.map((s) => (
@@ -72,11 +87,11 @@ export function Services() {
               )}
               
               <div>
-                <div className={`mb-8 font-serif text-5xl font-black leading-none ${s.featured ? "text-accent/30" : "text-white/10"}`}>
+                <div className={`mb-8 font-mono text-5xl font-black leading-none ${s.featured ? "text-accent/30" : "text-white/10"}`}>
                   {s.number}
                 </div>
                 
-                <h3 className="mb-4 text-2xl font-bold text-foreground">{s.title}</h3>
+                <h3 className="mb-4 text-2xl font-mono font-bold text-foreground">{s.title}</h3>
                 <p className="mb-8 text-sm font-light leading-relaxed text-gray-400">{s.text}</p>
                 
                 <ul className="mb-10 flex flex-col gap-3.5">
@@ -100,7 +115,7 @@ export function Services() {
               </div>
 
               <div className="border-t border-white/5 pt-6 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider text-white/40">Investissement</span>
+                <span className="text-xs uppercase tracking-wider text-white/40">Prix</span>
                 <span className={`text-base font-semibold ${s.featured ? "text-accent" : "text-foreground"}`}>
                   {s.price}
                 </span>

@@ -22,7 +22,7 @@ export function DesignCard({ design }: { design: Design }) {
 
       <div className="flex flex-1 flex-col gap-3 p-7">
         <p className="text-[10px] font-medium uppercase tracking-[3px] text-accent">{design.tag}</p>
-        <h3 className="font-serif text-[22px] font-bold text-foreground">{design.title}</h3>
+        <h3 className="font-mono text-[22px] font-bold text-foreground">{design.title}</h3>
         <p className="flex-1 text-sm font-light leading-relaxed text-gray-400">{design.description}</p>
         <div className="mt-1 flex items-center justify-between border-t border-white/10 pt-4">
           <span className="flex items-center gap-1.5 text-[13px] font-medium text-accent transition-all group-hover:gap-2.5">

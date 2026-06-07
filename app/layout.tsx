@@ -1,21 +1,14 @@
 import type { Metadata, Viewport } from "next"
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 import type { ReactNode } from "react"
 import "./globals.css"
 
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-instrument-sans",
+  variable: "--font-inter",
   display: "swap",
-})
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
-  display: "swap",
+  preload: true,
 })
 
 const jetbrainsMono = JetBrains_Mono({
@@ -42,7 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr" className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} bg-background`}>
+    <html lang="fr" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )

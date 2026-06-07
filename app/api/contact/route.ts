@@ -5,7 +5,7 @@ const FORMSPREE_ENDPOINT = process.env.FORMSPREE_URL ?? ""
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { prenom, email, site } = body
+    const { prenom, email, phone, site, description } = body
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: "POST",
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({ prenom, email, site }),
+        body: JSON.stringify({ prenom, email, phone, site, description }),
     })
 
     if (!response.ok) {

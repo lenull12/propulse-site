@@ -8,7 +8,7 @@ export default function NotFound() {
       <SiteNav />
       <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-6 text-center">
         <p className="text-[11px] font-medium uppercase tracking-[3px] text-accent">Erreur 404</p>
-        <h1 className="font-serif text-[clamp(32px,4vw,52px)] font-black leading-[1.1] text-balance text-foreground">
+        <h1 className="font-mono text-[clamp(32px,4vw,52px)] font-black leading-[1.1] text-balance text-foreground">
           Cette page n&apos;existe pas.
         </h1>
         <p className="max-w-[440px] text-base font-light leading-relaxed text-gray-400">
