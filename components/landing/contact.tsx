@@ -60,10 +60,11 @@ export function Contact() {
           <span className="w-8 h-px bg-accent/40" />
         </div>
 
-        <h2 className="mb-6 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
-          Obtenez votre audit
-          <br />
-          gratuit aujourd'hui.
+        <h2 className="mb-6 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15]">
+          <span className="block text-foreground">Obtenez votre audit</span>
+          <span className="block bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent">
+            gratuit aujourd'hui.
+          </span>
         </h2>
 
         <p className="mb-12 text-base font-light leading-relaxed text-gray-400">

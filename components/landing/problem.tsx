@@ -1,10 +1,11 @@
 "use client"
-
+import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { AnimatedLines } from "./animated-lines"
 import { AnimatedStat } from "./animated-stat"
 import { Typewriter } from "@/components/ui/typewriter"
 
 export function Problem() {
+  const gridRef = useStaggerReveal(120)
   const problems = [
     {
       value: 76,
@@ -41,7 +42,7 @@ export function Problem() {
   ]
 
   return (
-    <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+    <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(200,240,0,0.02)_0%,rgba(5,5,5,0)_60%)] pointer-events-none" />
       <AnimatedLines opacity={0.025} />
 
@@ -68,23 +69,21 @@ export function Problem() {
         </div>
 
         {/* Grille 2×2 */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {problems.map((p, i) => (
             <div
               key={i}
-              className="group relative rounded-[16px] border border-white/5 bg-[#0a0a0a]/80 p-8 md:p-10 transition-all duration-500 hover:border-white/10 hover:-translate-y-1"
+              className="group relative rounded-[16px] border border-white/5 bg-[#0a0a0a]/80 p-8 md:p-10 transition-all duration-500 hover:border-white/10 hover:-translate-y-1 overflow-hidden"
             >
-              {/* Titre en gros (style COMPUTE) */}
-              <h3 className="text-3xl md:text-4xl font-mono font-black text-foreground mb-4 leading-tight transition-transform duration-500 group-hover:translate-x-1">
-                {p.title}
+              <span className="absolute -bottom-4 -right-2 font-mono text-[120px] font-black text-white/[0.015] select-none pointer-events-none leading-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-3xl md:text-4xl font-mono font-black mb-4 leading-tight transition-transform duration-500 group-hover:translate-x-1">
+                <span className="text-foreground">{p.title}</span>
               </h3>
-
-              {/* Texte en gris (style COMPUTE) */}
               <p className="text-base font-light leading-relaxed text-gray-400 mb-8 whitespace-pre-line">
                 {p.text}
               </p>
-
-              {/* Chiffre animé + barre */}
               <AnimatedStat
                 value={p.value}
                 suffix={p.suffix}

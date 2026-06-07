@@ -76,7 +76,7 @@ export function Process() {
   }
 
   return (
-    <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+    <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
       {/* Halo lumineux en arrière-plan */}
       <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#a855f7] opacity-[0.02] blur-[150px] pointer-events-none" />
       

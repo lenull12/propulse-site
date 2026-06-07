@@ -23,9 +23,12 @@ export function Hero() {
       {/* Contenu principal — texte à gauche (7/12), vidéo occupe l'espace à droite */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 py-32">
         <div className="lg:max-w-[55%]">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <span className="w-10 h-px bg-accent/40" />
-            <p className="text-sm font-medium tracking-wide text-accent font-sans">Solutions digitales pour professionnels</p>
+          <div className="inline-flex items-center gap-2 mb-6 rounded-full border border-accent/20 bg-accent/5 px-4 py-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            <p className="text-xs font-medium tracking-[2px] uppercase text-accent/80 font-mono">★★★★★ Avis Google certifiés</p>
           </div>
           
           <h1 className="mb-6 font-mono text-[clamp(2.5rem,5.5vw,5.2rem)] font-black leading-[1.05] tracking-tight text-foreground text-left">

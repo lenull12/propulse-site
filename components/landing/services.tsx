@@ -1,5 +1,5 @@
 "use client"
-
+import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { ParticlesBackground } from "./particles-background"
 import { Typewriter } from "@/components/ui/typewriter"
 
@@ -43,8 +43,9 @@ const SERVICES = [
 ]
 
 export function Services() {
+  const gridRef = useStaggerReveal(150)
   return (
-    <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5">
+    <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
       <ParticlesBackground count={50} connectDistance={100} color="200,240,0" />
       {/* Halo lumineux d'ambiance en fond */}
       <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#c8f000] opacity-[0.03] blur-[150px] pointer-events-none" />
@@ -70,7 +71,7 @@ export function Services() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div ref={gridRef} className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {SERVICES.map((s) => (
             <div
               key={s.number}
@@ -115,10 +116,19 @@ export function Services() {
               </div>
 
               <div className="border-t border-white/5 pt-6 flex items-center justify-between">
-                <span className="text-xs uppercase tracking-wider text-white/40">Prix</span>
                 <span className={`text-base font-semibold ${s.featured ? "text-accent" : "text-foreground"}`}>
                   {s.price}
                 </span>
+                <a
+                  href="#contact"
+                  className={`rounded-full px-5 py-2 text-xs font-semibold transition-all hover:-translate-y-0.5 ${
+                    s.featured
+                      ? "bg-accent text-accent-foreground hover:shadow-[0_8px_20px_rgba(200,240,0,0.3)]"
+                      : "border border-white/10 text-white/60 hover:border-white/25 hover:text-white"
+                  }`}
+                >
+                  {s.number === "01" ? "Demander →" : "Commencer →"}
+                </a>
               </div>
             </div>
           ))}
