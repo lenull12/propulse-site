@@ -5,50 +5,55 @@ import { useEffect, useRef } from "react"
 export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
+  const haloRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const dot = dotRef.current
     const ring = ringRef.current
-    if (!dot || !ring) return
+    const halo = haloRef.current
+    if (!dot || !ring || !halo) return
 
     let mouseX = 0
     let mouseY = 0
-    let ringX = 0
-    let ringY = 0
+    let haloX = 0
+    let haloY = 0
 
     const onMove = (e: MouseEvent) => {
       mouseX = e.clientX
       mouseY = e.clientY
-      dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`
+      ring.style.transform = `translate(${mouseX - 16}px, ${mouseY - 16}px)`
+      dot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px)`
     }
 
     const animate = () => {
-      ringX += (mouseX - ringX) * 0.12
-      ringY += (mouseY - ringY) * 0.12
-      ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`
+      haloX += (mouseX - haloX) * 0.08
+      haloY += (mouseY - haloY) * 0.08
+      halo.style.transform = `translate(${haloX - 75}px, ${haloY - 75}px)`
       requestAnimationFrame(animate)
     }
 
     const onEnter = () => {
-      dot.style.opacity = "1"
       ring.style.opacity = "1"
+      halo.style.opacity = "0.6"
+      dot.style.opacity = "1"
     }
 
     const onLeave = () => {
-      dot.style.opacity = "0"
       ring.style.opacity = "0"
+      halo.style.opacity = "0"
+      dot.style.opacity = "0"
     }
 
-    // Grossit le ring sur les éléments cliquables
     const onHoverIn = () => {
       ring.style.width = "40px"
       ring.style.height = "40px"
-      ring.style.borderColor = "rgba(200,240,0,0.6)"
+      ring.style.borderColor = "rgba(200,240,0,0.8)"
     }
+
     const onHoverOut = () => {
       ring.style.width = "32px"
       ring.style.height = "32px"
-      ring.style.borderColor = "rgba(200,240,0,0.3)"
+      ring.style.borderColor = "rgba(200,240,0,0.5)"
     }
 
     document.addEventListener("mousemove", onMove)
@@ -77,18 +82,49 @@ export function CustomCursor() {
 
   return (
     <>
-      {/* Point central */}
+      {/* Halo flou traînant (arrière-plan) */}
       <div
-        ref={dotRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] h-2 w-2 rounded-full bg-accent opacity-0 transition-opacity duration-300"
-        style={{ willChange: "transform" }}
+        ref={haloRef}
+        className="pointer-events-none fixed top-0 left-0 z-[9998] opacity-0 transition-opacity duration-500"
+        style={{
+          willChange: "transform",
+          width: "150px",
+          height: "150px",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(200,240,0,0.25) 0%, rgba(200,240,0,0.08) 40%, transparent 70%)",
+          filter: "blur(8px)",
+        }}
         aria-hidden="true"
       />
-      {/* Anneau suiveur */}
+      {/* Cercle extérieur (curseur visuel principal) */}
       <div
         ref={ringRef}
-        className="pointer-events-none fixed top-0 left-0 z-[9999] h-8 w-8 rounded-full border border-accent/30 opacity-0 transition-[width,height,border-color,opacity] duration-200"
-        style={{ willChange: "transform" }}
+        className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0 transition-[width,height,border-color,opacity] duration-200"
+        style={{
+          willChange: "transform",
+          width: "32px",
+          height: "32px",
+          borderRadius: "50%",
+          border: "1.5px solid rgba(200,240,0,0.6)",
+          boxShadow:
+            "0 0 0 1px rgba(0,0,0,0.4), 0 0 12px rgba(200,240,0,0.3), inset 0 0 6px rgba(200,240,0,0.15)",
+        }}
+        aria-hidden="true"
+      />
+      {/* Point central (suit exactement la souris) */}
+      <div
+        ref={dotRef}
+        className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0 transition-opacity duration-300"
+        style={{
+          width: "5px",
+          height: "5px",
+          borderRadius: "50%",
+          background: "#c8f000",
+          boxShadow:
+            "0 0 0 1px rgba(0,0,0,0.5), 0 0 8px rgba(200,240,0,0.9)",
+          willChange: "transform",
+        }}
         aria-hidden="true"
       />
     </>

@@ -36,6 +36,13 @@ export function Hero() {
             <span className="block mt-1 whitespace-nowrap"><WordSwitcher /></span>
           </h1>
           
+          
+          <p className="mb-8 max-w-[640px] text-base font-light leading-relaxed text-gray-400">
+            Des sites internet sur-mesure et performants pour les professionnels.
+            <br />
+            Optimiser votre visibilité locale, c'est sécuriser vos futurs clients.
+          </p>
+
           <div className="flex flex-wrap gap-3 mb-12">
             <Link
               href="#contact"

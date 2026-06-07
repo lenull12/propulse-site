@@ -8,7 +8,7 @@ const STEPS = [
     num: "01",
     title: "Audit initial offert",
     tagline: "Analyse complète & plan d'action",
-    text: "J'analyse votre site actuel et votre fiche Google My Business en 24h. Je repère les failles de performance, de SEO et de conversion, puis je vous envoie un rapport détaillé avec des actions concrètes.",
+    text: "Nous analysons votre site actuel et votre fiche Google My Business en 24h. Nous repérons les failles de performance, de SEO et de conversion, puis nous vous envoyons un rapport détaillé avec des actions concrètes.",
     details: [
       "Analyse technique approfondie",
       "Évaluation de l'expérience mobile",
@@ -19,7 +19,7 @@ const STEPS = [
     num: "02",
     title: "Refonte de site sur-mesure",
     tagline: "Conception, développement & SEO",
-    text: "Je développe votre nouveau site web en utilisant les technologies les plus rapides du marché (Next.js/React). Le site est construit sur-mesure pour votre secteur, ultra-rapide sur mobile, et optimisé pour le référencement naturel.",
+    text: "Nous développons votre nouveau site web en utilisant les technologies les plus rapides du marché (Next.js/React). Le site est construit sur-mesure pour votre secteur, ultra-rapide sur mobile, et optimisé pour le référencement naturel.",
     details: [
       "Performance Google PageSpeed > 95%",
       "Design adapté à votre image de marque",
@@ -30,7 +30,7 @@ const STEPS = [
     num: "03",
     title: "Automatisation de la croissance",
     tagline: "Réputation & avis Google automatisés",
-    text: "Je mets en place un système automatisé qui invite vos clients satisfaits à laisser un avis 5 étoiles sur votre fiche Google, tout en filtrant les avis négatifs. Votre autorité locale grandit toute seule.",
+    text: "Nous mettons en place un système automatisé qui invite vos clients satisfaits à laisser un avis 5 étoiles sur votre fiche Google, tout en filtrant les avis négatifs. Votre autorité locale grandit toute seule.",
     details: [
       "Système de collecte par SMS / QR Codes",
       "Gestion automatisée des réclamations",
@@ -76,7 +76,7 @@ export function Process() {
   }
 
   return (
-    <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
+    <section id="process" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
       {/* Halo lumineux en arrière-plan */}
       <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#a855f7] opacity-[0.02] blur-[150px] pointer-events-none" />
       

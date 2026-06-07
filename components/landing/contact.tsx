@@ -77,7 +77,7 @@ export function Contact() {
               ✅
             </p>
             <p className="text-xl font-bold text-accent">Demande reçue avec succès !</p>
-            <p className="mt-3 text-sm text-gray-400 font-light">Je commence l'analyse de votre besoin. Vous recevrez mon retour par retour sous 24h.</p>
+            <p className="mt-3 text-sm text-gray-400 font-light">Nous commençons l'analyse de votre besoin. Vous recevrez notre retour sous 24h.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">

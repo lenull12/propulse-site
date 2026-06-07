@@ -2,6 +2,7 @@ import Link from "next/link"
 
 const FOOTER_LINKS = {
   Services: [
+    { label: "Solutions", href: "/solutions" },
     { label: "Audit gratuit", href: "/#contact" },
     { label: "Refonte de site", href: "/#services" },
     { label: "Réputation Google", href: "/#services" },
@@ -9,8 +10,9 @@ const FOOTER_LINKS = {
   ],
   Process: [
     { label: "Comment ça marche", href: "/#process" },
+    { label: "Blog", href: "/blog" },
     { label: "Nos secteurs", href: "/demos" },
-    { label: "Tarifs", href: "/#services" },
+    { label: "Tarifs", href: "/tarifs" },
   ],
   Légal: [
     { label: "Mentions légales", href: "/mentions-legales" },

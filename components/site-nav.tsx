@@ -43,7 +43,28 @@ export function SiteNav() {
           <span className="text-[11px] tracking-[1.5px] text-accent flex items-center h-full">★★★★★</span>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-6">
+          <Link
+            href="/solutions"
+            className="group hidden sm:relative sm:inline-block text-sm font-medium text-white/60 transition-colors hover:text-accent"
+          >
+            Solutions
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+          </Link>
+          <Link
+            href="/blog"
+            className="group hidden sm:relative sm:inline-block text-sm font-medium text-white/60 transition-colors hover:text-accent"
+          >
+            Blog
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+          </Link>
+          <Link
+            href="/tarifs"
+            className="group hidden sm:relative sm:inline-block text-sm font-medium text-white/60 transition-colors hover:text-accent"
+          >
+            Tarifs
+            <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
+          </Link>
           <div ref={wrapRef} className="relative">
             <button
               type="button"

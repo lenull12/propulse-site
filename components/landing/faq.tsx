@@ -9,23 +9,23 @@ const FAQS = [
   },
   {
     q: "Combien de temps pour livrer mon site ?",
-    a: "Entre 1 et 3 semaines selon la complexité. Dès la validation du devis, je vous envoie un planning détaillé avec chaque étape. Vous avez une visibilité complète sur l'avancement du projet.",
+    a: "Entre 1 et 3 semaines selon la complexité. Dès la validation du devis, nous vous envoyons un planning détaillé avec chaque étape. Vous avez une visibilité complète sur l'avancement du projet.",
   },
   {
     q: "Je n'ai aucune connaissance technique. Est-ce un problème ?",
-    a: "C'est exactement pour vous que je travaille. Je m'occupe de tout — hébergement, nom de domaine, mises à jour, sécurité. Vous recevez un site clé en main, avec une formation courte pour gérer votre contenu si vous le souhaitez.",
+    a: "C'est exactement pour vous que nous travaillons. Nous nous occupons de tout — hébergement, nom de domaine, mises à jour, sécurité. Vous recevez un site clé en main, avec une formation courte pour gérer votre contenu si vous le souhaitez.",
   },
   {
     q: "Que se passe-t-il après la livraison ?",
-    a: "Je reste disponible pour les ajustements post-livraison pendant 30 jours. Au-delà, une maintenance mensuelle optionnelle est disponible pour les mises à jour, sauvegardes et suivi des performances.",
+    a: "Nous restons disponibles pour les ajustements post-livraison pendant 30 jours. Au-delà, une maintenance mensuelle optionnelle est disponible pour les mises à jour, sauvegardes et suivi des performances.",
   },
   {
     q: "Comment fonctionne le système d'avis Google ?",
-    a: "Je configure un système automatisé qui envoie un SMS ou un QR code à vos clients satisfaits pour les inviter à laisser un avis 5 étoiles. Les clients insatisfaits sont redirigés vers un formulaire privé — leur avis ne part pas sur Google. Résultat : votre note monte sans friction.",
+    a: "Nous configurons un système automatisé qui envoie un SMS ou un QR code à vos clients satisfaits pour les inviter à laisser un avis 5 étoiles. Les clients insatisfaits sont redirigés vers un formulaire privé — leur avis ne part pas sur Google. Résultat : votre note monte sans friction.",
   },
   {
     q: "Est-ce que mon site sera bien positionné sur Google ?",
-    a: "Chaque site est construit avec les bonnes pratiques SEO dès le départ : structure technique, balises optimisées, vitesse de chargement, responsive mobile. Pour le référencement local, je travaille aussi votre fiche Google My Business. Le SEO prend du temps mais les bases sont solides dès le lancement.",
+    a: "Chaque site est construit avec les bonnes pratiques SEO dès le départ : structure technique, balises optimisées, vitesse de chargement, responsive mobile. Pour le référencement local, nous travaillons aussi votre fiche Google My Business. Le SEO prend du temps mais les bases sont solides dès le lancement.",
   },
 ]
 
