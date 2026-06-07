@@ -24,7 +24,7 @@ export function Contact() {
     setStatus("loading")
 
     try {
-      const response = await fetch("https://formspree.io/f/mzdqbwva", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prenom: name, site, email }),
@@ -34,11 +34,11 @@ export function Contact() {
         setStatus("success")
       } else {
         setStatus("idle")
-        setError("Une erreur est survenue, veuillez r\u00e9essayer.")
+        setError("Une erreur est survenue, veuillez réessayer.")
       }
-    } catch {
+    } catch (error) {
       setStatus("idle")
-      setError("Une erreur est survenue, veuillez r\u00e9essayer.")
+      setError("Une erreur est survenue, veuillez réessayer.")
     }
   }
 
