@@ -2,6 +2,7 @@
 import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { ParticlesBackground } from "./particles-background"
 import { Typewriter } from "@/components/ui/typewriter"
+import Image from "next/image"
 
 const SERVICES = [
   {
@@ -62,10 +63,12 @@ export function Services() {
             </h2>
           </div>
           <div className="lg:col-span-5 relative">
-            <img
-              src="/images/futuristicweb.png"
+            <Image
+              src="/images/futuristicweb.webp"
               alt=""
               aria-hidden="true"
+              width={600}
+              height={500}
               className="w-full h-auto mx-auto lg:ml-auto lg:mr-0 opacity-90 select-none pointer-events-none"
             />
           </div>
