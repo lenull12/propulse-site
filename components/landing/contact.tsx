@@ -1,14 +1,21 @@
 "use client"
 
 import { useState } from "react"
+import { Turnstile } from "@marsidev/react-turnstile"
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
   const [error, setError] = useState<string | null>(null)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(null)
+
+    if (!turnstileToken) {
+      setError("Veuillez valider le captcha.")
+      return
+    }
 
     const form = e.currentTarget
     const data = new FormData(form)
@@ -32,11 +39,13 @@ export function Contact() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prenom, email, phone, site, description }),
+        body: JSON.stringify({ prenom, email, phone, site, description, token: turnstileToken }),
       })
 
       if (response.ok) {
         setStatus("success")
+        form.reset()
+        setTurnstileToken(null)
       } else {
         const payload = await response.json().catch(() => null)
         setStatus("idle")
@@ -120,9 +129,17 @@ export function Contact() {
               className="rounded-xl border border-white/5 bg-[#0a0a0a]/60 px-5 py-4 text-sm text-foreground outline-none transition-all placeholder:text-gray-500 focus:border-accent/40 focus:bg-[#0c0c0c] focus:shadow-[0_0_20px_rgba(200,240,0,0.08)]"
             />
 
-            <button
-              type="submit"
-              disabled={status === "loading"}
+              <div className="flex justify-center my-2">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onExpire={() => setTurnstileToken(null)}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={status === "loading" || !turnstileToken}
               className="w-full mt-2 rounded-xl bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.01] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)] disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
             >
               {status === "loading" ? "Envoi en cours..." : "Envoyer ma demande"}

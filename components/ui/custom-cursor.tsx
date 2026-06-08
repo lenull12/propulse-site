@@ -1,14 +1,22 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function CustomCursor() {
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(hover: none) and (pointer: coarse)").matches)
+  }, [])
+
   const dotRef = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
   const haloRef = useRef<HTMLDivElement>(null)
   const visible = useRef(false)
 
   useEffect(() => {
+    if (isMobile) return
+
     const dot = dotRef.current
     const ring = ringRef.current
     const halo = haloRef.current
@@ -105,7 +113,9 @@ export function CustomCursor() {
       observer.disconnect()
       cancelAnimationFrame(rafId)
     }
-  }, [])
+  }, [isMobile])
+
+  if (isMobile) return null
 
   return (
     <>
