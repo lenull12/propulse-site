@@ -87,6 +87,42 @@ body {
   background-color: transparent !important;
 }
 
+/* Shimmer accent text animation */
+@keyframes shimmerAccent {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.animate-shimmer-accent {
+  background: linear-gradient(90deg, #c8f000 0%, #e5ff66 30%, #ffffff 50%, #c8f000 70%, #e5ff66 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerAccent 4s ease-in-out infinite;
+  forced-color-adjust: none;
+}
+
+/* Scroll-Driven Animations (Chrome 115+, Edge 115+, Safari 18.2+) */
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal {
+    animation: scrollReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+  }
+}
+
 /* Grille de fond répétée */
 .bg-grid-cyber {
   background-image: 

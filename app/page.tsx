@@ -2,6 +2,7 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { Hero } from "@/components/landing/hero"
 import { Problem } from "@/components/landing/problem"
+import { Capabilities } from "@/components/landing/capabilities"
 import { DemosPreview } from "@/components/landing/demos-preview"
 import { Services } from "@/components/landing/services"
 import { Process } from "@/components/landing/process"
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Hero />
         <Marquee />
         <Problem />
+        <Capabilities />
         <LiveMetrics />
         <DemosPreview />
         <Services />

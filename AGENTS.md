@@ -95,6 +95,11 @@ npm run start    → Démarrer le serveur de production
   - Typos contrastées (gras/maigre dans les titres)
 - Notre accent #c8f000 doit être utilisé pour les glows, bordures et éléments mis en avant
 
+## Mémoire persistante (MCP memory)
+
+- Utiliser les outils `memory` (create_entities, create_relations, add_observations) pour sauvegarder les décisions, préférences et faits importants du projet entre les sessions
+- Au début de chaque session, lire le graphe avec `read_graph` ou `search_nodes` pour rappeler le contexte
+
 ## Règles générales
 
 - Ne pas ajouter de commentaires dans le code sauf si demandé
