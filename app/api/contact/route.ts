@@ -1,9 +1,12 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 
-const resend = new Resend(process.env.RESEND_API_KEY ?? "")
 const TO_EMAIL = process.env.CONTACT_EMAIL ?? "raphael@propulsedev.fr"
 const TURNSTILE_SECRET = process.env.TURNSTILE_SECRET_KEY ?? ""
+
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY ?? "")
+}
 
 export async function POST(request: Request) {
   try {
@@ -20,7 +23,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Validation anti-spam échouée." }, { status: 400 })
     }
 
-    const { error } = await resend.emails.send({
+    const { error } = await getResend().emails.send({
       from: "PropulseDev <raphael@propulsedev.fr>",
       to: [TO_EMAIL],
       subject: `Nouveau contact — ${prenom}`,
