@@ -24,9 +24,12 @@ const TESTIMONIALS = [
   },
 ]
 
+import { Reveal } from "@/components/ui/reveal"
+
 export function Testimonials() {
   return (
     <section className="relative bg-[#f5f4f0] px-6 py-24 md:px-12 overflow-hidden border-t border-black/5">
+      <Reveal>
       <div className="relative z-10 mx-auto max-w-[1200px]">
         <div className="text-center mb-16">
           <p className="text-sm font-medium tracking-wide text-gray-500 mb-3">Témoignages</p>
@@ -62,6 +65,7 @@ export function Testimonials() {
           ))}
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { AnimatedLines } from "./animated-lines"
 import { AnimatedStat } from "./animated-stat"
 import { Typewriter } from "@/components/ui/typewriter"
 import { GlobeCanvas } from "@/components/ui/globe-canvas"
+import Image from "next/image"
 
 export function Problem() {
   const gridRef = useStaggerReveal(120)
@@ -60,7 +61,15 @@ export function Problem() {
             </h2>
           </div>
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <GlobeCanvas className="w-[350px] h-[350px] md:w-[400px] md:h-[400px] opacity-60" />
+            <Image
+              src="/images/sphere.webp"
+              alt=""
+              aria-hidden="true"
+              width={400}
+              height={400}
+              className="w-full h-auto max-w-[400px] mx-auto lg:ml-auto lg:mr-0 opacity-80 select-none pointer-events-none drop-shadow-[0_0_40px_rgba(200,240,0,0.08)] md:hidden"
+            />
+            <GlobeCanvas className="hidden md:block w-[400px] h-[400px] opacity-60" />
           </div>
         </div>
 

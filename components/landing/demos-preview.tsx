@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { NICHES } from "@/lib/niches"
+import { Reveal } from "@/components/ui/reveal"
 
 function ArrowLeft() {
   return (
@@ -45,6 +46,7 @@ export function DemosPreview() {
 
   return (
     <section className="relative bg-[#f5f4f0] px-6 py-32 md:px-12 overflow-hidden border-t border-black/5">
+      <Reveal>
       <div className="relative z-10 mx-auto max-w-[1200px]">
         <div className="text-center mb-20">
           <p className="text-sm font-medium tracking-wide text-gray-500 mb-4">Réalisations</p>
@@ -181,6 +183,7 @@ export function DemosPreview() {
           </div>
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }

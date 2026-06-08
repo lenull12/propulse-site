@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react"
 import { Typewriter } from "@/components/ui/typewriter"
+import { Reveal } from "@/components/ui/reveal"
 
 const STEPS = [
   {
@@ -99,6 +100,7 @@ export function Process() {
           />
         </h2>
 
+        <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
           {/* Liste des étapes à gauche (col-span 5) */}
           <div className="lg:col-span-5 flex flex-col gap-4 justify-center">
@@ -180,6 +182,7 @@ export function Process() {
             </div>
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -2,6 +2,7 @@
 import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { ParticlesBackground } from "./particles-background"
 import { Typewriter } from "@/components/ui/typewriter"
+import { ServicesCanvas } from "@/components/ui/services-canvas"
 import Image from "next/image"
 
 const SERVICES = [
@@ -62,15 +63,16 @@ export function Services() {
               <Typewriter lines={["Votre site.", "Votre fiche Google.", "Votre croissance"]} speed={50} triggerOnView lineClassName={["block", "block text-white/50", "block text-accent"]} />
             </h2>
           </div>
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[300px]">
             <Image
               src="/images/futuristicweb.webp"
               alt=""
               aria-hidden="true"
               width={600}
               height={500}
-              className="w-full h-auto mx-auto lg:ml-auto lg:mr-0 opacity-90 select-none pointer-events-none"
+              className="w-full h-auto mx-auto lg:ml-auto lg:mr-0 opacity-90 select-none pointer-events-none md:hidden"
             />
+            <ServicesCanvas className="hidden md:block w-full max-w-[600px] h-[400px]" />
           </div>
         </div>
 

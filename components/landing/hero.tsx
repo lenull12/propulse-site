@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { WordSwitcher } from "./word-switcher"
+import { ParticlesBackground } from "./particles-background"
 
 
 export function Hero() {
@@ -17,13 +18,12 @@ export function Hero() {
         <source src="/videos/seamless.mp4" type="video/mp4" />
       </video>
 
-      {/* Fallback mobile — fond gradient simple, zéro chargement */}
-      <div
-        className="absolute inset-0 z-0 md:hidden"
-        style={{
-          background: "radial-gradient(ellipse at 70% 50%, rgba(200,240,0,0.06) 0%, transparent 60%), radial-gradient(ellipse at 30% 80%, rgba(168,85,247,0.04) 0%, transparent 50%)",
-        }}
-        aria-hidden="true"
+      {/* Particules blanches — mobile uniquement */}
+      <ParticlesBackground
+        count={35}
+        connectDistance={80}
+        color="255,255,255"
+        className="md:hidden opacity-40"
       />
 
       <div className="absolute inset-0 z-[2] bg-gradient-to-r from-black/70 via-black/30 to-transparent pointer-events-none" />

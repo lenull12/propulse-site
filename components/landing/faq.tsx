@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Reveal } from "@/components/ui/reveal"
 
 const FAQS = [
   {
@@ -34,6 +35,7 @@ export function Faq() {
 
   return (
     <section className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
+      <Reveal>
       <div className="relative z-10 mx-auto max-w-[800px]">
         {/* En-tête */}
         <div className="mb-16 text-center">
@@ -85,6 +87,7 @@ export function Faq() {
           ))}
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }
