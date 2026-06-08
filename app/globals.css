@@ -36,7 +36,12 @@ body {
   color: var(--color-foreground);
   overflow-x: hidden;
   font-family: var(--font-sans);
-  cursor: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
 }
 
 /* Animations personnalisées */
@@ -69,6 +74,17 @@ body {
 
 .animate-pulse-glow {
   animation: pulseGlow 10s ease-in-out infinite;
+}
+
+/* Protection contre Dark Reader pour les textes en dégradé */
+.gradient-text-safe,
+.gradient-text-safe * {
+  isolation: isolate;
+  forced-color-adjust: none;
+}
+/* Réinitialise le fond que Dark Reader pourrait forcer sur les textes transparents */
+.gradient-text-safe span {
+  background-color: transparent !important;
 }
 
 /* Grille de fond répétée */

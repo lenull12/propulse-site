@@ -17,9 +17,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { niche } = await params
   const data = getNiche(niche)
-  if (!data) return { title: "Démos — Propulse Dev" }
+  if (!data) return { title: "Démos — PropulseDev" }
   return {
-    title: `${data.title} — Démos Propulse Dev`,
+    title: `${data.title} — Démos PropulseDev`,
     description: data.subtitle,
   }
 }

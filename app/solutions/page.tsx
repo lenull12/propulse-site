@@ -4,11 +4,11 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 
 export const metadata: Metadata = {
-  title: "Solutions — Propulse Dev",
+  title: "Solutions — PropulseDev",
   description:
     "Nous construisons des sites Next.js/React qui rapportent des clients. Audit offert, avis Google automatisés, SEO technique natif.",
   openGraph: {
-    title: "Solutions — Propulse Dev",
+    title: "Solutions — PropulseDev",
     description: "Des sites qui rapportent des clients. Expertise Next.js & React.",
   },
 }

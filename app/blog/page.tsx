@@ -5,11 +5,11 @@ import { SiteFooter } from "@/components/site-footer"
 import { ARTICLES } from "@/lib/articles"
 
 export const metadata: Metadata = {
-  title: "Blog — Propulse Dev",
+  title: "Blog — PropulseDev",
   description:
     "Conseils concrets pour booster votre visibilité en ligne : SEO local, avis Google, performance site web, et croissance digitale pour indépendants.",
   openGraph: {
-    title: "Blog — Propulse Dev",
+    title: "Blog — PropulseDev",
     description: "Conseils concrets pour booster votre visibilité en ligne.",
   },
 }

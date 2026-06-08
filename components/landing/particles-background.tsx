@@ -77,7 +77,7 @@ export function ParticlesBackground({
             ctx.beginPath()
             ctx.moveTo(p.x, p.y)
             ctx.lineTo(q.x, q.y)
-            ctx.strokeStyle = `rgba(255,255,255,${opacity})`
+            ctx.strokeStyle = `rgba(${color},${opacity})`
             ctx.lineWidth = 0.5
             ctx.stroke()
           }
@@ -98,7 +98,7 @@ export function ParticlesBackground({
       cancelAnimationFrame(animId)
       observer.disconnect()
     }
-  }, [count, connectDistance])
+  }, [count, connectDistance, color])
 
   return (
     <canvas

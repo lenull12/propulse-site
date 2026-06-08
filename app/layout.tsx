@@ -21,7 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Propulse Dev — Croissance digitale B2B",
+  title: "PropulseDev — Croissance digitale B2B",
   description:
     "Nous aidons les professionnels indépendants à transformer leur présence en ligne en machine à clients : audit, refonte web et gestion automatisée de la réputation Google.",
   icons: {

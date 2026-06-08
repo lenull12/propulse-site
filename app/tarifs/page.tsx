@@ -4,10 +4,10 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 
 export const metadata: Metadata = {
-  title: "Tarifs — Propulse Dev",
+  title: "Tarifs — PropulseDev",
   description: "Des formules claires et sans engagement pour les professionnels indépendants. Audit offert, site clé en main à partir de 1 000 €.",
   openGraph: {
-    title: "Tarifs — Propulse Dev",
+    title: "Tarifs — PropulseDev",
     description: "Des formules claires et sans engagement. Audit offert.",
   },
 }

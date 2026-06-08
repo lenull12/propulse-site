@@ -38,9 +38,10 @@ export function CustomCursor() {
     const onMove = (e: MouseEvent) => {
       mouseX = e.clientX
       mouseY = e.clientY
-      // Positionne dot et ring immédiatement
-      dot.style.transform = `translate(${mouseX - 2}px, ${mouseY - 2}px)`
-      ring.style.transform = `translate(${mouseX - 16}px, ${mouseY - 16}px)`
+      dot.style.left = `${mouseX}px`
+      dot.style.top = `${mouseY}px`
+      ring.style.left = `${mouseX}px`
+      ring.style.top = `${mouseY}px`
       show()
     }
 
@@ -52,40 +53,56 @@ export function CustomCursor() {
     }
 
     const onHoverIn = () => {
-      ring.style.width = "40px"
-      ring.style.height = "40px"
-      ring.style.borderColor = "rgba(200,240,0,0.8)"
+      ring.style.width = "38px"
+      ring.style.height = "38px"
+      ring.style.borderColor = "rgba(200,240,0,0.9)"
     }
 
     const onHoverOut = () => {
       ring.style.width = "32px"
       ring.style.height = "32px"
-      ring.style.borderColor = "rgba(200,240,0,0.5)"
+      ring.style.borderColor = "rgba(200,240,0,0.6)"
     }
 
-    // Masque le curseur quand la souris quitte la fenêtre
     const onMouseLeave = (e: MouseEvent) => {
       if (e.relatedTarget === null) hide()
     }
 
-    document.addEventListener("mousemove", onMove)
-    document.addEventListener("mouseleave", onMouseLeave)
+    const onMouseEnter = () => show()
 
-    const clickables = document.querySelectorAll("a, button, [role='button']")
-    clickables.forEach((el) => {
+    function attach(el: Element) {
       el.addEventListener("mouseenter", onHoverIn)
       el.addEventListener("mouseleave", onHoverOut)
+    }
+
+    function detach(el: Element) {
+      el.removeEventListener("mouseenter", onHoverIn)
+      el.removeEventListener("mouseleave", onHoverOut)
+    }
+
+    function syncClickables() {
+      document.querySelectorAll("a, button, [role='button']").forEach(attach)
+    }
+
+    const observer = new MutationObserver(() => {
+      syncClickables()
     })
+
+    observer.observe(document.body, { childList: true, subtree: true })
+
+    document.addEventListener("mousemove", onMove)
+    document.addEventListener("mouseleave", onMouseLeave)
+    document.addEventListener("mouseenter", onMouseEnter)
+
+    syncClickables()
 
     rafId = requestAnimationFrame(animate)
 
     return () => {
       document.removeEventListener("mousemove", onMove)
       document.removeEventListener("mouseleave", onMouseLeave)
-      clickables.forEach((el) => {
-        el.removeEventListener("mouseenter", onHoverIn)
-        el.removeEventListener("mouseleave", onHoverOut)
-      })
+      document.removeEventListener("mouseenter", onMouseEnter)
+      observer.disconnect()
       cancelAnimationFrame(rafId)
     }
   }, [])
@@ -96,13 +113,13 @@ export function CustomCursor() {
         ref={haloRef}
         className="pointer-events-none fixed top-0 left-0 z-[9998] opacity-0"
         style={{
-          willChange: "transform",
           width: "150px",
           height: "150px",
           borderRadius: "50%",
           background: "radial-gradient(circle, rgba(200,240,0,0.25) 0%, rgba(200,240,0,0.08) 40%, transparent 70%)",
           filter: "blur(8px)",
           transition: "opacity 0.3s ease",
+          transform: "translate(-75px, -75px)",
         }}
         aria-hidden="true"
       />
@@ -110,12 +127,12 @@ export function CustomCursor() {
         ref={ringRef}
         className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0"
         style={{
-          willChange: "transform",
           width: "32px",
           height: "32px",
           borderRadius: "50%",
           border: "1.5px solid rgba(200,240,0,0.6)",
-          boxShadow: "0 0 12px rgba(200,240,0,0.3)",
+          boxShadow: "0 0 12px rgba(200,240,0,0.3), 0 0 0 2px rgba(0,0,0,0.25)",
+          transform: "translate(-50%, -50%)",
           transition: "width 0.2s ease, height 0.2s ease, border-color 0.2s ease, opacity 0.3s ease",
         }}
         aria-hidden="true"
@@ -128,8 +145,8 @@ export function CustomCursor() {
           height: "5px",
           borderRadius: "50%",
           background: "#c8f000",
-          boxShadow: "0 0 8px rgba(200,240,0,0.9)",
-          willChange: "transform",
+          boxShadow: "0 0 8px rgba(200,240,0,0.9), 0 0 0 2px rgba(0,0,0,0.3)",
+          transform: "translate(-50%, -50%)",
           transition: "opacity 0.3s ease",
         }}
         aria-hidden="true"

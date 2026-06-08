@@ -9,6 +9,7 @@ import { Testimonials } from "@/components/landing/testimonials"
 import { Contact } from "@/components/landing/contact"
 import { LiveMetrics } from "@/components/landing/live-metrics"
 import { Marquee } from "@/components/landing/marquee"
+import { About } from "@/components/landing/about"
 import { Faq } from "@/components/landing/faq"
 
 export default function HomePage() {
@@ -23,6 +24,7 @@ export default function HomePage() {
         <DemosPreview />
         <Services />
         <Process />
+        <About />
         <Testimonials />
         <Faq />
         <Contact />

@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/site-footer"
 import { NICHES } from "@/lib/niches"
 
 export const metadata: Metadata = {
-  title: "Nos démos — Propulse Dev",
+  title: "Nos démos — PropulseDev",
   description: "Explorez nos designs par secteur d'activité",
 }
 

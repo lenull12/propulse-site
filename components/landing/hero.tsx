@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { WordSwitcher } from "./word-switcher"
 
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center bg-[#050505] overflow-hidden">
@@ -40,10 +41,10 @@ export function Hero() {
             <p className="text-xs font-medium tracking-[2px] uppercase text-accent/80 font-mono">★★★★★ Avis Google certifiés</p>
           </div>
 
-          {/* H1 — pas de whitespace-nowrap sur mobile */}
-          <h1 className="mb-6 font-mono text-[clamp(2rem,5.5vw,5.2rem)] font-black leading-[1.05] tracking-tight text-foreground text-left">
-            <span className="block">Votre site internet devrait</span>
-            <span className="block mt-1"><WordSwitcher /></span>
+          {/* H1 — 2 lignes max */}
+          <h1 className="mb-6 font-mono text-[clamp(1.6rem,4vw,5.2rem)] font-black leading-[1.15] tracking-tight text-foreground text-left">
+            <span className="block text-balance">Votre site internet devrait</span>
+            <span className="block mt-1 text-nowrap"><WordSwitcher /></span>
           </h1>
 
           <p className="mb-8 max-w-[640px] text-sm md:text-base font-light leading-relaxed text-gray-400">

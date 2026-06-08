@@ -15,29 +15,41 @@ export function WordSwitcher() {
   const [step, setStep] = useState<"visible" | "exiting" | "hidden" | "entering">("visible")
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Lance l'animation de sortie
-      setStep("exiting")
-      
-      // Une fois la transition de sortie terminée (400ms), change de mot et le place en bas (caché)
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % WORDS.length)
-        setStep("hidden")
-        
-        // Court délai avant de commencer l'animation d'entrée
-        setTimeout(() => {
-          setStep("entering")
-          
-          // Glisse vers sa position finale
-          setTimeout(() => {
-            setStep("visible")
-          }, 30)
-        }, 30)
-      }, 400)
-      
-    }, 3500)
+    let mounted = true
+    const timeouts: ReturnType<typeof setTimeout>[] = []
+    const schedule = () => {
+      const t0 = setTimeout(() => {
+        if (!mounted) return
+        setStep("exiting")
 
-    return () => clearInterval(interval)
+        const t1 = setTimeout(() => {
+          if (!mounted) return
+          setIndex((prev) => (prev + 1) % WORDS.length)
+          setStep("hidden")
+
+          const t2 = setTimeout(() => {
+            if (!mounted) return
+            setStep("entering")
+
+            const t3 = setTimeout(() => {
+              if (!mounted) return
+              setStep("visible")
+              schedule()
+            }, 30)
+            timeouts.push(t3)
+          }, 30)
+          timeouts.push(t2)
+        }, 400)
+        timeouts.push(t1)
+      }, 3500)
+      timeouts.push(t0)
+    }
+    schedule()
+
+    return () => {
+      mounted = false
+      timeouts.forEach(clearTimeout)
+    }
   }, [])
 
   // Détermination des classes CSS pour l'animation
@@ -53,9 +65,19 @@ export function WordSwitcher() {
   }
 
   return (
-    <span className="inline-block">
+    <span className="inline-block gradient-text-safe">
       <span
-        className={`inline-block font-mono bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent transform ${classes}`}
+        className={`inline-block font-mono text-nowrap transform ${classes}`}
+        style={{
+          background: "linear-gradient(to right, #a855f7, #00f0ff, #c8f000)",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent",
+          WebkitTextFillColor: "transparent",
+          filter: "none !important",
+          forcedColorAdjust: "none",
+          WebkitFilter: "none !important",
+        }}
       >
         {WORDS[index]}
       </span>

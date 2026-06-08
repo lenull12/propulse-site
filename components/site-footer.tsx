@@ -3,16 +3,15 @@ import Link from "next/link"
 const FOOTER_LINKS = {
   Services: [
     { label: "Solutions", href: "/solutions" },
+    { label: "Qui sommes-nous", href: "/a-propos" },
     { label: "Audit gratuit", href: "/#contact" },
-    { label: "Refonte de site", href: "/#services" },
-    { label: "Réputation Google", href: "/#services" },
     { label: "Voir les démos", href: "/demos" },
   ],
-  Process: [
-    { label: "Comment ça marche", href: "/#process" },
+  Ressources: [
     { label: "Blog", href: "/blog" },
-    { label: "Nos secteurs", href: "/demos" },
+    { label: "FAQ", href: "/faq" },
     { label: "Tarifs", href: "/tarifs" },
+    { label: "Comment ça marche", href: "/#process" },
   ],
   Légal: [
     { label: "Mentions légales", href: "/mentions-legales" },
