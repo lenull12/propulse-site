@@ -27,7 +27,7 @@ export default function HomePage() {
         <DemosPreview />
         <Services />
         <Process />
-        <div className="-mt-32">
+        <div className="-mt-32 hidden md:block">
           <Image
             src="/images/hands.png"
             alt=""

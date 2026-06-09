@@ -3,13 +3,13 @@ import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { ParticlesBackground } from "./particles-background"
 import { Typewriter } from "@/components/ui/typewriter"
 import { ServicesCanvas } from "@/components/ui/services-canvas"
-import Image from "next/image"
+
 
 const SERVICES = [
   {
     number: "01",
     title: "Audit de performance",
-    text: "Analyse complète de votre écosystème digital. J'identifie les points bloquants qui vous font perdre des clients au quotidien.",
+    text: "Analyse complète de votre écosystème digital. Nous identifions les points bloquants qui vous font perdre des clients au quotidien.",
     features: [
       "Audit technique SEO complet",
       "Analyse de vitesse Google PageSpeed",
@@ -48,7 +48,7 @@ export function Services() {
   const gridRef = useStaggerReveal(150)
   return (
     <section id="services" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
-      <ParticlesBackground count={50} connectDistance={100} color="200,240,0" />
+      <ParticlesBackground count={80} connectDistance={120} color="200,240,0" />
       {/* Halo lumineux d'ambiance en fond */}
       <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] rounded-full bg-[#c8f000] opacity-[0.03] blur-[150px] pointer-events-none" />
       
@@ -64,15 +64,7 @@ export function Services() {
             </h2>
           </div>
           <div className="lg:col-span-5 relative flex items-center justify-center min-h-[300px]">
-            <Image
-              src="/images/futuristicweb.webp"
-              alt=""
-              aria-hidden="true"
-              width={600}
-              height={500}
-              className="w-full h-auto mx-auto lg:ml-auto lg:mr-0 opacity-90 select-none pointer-events-none md:hidden"
-            />
-            <ServicesCanvas className="hidden md:block w-full max-w-[600px] h-[400px]" />
+            <ServicesCanvas className="w-full max-w-[600px] h-[400px]" />
           </div>
         </div>
 

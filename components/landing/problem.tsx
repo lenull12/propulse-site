@@ -3,43 +3,50 @@ import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { AnimatedLines } from "./animated-lines"
 import { AnimatedStat } from "./animated-stat"
 import { Typewriter } from "@/components/ui/typewriter"
-import { GlobeCanvas } from "@/components/ui/globe-canvas"
-import Image from "next/image"
+import { SearchPhantom } from "@/components/ui/search-phantom"
+
+
+const tags = [
+  { label: "Problème n°1", color: "text-accent border-accent/30 bg-accent/5" },
+  { label: "Alerte rouge", color: "text-red-400 border-red-400/30 bg-red-400/5" },
+  { label: "Cas fréquent", color: "text-blue-400 border-blue-400/30 bg-blue-400/5" },
+  { label: "Piège silencieux", color: "text-amber-400 border-amber-400/30 bg-amber-400/5" },
+]
 
 export function Problem() {
-  const gridRef = useStaggerReveal(120)
+  const gridRef = useStaggerReveal(80)
   const problems = [
     {
       value: 76,
       suffix: "%",
       showBar: true,
-      statLabel: "visites dans la journée",
-      title: "Fiche Google My Business",
-      text: "76 % des recherches locales mènent à une visite sur le site dans la journée.\nVotre fiche Google est votre vitrine principale.",
+      statLabel: "des prospects finissent chez un concurrent mieux référencé",
+      title: "Personne ne vous trouve",
+      text: "Vous avez construit votre activité, votre savoir-faire, votre réputation. Pourtant, quand un client tape votre métier et votre ville sur Google, ce n'est pas vous qui apparaissez en premier. Votre concurrent capte l'appel à votre place.",
     },
     {
       value: 53,
       suffix: "%",
       showBar: true,
-      statLabel: "taux de rebond",
-      title: "Vitesse catastrophique",
-      text: "Un site qui met plus de 3 secondes à charger perd plus de la moitié de ses visiteurs avant même qu'ils ne voient votre offre.",
+      statLabel: "de visiteurs perdus avant d'avoir vu votre offre",
+      title: "Votre site fait fuir les clients",
+      text: "Un prospect clique sur votre lien. Il attend. Une seconde… deux secondes… trois secondes. Il quitte. Sur dix visiteurs, plus de cinq repartiront sans voir ce que vous proposez.",
     },
     {
       value: 80,
       suffix: "%",
       showBar: true,
-      statLabel: "de recherches mobiles",
-      title: "Inadapté aux mobiles",
-      text: "Vos clients vous cherchent sur leur smartphone. Si votre site n'est pas optimisé,\nils partent chez le concurrent en 3 clics.",
+      statLabel: "des recherches locales passent par un smartphone",
+      title: "Perdu sur mobile",
+      text: "Vos clients vous cherchent sur leur téléphone, entre deux rendez-vous. Mais votre site les accueille avec un texte microscopique, des boutons qui se chevauchent, une navigation impossible. En trois clics, ils sont chez votre concurrent.",
     },
     {
       value: 4.2,
       suffix: "",
       showBar: false,
-      statLabel: "note moyenne Google",
-      title: "Avis non gérés",
-      text: "Un seul avis à 1 étoile ignoré peut faire chuter votre note et repousser des dizaines de prospects qui vous comparaient.",
+      statLabel: "note moyenne des indépendants sur Google",
+      title: "Les avis vous échappent",
+      text: "Un client mécontent laisse 1★. Vous ne répondez pas. Les semaines passent. Ce seul avis fait fuir des prospects. Vos clients satisfaits ne laissent jamais d'avis. Votre note ne reflète pas votre vrai niveau.",
     },
   ]
 
@@ -49,52 +56,53 @@ export function Problem() {
       <AnimatedLines opacity={0.025} />
 
       <div className="relative z-10 mx-auto max-w-[1400px]">
-        {/* En-tête */}
-        <div className="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-3 mb-4">
               <span className="w-8 h-px bg-accent/40" />
-              <p className="text-sm font-medium tracking-wide text-accent font-sans">Ce que vos clients voient quand ils vous cherchent</p>
+              <p className="text-sm font-medium tracking-wide text-accent font-sans">Ce que vos clients voient quand ils vous cherchent sur Google</p>
             </div>
             <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] leading-[1.15] text-foreground">
               <Typewriter lines={["Invisible sur Google,", "invisible pour vos clients."]} speed={50} triggerOnView lineClassName={["block font-black", "block font-black text-white/35"]} />
             </h2>
           </div>
           <div className="lg:col-span-5 relative flex items-center justify-center">
-            <Image
-              src="/images/sphere.webp"
-              alt=""
-              aria-hidden="true"
-              width={400}
-              height={400}
-              className="w-full h-auto max-w-[400px] mx-auto lg:ml-auto lg:mr-0 opacity-80 select-none pointer-events-none drop-shadow-[0_0_40px_rgba(200,240,0,0.08)] md:hidden"
-            />
-            <GlobeCanvas className="hidden md:block w-[400px] h-[400px] opacity-60" />
+            <SearchPhantom className="w-[400px] h-[400px] opacity-80" />
           </div>
         </div>
 
-        {/* Grille 2×2 */}
-        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div ref={gridRef} className="flex flex-col gap-1">
           {problems.map((p, i) => (
-            <div
-              key={i}
-              className="group relative rounded-[16px] border border-white/5 bg-[#0a0a0a]/80 p-8 md:p-10 transition-all duration-500 hover:border-white/10 hover:-translate-y-1 overflow-hidden"
-            >
-              <span className="absolute -bottom-4 -right-2 font-mono text-[120px] font-black text-white/[0.015] select-none pointer-events-none leading-none">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="text-3xl md:text-4xl font-mono font-black mb-4 leading-tight transition-transform duration-500 group-hover:translate-x-1">
-                <span className="text-foreground">{p.title}</span>
-              </h3>
-              <p className="text-base font-light leading-relaxed text-gray-400 mb-8 whitespace-pre-line">
-                {p.text}
-              </p>
-              <AnimatedStat
-                value={p.value}
-                suffix={p.suffix}
-                label={p.statLabel}
-                showBar={p.showBar}
-              />
+            <div key={i} className="group relative">
+              <div className="grid grid-cols-1 lg:grid-cols-[140px_1fr_220px] gap-6 lg:gap-6 items-start py-8 lg:py-10 px-6 lg:px-10 rounded-[16px] transition-all duration-500 hover:bg-white/[0.02]">
+                <div className="flex lg:flex-col items-center lg:items-start gap-2 lg:gap-3">
+                  <span className="font-mono text-[56px] lg:text-[72px] font-black text-white/[0.06] leading-none select-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className={`text-[10px] font-mono font-bold tracking-widest uppercase px-2.5 py-1 rounded-full border whitespace-nowrap ${tags[i].color}`}>
+                    {tags[i].label}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-2xl lg:text-3xl font-mono font-black mb-3 leading-tight">
+                    <span className="text-foreground">{p.title}</span>
+                  </h3>
+                  <p className="text-sm lg:text-base font-light leading-relaxed text-gray-400">
+                    {p.text}
+                  </p>
+                </div>
+                <div className="lg:pt-2">
+                  <AnimatedStat
+                    value={p.value}
+                    suffix={p.suffix}
+                    label={p.statLabel}
+                    showBar={p.showBar}
+                  />
+                </div>
+              </div>
+              {i < problems.length - 1 && (
+                <div className="mx-6 lg:mx-10 h-px bg-white/[0.04]" />
+              )}
             </div>
           ))}
         </div>

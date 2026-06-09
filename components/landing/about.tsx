@@ -60,7 +60,7 @@ export function About() {
         <div className="inline-flex items-center gap-3 mb-4 reveal opacity-0">
           <span className="w-8 h-px bg-accent/40" />
           <p className="text-sm font-medium tracking-wide text-accent font-sans">
-            Qui sommes-nous
+            À propos
           </p>
         </div>
 

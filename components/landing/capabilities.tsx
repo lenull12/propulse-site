@@ -1,6 +1,7 @@
 "use client"
 
 import { ParticlesBackground } from "./particles-background"
+import { OrbitCanvas } from "@/components/ui/orbit-canvas"
 
 const ITEMS = [
   {
@@ -132,15 +133,20 @@ export function Capabilities() {
     <section className="scroll-reveal relative bg-[#050505] px-6 py-24 md:px-12 overflow-hidden lg:py-32 border-t border-white/5">
       <ParticlesBackground count={50} connectDistance={100} color="200,240,0" />
       <div className="mx-auto max-w-[1400px]">
-        <div className="mb-16 lg:mb-24">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-accent/40" />
-            <p className="text-sm font-medium tracking-wide text-accent font-sans">Nos solutions</p>
+        <div className="mb-16 lg:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-px bg-accent/40" />
+              <p className="text-sm font-medium tracking-wide text-accent font-sans">Nos solutions</p>
+            </div>
+            <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
+              Tout ce qu&apos;il vous faut.<br />
+              <span className="text-white/40">Rien de superflu.</span>
+            </h2>
           </div>
-          <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
-            Tout ce qu&apos;il vous faut.<br />
-            <span className="text-white/40">Rien de superflu.</span>
-          </h2>
+          <div className="lg:col-span-5 flex items-center justify-center">
+            <OrbitCanvas className="w-[320px] h-[260px] opacity-70" />
+          </div>
         </div>
 
         <div>

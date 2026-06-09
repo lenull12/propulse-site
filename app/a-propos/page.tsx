@@ -8,7 +8,7 @@ import { LighthouseScore } from "@/components/ui/lighthouse-score"
 import { MiniMap } from "@/components/ui/mini-map"
 
 export const metadata: Metadata = {
-  title: "Qui sommes-nous — PropulseDev",
+  title: "À propos — PropulseDev",
   description:
     "Découvrez PropulseDev : le studio spécialisé dans la création de sites web performants et la visibilité Google locale pour les professionnels indépendants.",
 }
@@ -40,18 +40,16 @@ export default function AboutPage() {
             <div>
               <div className="inline-flex items-center gap-3 mb-4">
                 <span className="w-8 h-px bg-accent/40" />
-                <p className="text-sm font-medium tracking-wide text-accent font-sans">Qui sommes-nous</p>
+                <p className="text-sm font-medium tracking-wide text-accent font-sans">Le Studio</p>
               </div>
               <h1 className="font-mono text-[clamp(2.5rem,5vw,4.5rem)] font-black leading-[1.1] text-foreground mb-6">
-                L&apos;ingénierie web au service des{" "}
-                <span className="bg-gradient-to-r from-[#14b8a6] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent">
-                  indépendants
-                </span>
+                <span className="text-foreground">Propulse</span><span className="text-accent">Dev</span>{" "}
+                <span className="animate-shimmer-accent">l&apos;excellence numérique</span>
               </h1>
               <p className="text-base md:text-lg font-light leading-relaxed text-gray-400 max-w-[540px] mb-8">
                 Nous ne construisons pas seulement des sites web — nous bâtissons des{" "}
                 <strong className="text-foreground font-medium">machines à clients</strong>{" "}
-                pour les indépendants et professions libérales.
+                pour les professionnels.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link
@@ -291,6 +289,53 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── Nos clients ── */}
+        <section className="relative bg-[#050505] px-6 py-24 md:px-12 overflow-hidden border-t border-white/5">
+          <div className="relative z-10 mx-auto max-w-[1000px]">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <span className="w-8 h-px bg-accent/40" />
+                <p className="text-sm font-medium tracking-wide text-accent font-sans">Nos clients</p>
+                <span className="w-8 h-px bg-accent/40" />
+              </div>
+              <h2 className="font-mono text-[clamp(2rem,3.5vw,3rem)] font-black text-foreground">
+                Des indépendants, une méthode
+              </h2>
+              <p className="mt-4 text-base font-light text-gray-400 max-w-[600px] mx-auto">
+                Nous accompagnons les professionnels qui veulent être visibles localement
+                et inspirer confiance dès la première visite.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {[
+                { icon: "⚖️", title: "Avocats", desc: "Cabinets juridiques et avocats indépendants" },
+                { icon: "📊", title: "Experts-comptables", desc: "Cabinets d'expertise comptable" },
+                { icon: "🏛️", title: "Architectes", desc: "Cabinets d'architecture" },
+                { icon: "🍽️", title: "Restaurateurs", desc: "Restaurants, brasseries, traiteurs" },
+                { icon: "🔧", title: "Artisans", desc: "Électriciens, plombiers, paysagistes" },
+                { icon: "🏠", title: "Agents immobiliers", desc: "Agences et chasseurs immobiliers" },
+              ].map((c) => (
+                <div
+                  key={c.title}
+                  className="group rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-center transition-all duration-500 hover:border-accent/20 hover:bg-accent/[0.02] hover:shadow-[inset_0_0_20px_rgba(200,240,0,0.03)]"
+                >
+                  <span className="block text-3xl mb-4 transition-transform duration-500 group-hover:scale-110">{c.icon}</span>
+                  <h3 className="font-mono font-bold text-foreground text-sm mb-1">{c.title}</h3>
+                  <p className="text-xs font-light text-gray-500 leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-10 text-center text-sm font-light text-gray-500 max-w-[500px] mx-auto leading-relaxed">
+              Vous ne trouvez pas votre métier dans cette liste&nbsp;? Vous voulez un site personnel&nbsp;?
+              <br />
+              <span className="text-accent/70">Ce n&apos;est pas un problème.</span>{" "}
+              Chaque projet est unique, on s&apos;adapte à votre activité.
+            </p>
           </div>
         </section>
 

@@ -3,7 +3,7 @@ import Link from "next/link"
 const FOOTER_LINKS = {
   Services: [
     { label: "Solutions", href: "/solutions" },
-    { label: "Qui sommes-nous", href: "/a-propos" },
+    { label: "À propos", href: "/a-propos" },
     { label: "Audit gratuit", href: "/#contact" },
     { label: "Voir les démos", href: "/demos" },
   ],
