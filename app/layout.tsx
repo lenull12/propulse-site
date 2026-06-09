@@ -5,6 +5,7 @@ import type { ReactNode } from "react"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import "./globals.css"
 
+
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
@@ -41,6 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="font-sans antialiased">
         <CustomCursor />
         {children}
+          <SpeedInsights />  {/* manquant */}
       </body>
     </html>
   )

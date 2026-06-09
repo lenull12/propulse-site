@@ -12,6 +12,7 @@ import { LiveMetrics } from "@/components/landing/live-metrics"
 import { Marquee } from "@/components/landing/marquee"
 import { About } from "@/components/landing/about"
 import { Faq } from "@/components/landing/faq"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -26,6 +27,16 @@ export default function HomePage() {
         <DemosPreview />
         <Services />
         <Process />
+        <div className="-mt-32">
+          <Image
+            src="/images/hands.png"
+            alt=""
+            width={1440}
+            height={480}
+            className="h-auto w-full"
+            priority={false}
+          />
+        </div>
         <About />
         <Testimonials />
         <Faq />

@@ -26,7 +26,7 @@ export function Contact() {
     const description = (data.get("description") as string)?.trim()
 
     const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || "")
-    const phoneValid = phone.length === 0 || /^\d{10}$/.test(phone)
+    const phoneValid = phone.length === 0 || /^[\d\s\+\-\.\(\)]{9,15}$/.test(phone)
 
     if (!emailValid || !phoneValid) {
       setError("Merci de renseigner un email valide et un numéro de téléphone à 10 chiffres (ou laissez le champ vide).")
@@ -71,7 +71,7 @@ export function Contact() {
 
         <h2 className="mb-6 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15]">
           <span className="block text-foreground">Obtenez votre audit</span>
-          <span className="block bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-[#14b8a6] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent">
             gratuit aujourd'hui.
           </span>
         </h2>

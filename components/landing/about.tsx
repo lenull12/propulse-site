@@ -49,11 +49,11 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber"
+      className="relative bg-[#000000] px-6 py-32 md:px-12 overflow-hidden"
     >
       {/* Halo lumineux */}
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#c8f000] opacity-[0.02] blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[#a855f7] opacity-[0.015] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[#14b8a6] opacity-[0.015] blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-[1200px]">
         {/* En-tête */}
@@ -66,11 +66,8 @@ export function About() {
 
         <h2 className="mb-8 font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground reveal opacity-0">
           <span className="block">Une équipe dédiée à</span>
-          <span className="block text-gray-500">
-            votre{" "}
-            <span className="bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent">
-              croissance locale
-            </span>
+          <span className="block text-accent">
+            votre croissance locale
           </span>
         </h2>
 

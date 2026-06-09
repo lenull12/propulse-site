@@ -152,6 +152,78 @@ export default function SolutionsPage() {
         </div>
       </section>
 
+      {/* ============ NOS SOLUTIONS ============ */}
+      <section className="border-t border-white/5 bg-[#050505] px-6 py-24 md:px-15">
+        <div className="mx-auto max-w-[1200px]">
+          <div className="mb-14 text-center">
+            <h2 className="mb-3 font-mono text-[clamp(28px,3.5vw,42px)] font-black leading-[1.15] text-foreground">
+              Nos solutions
+            </h2>
+            <p className="text-sm font-light text-gray-500">
+              Deux offres complémentaires pour booster votre présence en ligne.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <Link
+              href="/solutions/creation-site-web"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/20"
+            >
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-lg font-bold text-accent transition-transform group-hover:scale-110">
+                &lt;/&gt;
+              </span>
+              <h3 className="mb-2 font-mono text-xl font-bold text-foreground">Création de site web</h3>
+              <p className="mb-4 text-sm font-light leading-relaxed text-gray-400">
+                Des sites Next.js/React sur mesure, rapides, sécurisés et optimisés SEO.
+                Design premium, zéro template, livré clé en main.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Next.js", "React", "TypeScript", "Pagespeed 95+"].map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/5 bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-medium text-white/40">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent transition-all group-hover:gap-2.5">
+                En savoir plus
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link
+              href="/solutions/seo-reputation-locale"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/20"
+            >
+              <span className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-lg font-bold text-accent transition-transform group-hover:scale-110">
+                #
+              </span>
+              <h3 className="mb-2 font-mono text-xl font-bold text-foreground">SEO & réputation locale</h3>
+              <p className="mb-4 text-sm font-light leading-relaxed text-gray-400">
+                Référencement local, avis Google automatisés, SEO technique natif.
+                On vous rend visible partout où vos clients vous cherchent.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["SEO local", "Avis 5★", "Google My Business", "Suivi mensuel"].map((tag) => (
+                  <span key={tag} className="rounded-full border border-white/5 bg-white/[0.03] px-2.5 py-0.5 text-[10px] font-medium text-white/40">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent transition-all group-hover:gap-2.5">
+                En savoir plus
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ============ COMMENT ON TRAVAILLE ============ */}
       <section className="border-t border-white/5 bg-[#050505] px-6 py-24 md:px-15">
         <div className="mx-auto max-w-[900px]">

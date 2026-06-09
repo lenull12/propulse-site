@@ -6,18 +6,40 @@ import { NICHES } from "@/lib/niches"
 
 export function SiteNav() {
   const [open, setOpen] = useState(false)
+  const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
+  const solutionsWrapRef = useRef<HTMLDivElement>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const solutionsTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+  }
+
+  const handleSolutionsEnter = () => {
+    if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current)
+    setSolutionsOpen(true)
+  }
+
+  const handleSolutionsLeave = () => {
+    solutionsTimeoutRef.current = setTimeout(() => setSolutionsOpen(false), 150)
+  }
 
   useEffect(() => {
-    function onClick(e: MouseEvent) {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
-        setOpen(false)
-      }
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current)
+      if (solutionsTimeoutRef.current) clearTimeout(solutionsTimeoutRef.current)
     }
-    document.addEventListener("click", onClick)
+  }, [])
 
+  useEffect(() => {
     function onScroll() {
       setScrolled(window.scrollY > 20)
     }
@@ -25,7 +47,6 @@ export function SiteNav() {
     onScroll()
 
     return () => {
-      document.removeEventListener("click", onClick)
       window.removeEventListener("scroll", onScroll)
     }
   }, [])
@@ -59,10 +80,67 @@ export function SiteNav() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
-            <Link href="/solutions" className="group relative text-sm font-medium text-white/80 transition-colors hover:text-accent">
-              Solutions
-              <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
-            </Link>
+            {/* Dropdown Solutions */}
+            <div ref={solutionsWrapRef} className="relative" onMouseEnter={handleSolutionsEnter} onMouseLeave={handleSolutionsLeave}>
+              <div className="flex items-center gap-0">
+                <Link
+                  href="/solutions"
+                  onClick={() => setSolutionsOpen(false)}
+                  className={`flex cursor-pointer items-center gap-1.5 text-sm font-medium transition-colors ${solutionsOpen ? "text-accent" : "text-white/80 hover:text-accent"}`}
+                >
+                  Solutions
+                </Link>
+                <button
+                  type="button"
+                  className={`flex cursor-pointer items-center p-1 text-sm font-medium transition-colors ${solutionsOpen ? "text-accent" : "text-white/80 hover:text-accent"}`}
+                  aria-expanded={solutionsOpen}
+                  aria-label="Ouvrir le menu solutions"
+                >
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className={`transition-transform duration-300 ${solutionsOpen ? "rotate-180" : ""}`} aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className={`absolute right-[-20px] top-[calc(100%+16px)] w-72 overflow-hidden rounded-xl border border-white/10 bg-[#0c0c0c] shadow-2xl transition-all duration-300 ${solutionsOpen ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"}`}>
+                <div className="p-2">
+                  <Link
+                    href="/solutions/creation-site-web"
+                    onClick={() => setSolutionsOpen(false)}
+                    className="group flex items-center gap-3.5 rounded-lg px-4 py-3 transition-colors hover:bg-white/5"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-sm font-bold text-accent transition-transform group-hover:scale-110">
+                      &lt;/&gt;
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground">Création de site web</span>
+                      <span className="text-xs font-light text-white/35">Sites modernes & premium</span>
+                    </span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-auto shrink-0 text-white/20 transition-all group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                  <Link
+                    href="/solutions/seo-reputation-locale"
+                    onClick={() => setSolutionsOpen(false)}
+                    className="group flex items-center gap-3.5 rounded-lg px-4 py-3 transition-colors hover:bg-white/5"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-sm font-bold text-accent transition-transform group-hover:scale-110">
+                      #
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground">SEO & réputation locale</span>
+                      <span className="text-xs font-light text-white/35">Visibilité & avis Google</span>
+                    </span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-auto shrink-0 text-white/20 transition-all group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link href="/a-propos" className="group relative text-sm font-medium text-white/80 transition-colors hover:text-accent">
               Qui sommes-nous
               <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100" />
@@ -77,7 +155,7 @@ export function SiteNav() {
             </Link>
 
             {/* Dropdown Démos */}
-            <div ref={wrapRef} className="relative">
+            <div ref={wrapRef} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
               <div className="flex items-center gap-0">
                 <Link
                   href="/demos"
@@ -88,7 +166,6 @@ export function SiteNav() {
                 </Link>
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); setOpen((v) => !v) }}
                   className={`flex cursor-pointer items-center p-1 text-sm font-medium transition-colors ${open ? "text-accent" : "text-white/80 hover:text-accent"}`}
                   aria-expanded={open}
                   aria-label="Ouvrir le menu des secteurs"
@@ -177,7 +254,6 @@ export function SiteNav() {
 
           {/* Liens principaux */}
           {[
-            { label: "Solutions", href: "/solutions" },
             { label: "Qui sommes-nous", href: "/a-propos" },
             { label: "Blog", href: "/blog" },
             { label: "Tarifs", href: "/tarifs" },
@@ -191,6 +267,35 @@ export function SiteNav() {
               {label}
             </Link>
           ))}
+
+          {/* Solutions */}
+          <div className="pt-2">
+            <Link
+              href="/solutions"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 py-3 border-b border-white/5 font-mono text-xl font-black text-accent/80 hover:text-accent transition-colors"
+            >
+              <span className="text-lg">✦</span>
+              <span>Toutes les solutions</span>
+            </Link>
+            <p className="text-[10px] uppercase tracking-[3px] text-white/25 mb-3 mt-4">Nos offres</p>
+            <Link
+              href="/solutions/creation-site-web"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 py-3 border-b border-white/5 hover:text-accent transition-colors"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-xs font-bold text-accent">&lt;/&gt;</span>
+              <span className="text-base font-medium text-foreground/70">Création de site web</span>
+            </Link>
+            <Link
+              href="/solutions/seo-reputation-locale"
+              onClick={() => setMenuOpen(false)}
+              className="flex items-center gap-3 py-3 border-b border-white/5 hover:text-accent transition-colors"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent/10 text-xs font-bold text-accent">#</span>
+              <span className="text-base font-medium text-foreground/70">SEO & réputation locale</span>
+            </Link>
+          </div>
 
           {/* Démos par secteur */}
           <div className="pt-2">

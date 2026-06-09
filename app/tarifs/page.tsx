@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const PLANS = [
   {
     name: "Starter",
-    tagline: "Pour démander sans risque",
+    tagline: "Pour démarrer sans risque",
     price: "1 000",
     suffix: "€",
     period: "une fois",

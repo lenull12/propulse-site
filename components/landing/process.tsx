@@ -77,9 +77,9 @@ export function Process() {
   }
 
   return (
-    <section id="process" className="relative bg-[#050505] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 bg-grid-cyber">
+    <section id="process" className="relative bg-[#000000] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 ">
       {/* Halo lumineux en arrière-plan */}
-      <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#a855f7] opacity-[0.02] blur-[150px] pointer-events-none" />
+      <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#14b8a6] opacity-[0.02] blur-[150px] pointer-events-none" />
       
       <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="inline-flex items-center gap-3 mb-4">
@@ -95,7 +95,7 @@ export function Process() {
             lineClassName={[
               "block",
               "block text-gray-500",
-              "block bg-gradient-to-r from-[#a855f7] via-[#00f0ff] to-[#c8f000] bg-clip-text text-transparent",
+              "block text-accent",
             ]}
           />
         </h2>

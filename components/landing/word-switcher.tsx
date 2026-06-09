@@ -69,7 +69,7 @@ export function WordSwitcher() {
       <span
         className={`inline-block font-mono text-nowrap transform ${classes}`}
         style={{
-          background: "linear-gradient(to right, #a855f7, #00f0ff, #c8f000)",
+          background: "linear-gradient(to right, #14b8a6, #00f0ff, #c8f000)",
           WebkitBackgroundClip: "text",
           backgroundClip: "text",
           color: "transparent",

@@ -123,6 +123,49 @@ body {
   }
 }
 
+/* Logo float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Voyant disponibilité */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.animate-pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Flèche CTA */
+@keyframes slideArrow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(4px); }
+}
+
+.group:hover .cta-arrow {
+  animation: slideArrow 0.3s ease-out forwards;
+}
+
+.cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+}
+
+.group:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
 /* Grille de fond répétée */
 .bg-grid-cyber {
   background-image: 
