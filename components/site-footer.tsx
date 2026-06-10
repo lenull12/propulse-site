@@ -40,10 +40,10 @@ export function SiteFooter() {
               Sites web haut de gamme et visibilité Google locale pour les professionnels indépendants.
             </p>
             <a
-              href="mailto:raphael@propulsedev.fr"
+              href="mailto:contact@propulsedev.fr"
               className="text-sm text-accent/70 hover:text-accent transition-colors w-fit"
             >
-              raphael@propulsedev.fr
+              contact@propulsedev.fr
             </a>
             <PhoneReveal className="text-white/40 hover:text-white/60" />
             <a

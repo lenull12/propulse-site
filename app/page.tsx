@@ -6,7 +6,6 @@ import { Capabilities } from "@/components/landing/capabilities"
 import { DemosPreview } from "@/components/landing/demos-preview"
 import { Services } from "@/components/landing/services"
 import { Process } from "@/components/landing/process"
-import { Testimonials } from "@/components/landing/testimonials"
 import { Contact } from "@/components/landing/contact"
 import { LiveMetrics } from "@/components/landing/live-metrics"
 import { Marquee } from "@/components/landing/marquee"
@@ -40,7 +39,6 @@ export default function HomePage() {
           />
         </div>
         <About />
-        <Testimonials />
         <Faq />
         <Contact />
       </main>

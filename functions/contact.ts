@@ -44,8 +44,8 @@ export async function onRequestPost(context: { request: Request; env: Record<str
       Authorization: `Bearer ${env.RESEND_API_KEY}`,
     },
     body: JSON.stringify({
-      from: "PropulseDev <raphael@propulsedev.fr>",
-      to: [env.CONTACT_EMAIL ?? "raphael@propulsedev.fr"],
+      from: "PropulseDev <contact@propulsedev.fr>",
+      to: [env.CONTACT_EMAIL ?? "contact@propulsedev.fr"],
       subject: `Nouveau contact [${typeLabel}] — ${body.prenom}`,
       html: `
         <h2>Nouvelle demande de contact</h2>

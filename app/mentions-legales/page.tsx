@@ -42,7 +42,7 @@ export default function MentionsLegalesPage() {
                   <>
                     <p>PropulseDev</p>
                     <p>Contact : Raphaël — développeur web freelance</p>
-                    <p>Email : <a href="mailto:raphael@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">raphael@propulsedev.fr</a></p>
+                    <p>Email : <a href="mailto:contact@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">contact@propulsedev.fr</a></p>
                   </>
                 ),
               },
@@ -80,7 +80,7 @@ export default function MentionsLegalesPage() {
                 content: (
                   <>
                     <p>Les informations recueillies via le formulaire de contact sont destinées exclusivement à PropulseDev et ne sont en aucun cas partagées avec des tiers.</p>
-                    <p>Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à <a href="mailto:raphael@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">raphael@propulsedev.fr</a>.</p>
+                    <p>Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à <a href="mailto:contact@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">contact@propulsedev.fr</a>.</p>
                   </>
                 ),
               },

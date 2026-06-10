@@ -97,7 +97,7 @@ const SECTIONS = [
     title: "9. Données personnelles",
     content: (
       <>
-        <p>Les données personnelles collectées (nom, email, téléphone) sont utilisées exclusivement dans le cadre de la relation commerciale. Elles ne sont ni revendues, ni partagées avec des tiers. Conformément au RGPD, le client dispose d&apos;un droit d&apos;accès, de rectification et de suppression de ses données. Pour exercer ce droit : <a href="mailto:raphael@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">raphael@propulsedev.fr</a>.</p>
+        <p>Les données personnelles collectées (nom, email, téléphone) sont utilisées exclusivement dans le cadre de la relation commerciale. Elles ne sont ni revendues, ni partagées avec des tiers. Conformément au RGPD, le client dispose d&apos;un droit d&apos;accès, de rectification et de suppression de ses données. Pour exercer ce droit : <a href="mailto:contact@propulsedev.fr" className="text-accent/70 hover:text-accent transition-colors">contact@propulsedev.fr</a>.</p>
       </>
     ),
   },

@@ -6,6 +6,7 @@ export type Article = {
   date: string
   readTime: string
   content: string[]
+  image: string
 }
 
 export const ARTICLES: Article[] = [
@@ -15,6 +16,7 @@ export const ARTICLES: Article[] = [
     title: "Comment passer de 3★ à 5★ sur Google sans supplier vos clients",
     excerpt:
       "Le système d'avis automatisé qui transforme vos clients satisfaits en ambassadeurs — sans forcer, sans spam, sans perdre de temps.",
+    image: "photo1",
     date: "10 juin 2026",
     readTime: "4 min",
     content: [
@@ -34,6 +36,7 @@ export const ARTICLES: Article[] = [
     title: "Vitesse de site : le critère n°1 qui fait fuir vos clients (et que Google adore)",
     excerpt:
       "Un site qui met plus d'une seconde à charger, c'est 30% de visiteurs en moins. Voici pourquoi la vitesse est devenue le critère le plus important pour votre business.",
+    image: "photo2",
     date: "3 juin 2026",
     readTime: "5 min",
     content: [
@@ -55,6 +58,7 @@ export const ARTICLES: Article[] = [
     title: "Google My Business : la fiche que 90% des professionnels négligent",
     excerpt:
       "Votre fiche Google est souvent la première chose que vos prospects voient de vous. Pourtant, très peu de professionnels l'optimisent vraiment.",
+    image: "photo3",
     date: "25 mai 2026",
     readTime: "4 min",
     content: [
@@ -80,6 +84,7 @@ export const ARTICLES: Article[] = [
     title: "Site vitrine ou site multipages : lequel choisir pour mon activité ?",
     excerpt:
       "Vous hésitez entre un site simple d'une page ou un site plus complet avec plusieurs rubriques ? Voici les critères pour faire le bon choix.",
+    image: "photo4",
     date: "18 mai 2026",
     readTime: "4 min",
     content: [
@@ -107,4 +112,15 @@ export function getArticle(slug: string): Article | undefined {
 
 export function getAllArticleSlugs(): string[] {
   return ARTICLES.map((a) => a.slug)
+}
+
+export function getCategories(): string[] {
+  return [...new Set(ARTICLES.map((a) => a.category))]
+}
+
+export function slugifyCategory(category: string): string {
+  return category
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
 }

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
-import { ARTICLES } from "@/lib/articles"
+import { ARTICLES, getCategories, slugifyCategory } from "@/lib/articles"
 
 export const metadata: Metadata = {
   title: "Blog — PropulseDev",
@@ -14,57 +14,132 @@ export const metadata: Metadata = {
   },
 }
 
+const CATEGORIES = getCategories()
+
 export default function BlogIndexPage() {
   return (
     <>
-      <SiteNav />
+      <SiteNav forceDark />
 
-      <section className="border-b border-white/10 bg-background px-6 pb-20 pt-40 md:px-15">
-        <div className="mx-auto max-w-[800px]">
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Blog</p>
-          <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
+      <section className="bg-[#faf9f6] px-6 pb-12 pt-32 md:px-15">
+        <div className="mx-auto max-w-[1200px]">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-gray-400">
+            Blog
+          </p>
+          <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-gray-900">
             Des conseils concrets pour
             <br />
-            <span className="text-white/30">booster votre activité en ligne.</span>
+            <span className="text-gray-400">booster votre activité en ligne.</span>
           </h1>
-          <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
-            Pas de théorie. Des actions que vous pouvez mettre en place dès demain pour gagner
-            en visibilité et attirer plus de clients.
+           <p className="mb-10 text-lg font-light leading-relaxed text-gray-600">
+            Pas de théorie. Des actions que vous pouvez mettre en place dès demain pour
+            gagner en visibilité et attirer plus de clients.
           </p>
+
+          {/* Tags filtre */}
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="#tous"
+              className="rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+            >
+              Tous
+            </a>
+            {CATEGORIES.map((cat) => (
+              <a
+                key={cat}
+                href={`#categorie-${slugifyCategory(cat)}`}
+                className="rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-medium text-gray-700 transition hover:border-gray-400 hover:bg-gray-50"
+              >
+                {cat}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-background px-6 py-20 md:px-15">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {ARTICLES.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/blog/${article.slug}`}
-              className="group flex flex-col rounded-[16px] border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/30"
-            >
-              {/* Catégorie */}
-              <span className="mb-4 inline-flex w-fit rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] font-medium uppercase tracking-[1.5px] text-accent">
-                {article.category}
+      {/* Article vedette */}
+      <section className="bg-[#faf9f6] px-6 pb-16 md:px-15">
+        <div className="mx-auto max-w-[1200px]">
+          <p className="mb-6 text-[11px] font-medium uppercase tracking-[3px] text-gray-400">
+            À la une
+          </p>
+          <Link
+            href={`/blog/${ARTICLES[0].slug}`}
+            className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md lg:flex-row"
+          >
+            <div className="flex h-64 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono lg:h-auto lg:w-[480px] lg:shrink-0">
+              {ARTICLES[0].image}
+            </div>
+            <div className="flex flex-1 flex-col p-8">
+              <span className="mb-3 inline-flex w-fit rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[1.5px] text-gray-500">
+                {ARTICLES[0].category}
               </span>
-
-              {/* Titre */}
-              <h2 className="mb-3 font-mono text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-accent">
-                {article.title}
+              <h2 className="mb-3 font-mono text-2xl font-bold leading-snug text-gray-900 transition-colors group-hover:text-gray-600 lg:text-3xl">
+                {ARTICLES[0].title}
               </h2>
-
-              {/* Extrait */}
-              <p className="mb-6 flex-1 text-sm font-light leading-relaxed text-gray-400">
-                {article.excerpt}
+              <p className="mb-6 flex-1 text-base font-light leading-relaxed text-gray-500">
+                {ARTICLES[0].excerpt}
               </p>
-
-              {/* Meta */}
-              <div className="flex items-center gap-4 text-xs text-white/30">
-                <span>{article.date}</span>
-                <span className="h-3 w-px bg-white/10" />
-                <span>{article.readTime}</span>
+              <div className="flex items-center gap-4 text-sm text-gray-400">
+                <span>{ARTICLES[0].date}</span>
+                <span className="h-3 w-px bg-gray-200" />
+                <span>{ARTICLES[0].readTime}</span>
               </div>
-            </Link>
-          ))}
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      <section className="bg-[#faf9f6] px-6 pb-24 md:px-15" id="tous">
+        <div className="mx-auto max-w-[1200px]">
+          {CATEGORIES.map((cat) => {
+            const articles = ARTICLES.filter((a) => a.category === cat)
+            return (
+              <div key={cat} id={`categorie-${slugifyCategory(cat)}`} className="mb-16 scroll-mt-28">
+                <h2 className="mb-8 font-mono text-2xl font-bold text-gray-900">
+                  {cat}
+                </h2>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {articles.map((article) => (
+                    <Link
+                      key={article.slug}
+                      href={`/blog/${article.slug}`}
+                      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                    >
+                      {/* Image placeholder */}
+                      <div className="flex h-48 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono">
+                        {article.image}
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6">
+                        {/* Catégorie */}
+                        <span className="mb-3 inline-flex w-fit rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[1.5px] text-gray-500">
+                          {article.category}
+                        </span>
+
+                        {/* Titre */}
+                        <h3 className="mb-2 font-mono text-lg font-bold leading-snug text-gray-900 transition-colors group-hover:text-gray-600">
+                          {article.title}
+                        </h3>
+
+                        {/* Extrait */}
+                        <p className="mb-4 flex-1 text-base font-light leading-relaxed text-gray-500">
+                          {article.excerpt}
+                        </p>
+
+                        {/* Meta */}
+                        <div className="flex items-center gap-4 text-sm text-gray-400">
+                          <span>{article.date}</span>
+                          <span className="h-3 w-px bg-gray-200" />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </section>
 

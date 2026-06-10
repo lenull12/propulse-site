@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 import { NICHES } from "@/lib/niches"
 import { PhoneReveal } from "@/components/ui/phone-reveal"
 
-export function SiteNav() {
+export function SiteNav({ forceDark }: { forceDark?: boolean }) {
   const [open, setOpen] = useState(false)
   const [solutionsOpen, setSolutionsOpen] = useState(false)
   const [ressourcesOpen, setRessourcesOpen] = useState(false)
@@ -75,7 +75,7 @@ export function SiteNav() {
     <>
       <nav
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-          scrolled || menuOpen
+          forceDark || scrolled || menuOpen
             ? "border-b border-white/5 bg-[#050505]/90 backdrop-blur-lg"
             : "border-b border-transparent bg-transparent"
         }`}

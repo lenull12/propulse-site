@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avant / Après — PropulseDev</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Inter, system-ui, -apple-system, sans-serif; background: #f5f5f5; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+
+  .card { max-width: 900px; width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+  .split { display: flex; flex-direction: row; }
+
+  .avant { flex: 1; background: #1a1a1a; color: #ccc; padding: 40px 32px; }
+  .apres { flex: 1; background: #faf9f6; color: #111; padding: 40px 32px; }
+
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 20px; }
+  .badge-avant { background: rgba(255,255,255,0.08); color: #999; border: 1px solid rgba(255,255,255,0.1); }
+  .badge-apres { background: #c8f000; color: #000; }
+
+  h2 { font-family: 'JetBrains Mono', monospace; font-size: 20px; margin-bottom: 6px; }
+  .avant h2 { color: #fff; }
+  .apres h2 { color: #111; }
+
+  .sub { font-size: 13px; margin-bottom: 24px; }
+  .avant .sub { color: #777; }
+  .apres .sub { color: #666; }
+
+  .row { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid; font-size: 14px; }
+  .avant .row { border-color: rgba(255,255,255,0.06); color: #bbb; }
+  .apres .row { border-color: rgba(0,0,0,0.06); color: #444; }
+
+  .label { flex: 1; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .avant .label { color: #666; }
+  .apres .label { color: #999; }
+
+  .value { font-weight: 600; text-align: right; }
+  .avant .value { color: #e74c3c; }
+  .apres .value { color: #111; }
+
+  .rating { display: flex; align-items: center; gap: 6px; }
+  .stars { color: #f59e0b; letter-spacing: 2px; }
+  .avant .stars { color: #f59e0b; opacity: 0.5; }
+
+  .cta { margin-top: 28px; display: inline-block; padding: 12px 28px; border-radius: 30px; font-size: 14px; font-weight: 600; text-decoration: none; }
+  .cta-apres { background: #111; color: #fff; }
+
+  .divider-vertical { width: 4px; background: #c8f000; }
+
+  .header-row { display: flex; justify-content: space-between; align-items: flex-start; }
+
+  @media (max-width: 640px) {
+    .split { flex-direction: column; }
+    .divider-vertical { width: 100%; height: 4px; }
+  }
+
+  .cross { color: #e74c3c; font-weight: 700; }
+  .check { color: #22c55e; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="split">
+    <div class="avant">
+      <div class="header-row">
+        <div>
+          <div class="badge badge-avant">État actuel</div>
+          <h2 id="avantName">Maître Dupont</h2>
+          <div class="sub" id="avantCity">Lyon</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Note Google</span>
+        <span class="value rating"><span class="stars" id="avantStars">★★★</span> <span id="avantRating">3.2</span> (<span id="avantReviews">4</span> avis)</span>
+      </div>
+      <div class="row">
+        <span class="label">Site web</span>
+        <span class="value" id="avantWebsite"><span class="cross">✗</span> Aucun</span>
+      </div>
+      <div class="row">
+        <span class="label">Visiteurs / jour</span>
+        <span class="value" id="avantVisitors"><span class="cross">✗</span> 0</span>
+      </div>
+      <div class="row">
+        <span class="label">Blog</span>
+        <span class="value" id="avantBlog"><span class="cross">✗</span> Aucun</span>
+      </div>
+      <div class="row">
+        <span class="label">Design mobile</span>
+        <span class="value" id="avantMobile"><span class="cross">✗</span> Pas adapté</span>
+      </div>
+      <div class="row">
+        <span class="label">Vitesse (PageSpeed)</span>
+        <span class="value" id="avantSpeed"><span class="cross">✗</span> Non mesuré</span>
+      </div>
+    </div>
+
+    <div class="divider-vertical"></div>
+
+    <div class="apres">
+      <div class="header-row">
+        <div>
+          <div class="badge badge-apres">PropulseDev</div>
+          <h2 id="apresName">Maître Dupont</h2>
+          <div class="sub" id="apresCity">Lyon</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="label">Note Google</span>
+        <span class="value rating"><span class="stars">★★★★★</span> <b>5.0</b> (30+ avis)</span>
+      </div>
+      <div class="row">
+        <span class="label">Site web</span>
+        <span class="value"><span class="check">✓</span> Site premium</span>
+      </div>
+      <div class="row">
+        <span class="label">Visiteurs / jour</span>
+        <span class="value"><b>50+</b></span>
+      </div>
+      <div class="row">
+        <span class="label">Blog</span>
+        <span class="value"><span class="check">✓</span> Articles SEO</span>
+      </div>
+      <div class="row">
+        <span class="label">Design mobile</span>
+        <span class="value"><span class="check">✓</span> Responsive</span>
+      </div>
+      <div class="row">
+        <span class="label">Vitesse (PageSpeed)</span>
+        <span class="value">96 / 100</span>
+      </div>
+      <a class="cta cta-apres" href="#" onclick="return false">Je veux le même résultat →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(location.search)
+  const name = params.get('name') || 'Maître Dupont'
+  const city = params.get('city') || 'Lyon'
+  const rating = parseFloat(params.get('rating')) || 3.2
+  const reviews = params.get('reviews') || '4'
+
+  document.getElementById('avantName').textContent = name
+  document.getElementById('apresName').textContent = name
+  document.getElementById('avantCity').textContent = city
+  document.getElementById('apresCity').textContent = city
+
+  const fullStars = Math.floor(rating)
+  const starStr = '★'.repeat(fullStars) + (rating % 1 >= 0.5 ? '½' : '') + '☆'.repeat(Math.max(0, 5 - fullStars - (rating % 1 >= 0.5 ? 1 : 0)))
+  document.getElementById('avantStars').textContent = starStr
+  document.getElementById('avantRating').textContent = rating.toFixed(1)
+  document.getElementById('avantReviews').textContent = reviews
+</script>
+
+</body>
+</html>
