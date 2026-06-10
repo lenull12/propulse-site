@@ -25,7 +25,7 @@ const DATA = [
       "Catégorisation & mots-clés locaux",
       "Citations locales NAP cohérentes",
       "Posts & photos réguliers",
-      "Système d'avis 5★ automatisé",
+      "Système d'avis 5★ (abonnement Business)",
       "Suivi position Local Pack",
     ],
   },

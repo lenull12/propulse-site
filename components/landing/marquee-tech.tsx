@@ -32,7 +32,7 @@ export function MarqueeTech() {
         <p className="text-sm font-medium tracking-wide text-accent font-sans">
           La même technologie que les plus grands.
         </p>
-        <p className="mt-1 text-xs text-white/30 font-light">
+        <p className="mt-1 text-xs text-white/60 lg:text-white/30 font-light">
           Netflix, Airbnb, Google, Uber, TikTok... utilisent la stack qu&apos;on utilise pour vos projets.
         </p>
       </div>
@@ -55,7 +55,7 @@ export function MarqueeTech() {
               height={24}
               className="w-6 h-6 opacity-60 brightness-0 invert transition-all duration-300 hover:opacity-90"
             />
-            <span className="text-sm text-white/50 font-light tracking-wide transition-all duration-300 hover:text-white/80">
+            <span className="text-sm text-white/70 lg:text-white/50 font-light tracking-wide transition-all duration-300 hover:text-white/80">
               {brand.name}
             </span>
           </div>

@@ -40,7 +40,7 @@ const SERVICES = [
       "Filtrage intelligent des réclamations",
       "Amélioration de la note en 15 jours",
     ],
-    price: "À partir de 49 € / mois",
+    price: "Inclus dans l'abonnement Business",
     featured: false,
   },
 ]

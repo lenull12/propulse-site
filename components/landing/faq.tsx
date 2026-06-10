@@ -28,6 +28,14 @@ const FAQS = [
     q: "Est-ce que mon site sera bien positionné sur Google ?",
     a: "Chaque site est construit avec les bonnes pratiques SEO dès le départ : structure technique, balises optimisées, vitesse de chargement, responsive mobile. Pour le référencement local, nous travaillons aussi votre fiche Google My Business. Le SEO prend du temps mais les bases sont solides dès le lancement.",
   },
+  {
+    q: "Comment se fait le paiement ?",
+    a: "30% à la commande pour lancer le projet, 70% à la mise en ligne. Paiement par virement. Pas de frais cachés.",
+  },
+  {
+    q: "L'abonnement est-il obligatoire ?",
+    a: "Non. Votre site vous appartient, hébergement et domaine offerts 1 an. Vous pouvez souscrire un abonnement Zen (29 €), Performance (59 €) ou Business (89 €) quand vous le souhaitez. Résiliable à tout moment.",
+  },
 ]
 
 export function Faq() {

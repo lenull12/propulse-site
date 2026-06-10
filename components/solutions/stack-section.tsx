@@ -54,14 +54,14 @@ const STACK: StackItem[] = [
     benefits: ["Design unique et cohérent", "Pas de CSS inutilisé", "Développement rapide"],
   },
   {
-    name: "Vercel",
-    badge: "Hébergement",
-    icon: "/svg/vercel.svg",
+    name: "Cloudflare",
+    badge: "Hébergement & CDN",
+    icon: "/svg/cloudflare.svg",
     desc:
-      "Vercel est la plateforme d'''hébergement créée par les auteurs de Next.js, et c'''est aujourd'''hui le standard pour les sites modernes. Déploiement en un clic, CDN mondial intégré, scaling automatique : votre site supporte aussi bien 10 visiteurs que 10 000 sans aucun réglage. La NBA, Washington Post et Sony font confiance à Vercel pour leur fiabilité. Plus besoin de gérer des serveurs, des certificats SSL ou des mises à jour — tout est automatisé, vous vous concentrez sur votre activité.",
+      "Cloudflare est le réseau de diffusion de contenu (CDN) le plus rapide au monde, avec plus de 330 data centers répartis dans 120 pays. Votre site est mis en cache et servi depuis le data center le plus proche de chaque visiteur — temps de chargement minimal, quelle que soit leur localisation. Protection DDoS intégrée, certificat SSL automatique, et pare-feu applicatif : votre site est aussi sécurisé que rapide, sans aucune configuration technique. Pas de gestion de serveur, pas de mise à jour, pas de surprise.",
     detail:
-      "Vercel est la plateforme d'''hébergement créée par les auteurs de Next.js. Déploiement en un clic, scaling automatique, CDN mondial, et une fiabilité qui fait tourner des sites comme NBA et Washington Post.",
-    benefits: ["Déploiement instantané", "CDN mondial intégré", "Fiabilité professionnelle"],
+      "Cloudflare est le CDN le plus rapide au monde, avec 330+ data centers et une protection DDoS incluse. Votre site est distribué mondialement, sécurisé automatiquement, et charge en un clin d'œil — sans que vous ayez à gérer quoi que ce soit.",
+    benefits: ["330+ data centers mondiaux", "Protection DDoS incluse", "SSL automatique"],
   },
   {
     name: "Lighthouse",

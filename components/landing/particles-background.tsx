@@ -34,6 +34,7 @@ export function ParticlesBackground({
 
     let animId: number
     let particles: Particle[] = []
+    let started = false
 
     function init() {
       if (!canvas) return
@@ -92,7 +93,18 @@ export function ParticlesBackground({
     observer.observe(canvas)
 
     init()
-    draw()
+
+    function start() {
+      if (started) return
+      started = true
+      draw()
+    }
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(start, { timeout: 500 })
+    } else {
+      setTimeout(start, 200)
+    }
 
     return () => {
       cancelAnimationFrame(animId)

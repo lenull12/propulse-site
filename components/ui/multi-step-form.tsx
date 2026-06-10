@@ -7,6 +7,14 @@ import Link from "next/link"
 
 const BUDGETS = ["<1 000€", "1 000–2 000€", "2 000–4 000€", "4 000€+"]
 const TIMINGS = ["1–2 semaines", "1 mois", "2–3 mois", "Pas de date fixe"]
+const SUBSCRIPTIONS = [
+  { value: "none", label: "Non, juste le site" },
+  { value: "zen", label: "Zen (29 €/mois)" },
+  { value: "performance", label: "Performance (59 €/mois)" },
+  { value: "business", label: "Business (89 €/mois)" },
+  { value: "unsure", label: "Je ne sais pas encore" },
+]
+
 const OBJECTIVES = [
   { value: "site-vitrine", label: "Site vitrine" },
   { value: "seo-local", label: "SEO local" },
@@ -29,6 +37,7 @@ type FormDataState = {
   description: string
   hasWebsite: boolean | null
   companyName: string
+  subscription: string | null
 }
 
 const initialForm: FormDataState = {
@@ -43,6 +52,7 @@ const initialForm: FormDataState = {
   description: "",
   hasWebsite: null,
   companyName: "",
+  subscription: null,
 }
 
 function Select({
@@ -326,6 +336,14 @@ export function MultiStepForm() {
                       ]}
                     />
 
+                    <Select
+                      label="Abonnement mensuel souhaité"
+                      value={form.subscription ?? ""}
+                      onChange={(v) => update("subscription", v)}
+                      placeholder="Sélectionnez..."
+                      options={SUBSCRIPTIONS}
+                    />
+
                     <div>
                       <label className="block text-sm font-medium text-white/60 mb-2">Objectifs</label>
                       <div className="grid grid-cols-2 gap-2">
@@ -389,6 +407,9 @@ export function MultiStepForm() {
                   )}
                   {form.site && <p><span className="text-white/60 font-medium">Site :</span> {form.site}</p>}
                   {form.companyName && <p><span className="text-white/60 font-medium">Entreprise :</span> {form.companyName}</p>}
+                  {form.subscription && form.subscription !== "unsure" && (
+                    <p><span className="text-white/60 font-medium">Abonnement :</span> {SUBSCRIPTIONS.find((s) => s.value === form.subscription)?.label}</p>
+                  )}
                 </div>
 
                 <input

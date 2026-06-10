@@ -104,7 +104,15 @@ export function CustomCursor() {
 
     syncClickables()
 
-    rafId = requestAnimationFrame(animate)
+    function startLoop() {
+      rafId = requestAnimationFrame(animate)
+    }
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(startLoop, { timeout: 500 })
+    } else {
+      setTimeout(startLoop, 200)
+    }
 
     return () => {
       document.removeEventListener("mousemove", onMove)

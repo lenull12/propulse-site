@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
+import { Subscriptions } from "@/components/tarifs/subscriptions"
 
 export const metadata: Metadata = {
   title: "Tarifs — PropulseDev",
@@ -25,10 +26,15 @@ const PLANS = [
       "Site vitrine 1 page (mono-page)",
       "Design responsive mobile/tablette",
       "Formulaire de contact intégré",
-      "Hébergement 12 mois offert",
-      "Nom de domaine .fr offert 1 an",
+      "Stack Next.js + Tailwind CSS",
+      "Hébergement Cloudflare Pages — CDN mondial",
+      "Nom de domaine .fr offert 1 an*",
+      "Certificat SSL automatique",
+      "Protection DDoS & firewall Cloudflare",
       "SEO technique de base",
       "Configuration Google My Business",
+      "Optimisation images WebP",
+      "Sitemap XML + balises Open Graph",
       "Livré sous 5 à 7 jours",
     ],
     cta: "Choisir Starter",
@@ -46,10 +52,20 @@ const PLANS = [
       "Site multipages (5 pages max)",
       "Design responsive + animations",
       "Blog / Actualités intégré",
-      "Système d'avis Google automatisé",
-      "QR code personnalisé (flyer, carte de visite)",
-      "Pages légales (mentions, politique de confidentialité)",
+      "Stack Next.js + Tailwind CSS",
+      "Hébergement Cloudflare Pages — CDN mondial",
+      "Nom de domaine .fr offert 1 an*",
+      "Certificat SSL automatique",
+      "Protection DDoS & firewall Cloudflare",
+      "Cache edge — temps de chargement < 1s",
+      "Score PageSpeed 95+ garanti",
+      "Images WebP & format moderne",
       "SEO avancé (balises, structuration, sitemap)",
+      "Données structurées Schema.org",
+      "Sitemap XML + balises Open Graph",
+      "Configuration Google My Business",
+      "Pages légales (mentions, politique de confidentialité)",
+      "QR code personnalisé (flyer, carte de visite)",
       "Formation gestion de contenu (30 min visio)",
       "Livré sous 1 à 2 semaines",
     ],
@@ -66,14 +82,28 @@ const PLANS = [
     popular: false,
     features: [
       "Site multipages (10 pages max)",
-      "Design personnalisé avec votre charte",
-      "Animations avancées et micro-interactions",
-      "Dashboard de suivi des avis Google",
-      "Page d'atterrissage campagne spécifique",
-      "Générateur de QR codes dynamiques",
+      "Design personnalisé avec votre charte graphique",
+      "Animations avancées & micro-interactions",
+      "Page d'atterrissage campagne dédiée",
+      "Blog / Actualités intégré",
+      "Stack Next.js + Tailwind CSS",
+      "Hébergement Cloudflare Pages — CDN mondial",
+      "Nom de domaine .fr offert 1 an*",
+      "Certificat SSL automatique",
+      "Protection DDoS & firewall Cloudflare",
+      "Cache edge — temps de chargement < 1s",
+      "Score PageSpeed 98+ garanti",
+      "Images WebP, AVIF & lazy loading",
       "SEO complet + contenu rédigé par notre équipe",
+      "Données structurées Schema.org avancé",
+      "Sitemap XML + balises Open Graph",
+      "Configuration Google My Business optimisée",
+      "Pages légales (mentions, politique de confidentialité)",
       "Site éco-conçu (performances optimisées)",
-      "Maintenance et mises à jour 3 mois offerts",
+      "QR code dynamique personnalisé",
+      "Générateur de QR codes illimité",
+      "Formation gestion de contenu (30 min visio)",
+      "Monitoring 24/7 & backups automatisés",
       "Audit trimestriel de performance",
       "Livré sous 2 à 4 semaines",
     ],
@@ -98,8 +128,8 @@ export default function TarifsPage() {
           </h1>
           <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
             Un audit gratuit et sans engagement pour chiffrer votre projet. Ensuite,
-            vous choisissez la formule qui correspond à vos besoins. Pas de frais cachés,
-            pas d'abonnement forcé.
+            vous choisissez la formule qui correspond à vos besoins. Paiement en deux fois :
+            <span className="text-foreground"> 30% à la commande, 70% à la mise en ligne</span>.
           </p>
         </div>
       </section>
@@ -142,6 +172,7 @@ export default function TarifsPage() {
                 </span>
                 <span className="ml-1 font-mono text-lg text-white/40">{plan.suffix}</span>
                 <p className="mt-1 text-sm text-gray-500">{plan.period}</p>
+                <p className="mt-1 text-xs text-white/30 font-light">30% à la commande</p>
               </div>
 
               {/* Features */}
@@ -185,15 +216,126 @@ export default function TarifsPage() {
         </div>
       </section>
 
-      {/* ============ SECTION COMPLÉMENTAIRE ============ */}
+
+
+      {/* ============ COMPARAISON RAPIDE ============ */}
+      <section className="border-t border-white/5 bg-background px-6 py-24 md:px-15">
+        <div className="mx-auto max-w-[960px]">
+          <div className="mb-12 text-center">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Comparatif</p>
+            <h2 className="mb-3 font-mono text-[clamp(24px,3vw,36px)] font-black leading-[1.15] text-foreground">
+              Tout ce qui est inclus <span className="text-white/30">dans chaque formule</span>
+            </h2>
+            <p className="text-sm font-light text-gray-500">Comparez et choisissez celle qui vous correspond.</p>
+          </div>
+
+          <div className="overflow-hidden rounded-xl border border-white/5">
+            {/* En-têtes colonnes */}
+            <div className="grid grid-cols-4 border-b border-white/5 bg-white/[0.02]">
+              <div className="px-5 py-4">
+                <span className="text-[11px] font-medium uppercase tracking-[2px] text-white/30">Fonctionnalité</span>
+              </div>
+              {[{ name: "Starter", badge: "Pour démarrer" }, { name: "Pro", badge: "Recommandé" }, { name: "Premium", badge: "Sur-mesure" }].map(({ name, badge }) => (
+                <div key={name} className="px-3 py-4 text-center">
+                  <span className={`text-sm font-semibold ${badge === "Recommandé" ? "text-accent" : "text-foreground"}`}>{name}</span>
+                  <p className="text-[10px] uppercase tracking-[1px] text-white/30 mt-0.5">{badge}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Lignes */}
+            {[
+              // === DESIGN & PAGES ===
+              { label: "Pages incluses", starter: "1", pro: "5", premium: "10" },
+              { label: "Design responsive", starter: true, pro: true, premium: true },
+              { label: "Animations", starter: false, pro: true, premium: true },
+              { label: "Animations avancées & micro-interactions", starter: false, pro: false, premium: true },
+              { label: "Design personnalisé (charte incluse)", starter: false, pro: false, premium: true },
+
+              // === TECHNOLOGIE ===
+              { label: "Stack Next.js + Tailwind CSS", starter: true, pro: true, premium: true },
+              { label: "Hébergement Cloudflare — CDN mondial", starter: true, pro: true, premium: true },
+              { label: "Certificat SSL automatique", starter: true, pro: true, premium: true },
+              { label: "Protection DDoS & firewall", starter: true, pro: true, premium: true },
+              { label: "Cache edge — chargement < 1s", starter: true, pro: true, premium: true },
+              { label: "Score PageSpeed 95+ garanti", starter: false, pro: true, premium: true },
+              { label: "Score PageSpeed 98+ garanti", starter: false, pro: false, premium: true },
+              { label: "Images WebP", starter: true, pro: true, premium: true },
+              { label: "Images AVIF & lazy loading", starter: false, pro: false, premium: true },
+              { label: "Site éco-conçu", starter: false, pro: false, premium: true },
+
+              // === SEO & VISIBILITÉ ===
+              { label: "SEO technique (balises, sitemap)", starter: true, pro: true, premium: true },
+              { label: "SEO avancé (structuration, Schema.org)", starter: false, pro: true, premium: true },
+              { label: "SEO complet + contenu rédigé", starter: false, pro: false, premium: true },
+              { label: "Données structurées Schema.org", starter: false, pro: true, premium: true },
+              { label: "Google My Business configuré", starter: true, pro: true, premium: true },
+              { label: "Sitemap XML + Open Graph", starter: true, pro: true, premium: true },
+
+              // === FONCTIONNALITÉS ===
+              { label: "Formulaire de contact", starter: true, pro: true, premium: true },
+              { label: "Blog / Actualités", starter: false, pro: true, premium: true },
+              { label: "QR code personnalisé", starter: false, pro: true, premium: true },
+              { label: "QR code dynamique & générateur illimité", starter: false, pro: false, premium: true },
+              { label: "Pages légales (mentions, CGV, RGPD)", starter: false, pro: true, premium: true },
+              { label: "Page d'atterrissage campagne dédiée", starter: false, pro: false, premium: true },
+
+              // === ACCOMPAGNEMENT ===
+              { label: "Formation gestion contenu (30 min)", starter: false, pro: true, premium: true },
+              { label: "Nom de domaine .fr offert 1 an*", starter: true, pro: true, premium: true },
+              { label: "Monitoring 24/7 & backups", starter: false, pro: false, premium: true },
+              { label: "Audit trimestriel de performance", starter: false, pro: false, premium: true },
+
+              // === LIVRAISON ===
+              { label: "Délai de livraison", starter: "5-7 jours", pro: "1-2 sem.", premium: "2-4 sem." },
+            ].map((row, idx) => (
+              <div key={idx} className="grid grid-cols-4 border-b border-white/[0.03] last:border-0 hover:bg-white/[0.01] transition-colors">
+                <div className="px-5 py-3.5">
+                  <span className="text-sm font-light text-gray-400">{row.label}</span>
+                </div>
+                {(["starter", "pro", "premium"] as const).map((key) => {
+                  const val = row[key]
+                  return (
+                    <div key={key} className="flex items-center justify-center px-3 py-3.5">
+                      {val === true ? (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-accent" aria-hidden="true">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      ) : val === false ? (
+                        <span className="text-white/10 text-sm">—</span>
+                      ) : (
+                        <span className="text-sm text-white/40">{val}</span>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center space-y-2">
+            <p className="text-xs text-white/20">
+              Toutes les formules incluent l'hébergement, le nom de domaine et la stack technique Next.js + Cloudflare.
+              Les fonctionnalités liées aux avis Google sont disponibles via l'abonnement Business.
+            </p>
+            <p className="text-[10px] text-white/10">
+              * Offre valable pour un nom de domaine standard (.fr, .com, .net, .org). Les domaines premium ou exotiques font l&apos;objet d&apos;un devis séparé.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <Subscriptions />
+
+      {/* ============ DEVIS PERSONNALISÉ ============ */}
       <section className="border-t border-white/5 bg-[#050505] px-6 py-24 md:px-15">
         <div className="mx-auto max-w-[800px] text-center">
           <h2 className="mb-6 font-mono text-[clamp(24px,3vw,36px)] font-black leading-[1.15] text-foreground">
-            Vous ne trouvez pas la formule qu'il vous faut ?
+            Vous ne trouvez pas la formule qu&apos;il vous faut ?
           </h2>
           <p className="mb-8 text-base font-light leading-relaxed text-gray-400">
             Chaque projet est unique. Nous pouvons assembler les options à la carte pour
-            créer une offre sur-mesure. L'audit est gratuit et sans engagement.
+            créer une offre sur-mesure. L&apos;audit est gratuit et sans engagement.
           </p>
           <Link
             href="/contact"
@@ -205,63 +347,6 @@ export default function TarifsPage() {
               <polyline points="12 5 19 12 12 19" />
             </svg>
           </Link>
-        </div>
-      </section>
-
-      {/* ============ COMPARAISON RAPIDE ============ */}
-      <section className="border-t border-white/5 bg-background px-6 py-24 md:px-15">
-        <div className="mx-auto max-w-[900px]">
-          <div className="mb-12 text-center">
-            <h2 className="mb-3 font-mono text-[clamp(24px,3vw,36px)] font-black leading-[1.15] text-foreground">
-              Ce qui est inclus <span className="text-white/30">dans chaque formule</span>
-            </h2>
-            <p className="text-sm font-light text-gray-500">Parce que la transparence, c'est la base.</p>
-          </div>
-
-          <div className="overflow-hidden rounded-xl border border-white/5">
-            {/* En-têtes colonnes */}
-            <div className="grid grid-cols-4 border-b border-white/5 bg-white/[0.02]">
-              <div className="px-5 py-4">
-                <span className="text-[11px] font-medium uppercase tracking-[2px] text-white/30">Inclus</span>
-              </div>
-              {["Starter", "Pro", "Premium"].map((name) => (
-                <div key={name} className="px-5 py-4 text-center">
-                  <span className="text-sm font-semibold text-foreground">{name}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Lignes */}
-            {[
-              { label: "Design responsive", starter: true, pro: true, premium: true },
-              { label: "Hébergement 12 mois", starter: true, pro: true, premium: true },
-              { label: "Nom de domaine .fr", starter: true, pro: true, premium: true },
-              { label: "Blog / Actualités", starter: false, pro: true, premium: true },
-              { label: "Avis Google automatisé", starter: false, pro: true, premium: true },
-              { label: "QR code personnalisé", starter: false, pro: true, premium: true },
-              { label: "Formation gestion contenu", starter: false, pro: true, premium: true },
-              { label: "Dashboard avis Google", starter: false, pro: false, premium: true },
-              { label: "Maintenance offerte", starter: false, pro: false, premium: true },
-              { label: "Audit performance", starter: false, pro: false, premium: true },
-            ].map((row) => (
-              <div key={row.label} className="grid grid-cols-4 border-b border-white/[0.03] last:border-0">
-                <div className="px-5 py-4">
-                  <span className="text-sm font-light text-gray-400">{row.label}</span>
-                </div>
-                {(["starter", "pro", "premium"] as const).map((key) => (
-                  <div key={key} className="flex items-center justify-center px-5 py-4">
-                    {row[key] ? (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-accent" aria-hidden="true">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    ) : (
-                      <span className="text-white/15 text-sm">—</span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

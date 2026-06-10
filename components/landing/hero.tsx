@@ -9,7 +9,7 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center bg-[#000000] overflow-hidden">
       {/* Particules de fond */}
       <ParticlesBackground
-        count={60}
+        count={40}
         connectDistance={100}
         color="200,240,0"
         className="opacity-30"
@@ -74,10 +74,10 @@ export function Hero() {
           </div>
 
           {/* Colonne image */}
-          <div className="flex justify-center self-start -mt-16">
+          <div className="flex justify-center self-start lg:-mt-16 mt-8">
             <div className="relative w-full aspect-[5/4]">
               <Image
-                src="/images/herolanding.png"
+                src="/images/herolanding.webp"
                 alt=""
                 aria-hidden="true"
                 fill

@@ -7,6 +7,10 @@ import { SiteFooter } from "@/components/site-footer"
 
 const FAQS = [
   {
+    q: "Comment se fait le paiement ?",
+    a: "En deux fois : 30% à la commande pour lancer le projet, 70% à la mise en ligne. Pas de frais cachés, pas de surprise. Paiement par virement bancaire.",
+  },
+  {
     q: "Combien coûte un site web professionnel ?",
     a: "Un site vitrine sur-mesure démarre à 1 000 €. Le prix final dépend du nombre de pages, des fonctionnalités souhaitées et de votre secteur d'activité. L'audit initial est toujours offert et sans engagement — c'est lui qui permet de chiffrer précisément votre projet. Nous travaillons en prix fixes, sans surprise.",
   },
@@ -20,7 +24,7 @@ const FAQS = [
   },
   {
     q: "Que se passe-t-il après la livraison du site ?",
-    a: "Nous restons disponibles pour les ajustements post-livraison pendant 30 jours — c'est inclus. Au-delà, nous proposons une formule de maintenance mensuelle optionnelle qui inclut les mises à jour techniques, les sauvegardes et le suivi des performances.",
+    a: "Nous restons disponibles pour les ajustements post-livraison pendant 30 jours — c'est inclus. Au-delà, nous proposons trois formules d'abonnement mensuel (Zen, Performance, Business) qui incluent hébergement, mises à jour, sauvegardes et un nombre de modifications selon la formule choisie.",
   },
   {
     q: "Comment fonctionne le système d'avis Google ?",
@@ -53,6 +57,26 @@ const FAQS = [
   {
     q: "Puis-je modifier mon site moi-même après la livraison ?",
     a: "Oui, si vous le souhaitez. Nous pouvons intégrer un système de gestion de contenu simple d'utilisation pour modifier vos textes, photos ou horaires. Sinon, nous nous en chargeons pour vous via la formule de maintenance mensuelle.",
+  },
+  {
+    q: "Est-ce que l'abonnement est obligatoire ?",
+    a: "Non. Votre site vous appartient, et l'hébergement ainsi que le nom de domaine vous sont offerts pendant 1 an. Vous pouvez choisir de ne pas souscrire d'abonnement. Les modifications seront alors facturées à la carte.",
+  },
+  {
+    q: "Que contient l'abonnement Zen à 29 €/mois ?",
+    a: "L'hébergement du site, le renouvellement du nom de domaine, les mises à jour de sécurité, les sauvegardes automatiques, le support prioritaire et 2 modifications par mois (texte, photo, horaire, etc.).",
+  },
+  {
+    q: "Et les abonnements Performance et Business ?",
+    a: "Performance (59 €/mois) inclut tout le Zen, plus un audit SEO mensuel, un suivi du classement Google et 5 modifications par mois. Business (89 €/mois) ajoute le filtrage des avis Google, un support prioritaire et 10 modifications par mois.",
+  },
+  {
+    q: "Comment résilier mon abonnement ?",
+    a: "Par email, à tout moment, sans frais. Le service s'arrête à la fin du mois en cours. Nous vous envoyons une archive complète de votre site (fichiers, base de données) et nous vous accompagnons pour transférer votre domaine si nécessaire. Aucune rétention : le site vous appartient.",
+  },
+  {
+    q: "Que se passe-t-il après la première année d'hébergement offert ?",
+    a: "Si vous avez un abonnement Zen, Performance ou Business, rien ne change — l'hébergement et le domaine sont inclus. Sinon, vous pouvez reprendre vos fichiers et héberger le site où vous le souhaitez, ou souscrire à un abonnement à tout moment.",
   },
 ]
 

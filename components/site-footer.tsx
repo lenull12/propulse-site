@@ -16,6 +16,7 @@ const FOOTER_LINKS = {
   ],
   Légal: [
     { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "CGV", href: "/cgv" },
   ],
 }
 

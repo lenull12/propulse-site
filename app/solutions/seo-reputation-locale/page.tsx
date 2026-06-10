@@ -9,10 +9,10 @@ import { SeoResults } from "@/components/solutions/seo-results"
 export const metadata: Metadata = {
   title: "SEO & réputation locale — PropulseDev",
   description:
-    "Référencement local, avis Google automatisés, SEO technique natif. On vous rend visible partout où vos clients vous cherchent.",
+    "Référencement local, SEO technique, gestion automatisée de votre réputation Google. On vous rend visible partout où vos clients vous cherchent.",
   openGraph: {
     title: "SEO & réputation locale — PropulseDev",
-    description: "Référencement local, avis Google automatisés, SEO technique natif.",
+    description: "Référencement local, SEO technique, gestion automatisée de votre réputation Google.",
   },
 }
 
@@ -138,7 +138,7 @@ export default function SeoReputationLocalePage() {
           {/* Right — image preview */}
           <div className="relative mt-12 flex justify-center lg:mt-0">
             <Image
-              src="/images/seo.png"
+              src="/images/seo.webp"
               alt="Aperçu SEO & réputation locale"
               width={720}
               height={540}

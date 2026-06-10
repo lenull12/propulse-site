@@ -5,14 +5,48 @@
 PropulseDev est une agence digitale freelance (je suis un développeur web freelance). J'accompagne les professionnels indépendants (avocats, architectes, restaurateurs, artisans, etc.) à améliorer leur visibilité Google et à inspirer confiance via leur site web.
 
 ### Offres
-- **Prix fixe** : refonte complète de site web + optimisation SEO, livraison clé en main
-- **Abonnement** : gestion des avis Google — QR code à flasher → atterrissage sur mon site → redirection vers Google. Les avis inférieurs à 4 ou 5 étoiles sont filtrés (ne passent pas par le système)
+- **Prix fixe** : refonte complète site web + optimisation SEO (Starter 1 000€ / Pro 2 000€ / Premium 3 500€)
+- **Abonnements mensuels** (résiliables à tout moment) :
+  - **Zen** 29 €/mois — hébergement, domaine, màj sécurité, backups, 2 modifs/mois
+  - **Performance** 59 €/mois — Zen + audit SEO mensuel + suivi classement, 5 modifs/mois
+  - **Business** 89 €/mois — Performance + filtrage avis Google + prioritaire, 10 modifs/mois
+- **Paiement** : 30% acompte, 70% à la mise en ligne
 
 ### Cible
 Professionnels indépendants ayant besoin d'un bon référencement local (SEO local) et d'un site qui inspire la confiance.
 
 ### Ton
 Utiliser **"nous"** sur le site (pas "je") pour faire plus professionnel. Le contenu textuel est en français.
+
+## Flux client
+
+```
+1. Contact via formulaire /contact
+2. Audit gratuit (analyse site + concurrence, 24-48h)
+3. Proposition devis + signature (30% acompte)
+4. Conception du site (preview partagée)
+5. Relecture + ajustements
+6. Mise en ligne + solde 70%
+7. Abonnement mensuel (optionnel, résiliable à tout moment)
+   → Zen / Performance / Business
+8. Modifications : client demande → on modifie (compteur de modifs)
+   → Résiliation : mail → zip du site + transfert domaine si besoin
+   → Le site appartient au client, pas de blocage
+```
+
+### Définition d'une modification
+
+| Type | Compteur |
+|---|---|
+| Modifier un texte existant | 1 |
+| Changer une photo | 1 |
+| Modifier horaire/téléphone/lien | 1 |
+| Publier 1 article de blog | 1 |
+| Nouvelle page | 2 |
+| Nouvelle section | 3 |
+| Refonte / gros changement | Devis dédié |
+
+Pas de CMS headless. Le client demande → on modifie.
 
 ## Palette graphique
 
@@ -33,7 +67,7 @@ Utiliser **"nous"** sur le site (pas "je") pour faire plus professionnel. Le con
 - **Langage** : TypeScript strict
 - **CSS** : Tailwind CSS v4 avec `@theme` dans `globals.css`
 - **Polices** : Inter (body, `--font-inter`), JetBrains Mono (titres, `--font-jetbrains-mono`)
-- **Déploiement** : Vercel
+- **Déploiement** : Cloudflare Pages
 
 ## Conventions de code
 
@@ -68,7 +102,8 @@ app/             → Pages Next.js App Router
   demos/         → Démonstrations par niche
   solutions/     → Page solutions
   tarifs/        → Page tarifs
-  api/contact/   → API route (Formspree)
+  contact/       → Page contact avec formulaire
+  cgv/           → Conditions générales de vente
 components/
   ui/            → Composants réutilisables (cursor, typewriter)
   landing/       → Sections de la landing page

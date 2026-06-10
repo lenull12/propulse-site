@@ -31,7 +31,7 @@ const FEATURES = [
   {
     num: "03",
     title: "Architecture robuste",
-    desc: "Next.js + TypeScript, hébergement professionnel Vercel, zéro plugin. Votre site reste rapide, sécurisé et évolutif sans ralentir avec le temps.",
+    desc: "Next.js + TypeScript, hébergement professionnel Cloudflare, zéro plugin. Votre site reste rapide, sécurisé et évolutif sans ralentir avec le temps.",
   },
   {
     num: "04",
@@ -158,7 +158,7 @@ export default function CreationSiteWebPage() {
           {/* Right — image preview */}
           <div className="relative mt-12 flex justify-center lg:mt-0">
             <Image
-              src="/images/heroweb.png"
+              src="/images/heroweb.webp"
               alt="Aperçu d'un site web premium"
               width={720}
               height={540}

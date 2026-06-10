@@ -4,6 +4,8 @@ import type { ReactNode } from "react"
 import { CustomCursor } from "@/components/ui/custom-cursor"
 import "./globals.css"
 
+const preloadHero = "/images/herolanding.webp"
+
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -39,6 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <link rel="preload" as="image" href={preloadHero} fetchPriority="high" />
         <CustomCursor />
         {children}
       </body>

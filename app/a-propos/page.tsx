@@ -378,7 +378,7 @@ export default function AboutPage() {
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6">
                 <p className="text-xs font-medium uppercase tracking-wider text-white/30 mb-3">Technologies</p>
                 <div className="flex flex-wrap gap-2">
-                  {["Next.js", "Tailwind CSS", "Cloudflare", "Vercel"].map((t) => (
+                  {["Next.js", "Tailwind CSS", "Cloudflare"].map((t) => (
                     <span
                       key={t}
                       className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs font-medium text-white/60"

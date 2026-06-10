@@ -31,7 +31,7 @@ export default function HomePage() {
         <Process />
         <div className="-mt-32 hidden md:block">
           <Image
-            src="/images/hands.png"
+            src="/images/hands.webp"
             alt=""
             width={1440}
             height={480}
