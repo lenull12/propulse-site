@@ -50,10 +50,10 @@ export default function MentionsLegalesPage() {
                 title: "Hébergement",
                 content: (
                   <>
-                    <p>Vercel Inc.</p>
-                    <p>440 N Barranca Ave #4133</p>
-                    <p>Covina, CA 91723, États-Unis</p>
-                    <p><a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-accent/70 hover:text-accent transition-colors">vercel.com</a></p>
+                    <p>Cloudflare, Inc.</p>
+                    <p>101 Townsend St</p>
+                    <p>San Francisco, CA 94107, États-Unis</p>
+                    <p><a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" className="text-accent/70 hover:text-accent transition-colors">cloudflare.com</a></p>
                   </>
                 ),
               },
