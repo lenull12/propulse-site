@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/landing/testimonials"
 import { Contact } from "@/components/landing/contact"
 import { LiveMetrics } from "@/components/landing/live-metrics"
 import { Marquee } from "@/components/landing/marquee"
+import { MarqueeTech } from "@/components/landing/marquee-tech"
 import { About } from "@/components/landing/about"
 import { Faq } from "@/components/landing/faq"
 import Image from "next/image"
@@ -20,11 +21,12 @@ export default function HomePage() {
       <SiteNav />
       <main>
         <Hero />
-        <Marquee />
+        <MarqueeTech />
         <Problem />
         <Capabilities />
         <LiveMetrics />
         <DemosPreview />
+        <Marquee />
         <Services />
         <Process />
         <div className="-mt-32 hidden md:block">

@@ -81,7 +81,7 @@ export default async function HubPage({ params }: PageProps) {
             identité, vos couleurs et vos besoins.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="mt-2 inline-block rounded-full bg-accent px-9 py-3.5 text-sm font-medium text-accent-foreground transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(200,240,0,0.3)]"
           >
             Demander un site sur mesure

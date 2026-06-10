@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 import { useStaggerReveal } from "@/hooks/use-stagger-reveal"
 import { ParticlesBackground } from "./particles-background"
 import { Typewriter } from "@/components/ui/typewriter"
@@ -117,7 +118,7 @@ export function Services() {
                   {s.price}
                 </span>
                 <a
-                  href="#contact"
+                  href="/contact"
                   className={`rounded-full px-5 py-2 text-xs font-semibold transition-all hover:-translate-y-0.5 ${
                     s.featured
                       ? "bg-accent text-accent-foreground hover:shadow-[0_8px_20px_rgba(200,240,0,0.3)]"
@@ -129,6 +130,15 @@ export function Services() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/tarifs"
+            className="inline-block rounded-xl border border-accent/50 px-8 py-4 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-accent-foreground hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
+          >
+            Voir nos tarifs détaillés →
+          </Link>
         </div>
       </div>
     </section>

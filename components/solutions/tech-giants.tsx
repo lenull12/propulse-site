@@ -120,7 +120,7 @@ export function TechGiants() {
               Votre site professionnel, avec les technologies des plus grandes plateformes, à portée de main.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
             >
               Démarrer votre projet
@@ -135,3 +135,4 @@ export function TechGiants() {
     </section>
   )
 }
+

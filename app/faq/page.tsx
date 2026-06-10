@@ -79,7 +79,7 @@ export default function FaqPage() {
             </h1>
             <p className="text-base font-light text-gray-400 max-w-[600px] mx-auto">
             Tout ce que vous devez savoir avant de nous confier votre projet. Vous ne trouvez pas votre réponse ?{" "}
-              <Link href="/#contact" className="text-accent hover:underline">Contactez-nous</Link>.
+              <Link href="/contact" className="text-accent hover:underline">Contactez-nous</Link>.
             </p>
           </div>
         </section>
@@ -134,7 +134,7 @@ export default function FaqPage() {
               Discutons de votre projet lors d&apos;un appel gratuit de 15 minutes. Aucun engagement.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-block rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-black transition-all hover:shadow-[0_0_30px_rgba(200,240,0,0.4)]"
             >
               Demander un audit gratuit
@@ -146,3 +146,4 @@ export default function FaqPage() {
     </>
   )
 }
+

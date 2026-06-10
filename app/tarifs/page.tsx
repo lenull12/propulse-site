@@ -32,7 +32,7 @@ const PLANS = [
       "Livré sous 5 à 7 jours",
     ],
     cta: "Choisir Starter",
-    href: "/#contact",
+    href: "/contact",
   },
   {
     name: "Pro",
@@ -54,7 +54,7 @@ const PLANS = [
       "Livré sous 1 à 2 semaines",
     ],
     cta: "Choisir Pro",
-    href: "/#contact",
+    href: "/contact",
   },
   {
     name: "Premium",
@@ -78,7 +78,7 @@ const PLANS = [
       "Livré sous 2 à 4 semaines",
     ],
     cta: "Choisir Premium",
-    href: "/#contact",
+    href: "/contact",
   },
 ]
 
@@ -196,7 +196,7 @@ export default function TarifsPage() {
             créer une offre sur-mesure. L'audit est gratuit et sans engagement.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-all hover:bg-accent hover:shadow-[0_0_30px_rgba(200,240,0,0.4)]"
           >
             Demander un devis personnalisé

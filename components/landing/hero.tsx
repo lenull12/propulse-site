@@ -40,7 +40,7 @@ export function Hero() {
 
             <div className="flex flex-wrap gap-3 mb-10">
               <Link
-                href="#contact"
+                href="/contact"
                 className="inline-block rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
               >
                 Obtenir un audit gratuit

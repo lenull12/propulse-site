@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { NICHES } from "@/lib/niches"
+import { PhoneReveal } from "@/components/ui/phone-reveal"
 
 export function SiteNav() {
   const [open, setOpen] = useState(false)
@@ -295,11 +296,12 @@ export function SiteNav() {
             </div>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="rounded-full bg-white px-5 py-2 text-xs font-semibold text-black transition-all hover:bg-accent hover:shadow-[0_0_20px_rgba(200,240,0,0.4)]"
             >
               Prendre RDV
             </Link>
+            <PhoneReveal className="rounded-full bg-accent px-5 py-2 text-xs font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(200,240,0,0.4)]" revealedClassName="text-black" label="Appelez-nous" />
           </div>
 
           {/* Burger mobile */}
@@ -458,7 +460,7 @@ export function SiteNav() {
         {/* CTA bas de page */}
         <div className="px-6 pb-10">
           <Link
-            href="/#contact"
+            href="/contact"
             onClick={() => setMenuOpen(false)}
             className="block w-full text-center rounded-full bg-accent py-4 text-sm font-semibold text-accent-foreground transition-all hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
           >

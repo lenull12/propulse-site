@@ -107,3 +107,4 @@ npm run start    → Démarrer le serveur de production
 - Privilégier les classes Tailwind au CSS custom
 - Les nouvelles sections landing vont dans `components/landing/`
 - Les données statiques (articles, niches) dans `lib/` sous forme de fichiers TS
+- Ne jamais utiliser d'entités HTML (`&apos;`, `&amp;`, `&lt;`, `&gt;`) dans les chaînes JavaScript — toujours le caractère direct (`'`, `&`, `<`, `>`). Les entités HTML ne sont valides qu'en JSX pur (contenu entre balises), pas dans les strings JS (`"..."`, `'...'`, `` `...` ``)

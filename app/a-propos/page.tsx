@@ -53,7 +53,7 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-black transition-all hover:shadow-[0_0_30px_rgba(200,240,0,0.4)]"
                 >
                   Demander un audit gratuit
@@ -415,7 +415,7 @@ export default function AboutPage() {
               — sans engagement.
             </p>
             <Link
-              href="/#contact"
+              href="/contact"
               className="group inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-sm font-semibold text-black transition-all hover:shadow-[0_0_40px_rgba(200,240,0,0.35)]"
             >
               Demander mon mini-audit technique gratuit
@@ -433,3 +433,4 @@ export default function AboutPage() {
     </>
   )
 }
+

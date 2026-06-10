@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { useEffect, useRef } from "react"
 
 const VALUES = [
@@ -176,6 +177,15 @@ export function About() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/a-propos"
+            className="inline-block rounded-xl border border-white/20 px-8 py-4 text-sm font-semibold text-foreground transition-all hover:border-accent/50 hover:text-accent hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
+          >
+            En savoir plus →
+          </Link>
         </div>
       </div>
     </section>

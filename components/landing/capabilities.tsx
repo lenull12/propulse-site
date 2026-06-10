@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { ParticlesBackground } from "./particles-background"
 import { OrbitCanvas } from "@/components/ui/orbit-canvas"
 
@@ -132,7 +133,7 @@ export function Capabilities() {
   return (
     <section className="scroll-reveal relative bg-[#050505] px-6 py-24 md:px-12 overflow-hidden lg:py-32 border-t border-white/5">
       <ParticlesBackground count={50} connectDistance={100} color="200,240,0" />
-      <div className="mx-auto max-w-[1400px]">
+      <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="mb-16 lg:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-3 mb-4">
@@ -174,6 +175,15 @@ export function Capabilities() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/solutions/creation-site-web"
+            className="inline-block rounded-xl bg-accent px-8 py-4 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
+          >
+            Voir nos solutions →
+          </Link>
         </div>
       </div>
     </section>

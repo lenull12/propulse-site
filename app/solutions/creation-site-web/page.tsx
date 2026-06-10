@@ -4,6 +4,7 @@ import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { StackSection } from "@/components/solutions/stack-section"
 import { TechGiants } from "@/components/solutions/tech-giants"
+import { SecuritySection } from "@/components/solutions/security-section"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -120,7 +121,7 @@ export default function CreationSiteWebPage() {
             </div>
 
             <Link
-              href="/#contact"
+              href="/contact"
               className="inline-flex items-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-accent-foreground transition-all hover:scale-[1.02] hover:shadow-[0_8px_30px_rgba(200,240,0,0.4)]"
             >
               Obtenir un audit gratuit
@@ -338,6 +339,8 @@ export default function CreationSiteWebPage() {
 
       <TechGiants />
 
+      <SecuritySection />
+
       {/* ============ ALTERNATIVES ============ */}
       <section className="border-t border-white/5 bg-background px-6 py-24 md:px-15">
         <div className="mx-auto max-w-[1200px]">
@@ -435,7 +438,7 @@ export default function CreationSiteWebPage() {
             On vous offre un audit complet de votre présence en ligne. 24h, sans engagement.
           </p>
           <Link
-            href="/#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-all hover:bg-accent hover:shadow-[0_0_30px_rgba(200,240,0,0.4)]"
           >
             Audit gratuit
@@ -451,3 +454,4 @@ export default function CreationSiteWebPage() {
     </>
   )
 }
+
