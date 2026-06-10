@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata, Viewport } from "next"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import type { ReactNode } from "react"
@@ -42,7 +41,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="font-sans antialiased">
         <CustomCursor />
         {children}
-          <SpeedInsights />  {/* manquant */}
       </body>
     </html>
   )
