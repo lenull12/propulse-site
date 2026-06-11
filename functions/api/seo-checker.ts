@@ -46,16 +46,26 @@ export async function onRequestPost(context: { request: Request; env: Record<str
 
   let html: string
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(15_000) })
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(30_000),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; PropulseDev SEOChecker)" },
+    })
     if (!res.ok) {
-      return new Response(JSON.stringify({ error: `Erreur HTTP ${res.status} — le site n'a pas répondu correctement` }), {
+      const errText = await res.text()
+      return new Response(JSON.stringify({
+        error: `Erreur HTTP ${res.status} — le site n'a pas répondu correctement`,
+        details: errText.slice(0, 1000),
+      }), {
         status: 502,
         headers: { "Content-Type": "application/json" },
       })
     }
     html = await res.text()
   } catch {
-    return new Response(JSON.stringify({ error: "Impossible de récupérer le contenu de l'URL" }), {
+    return new Response(JSON.stringify({
+      error: "Impossible de récupérer le contenu de l'URL",
+      details: "Le site cible n'a pas répondu dans les 30s ou la connexion a été refusée",
+    }), {
       status: 504,
       headers: { "Content-Type": "application/json" },
     })

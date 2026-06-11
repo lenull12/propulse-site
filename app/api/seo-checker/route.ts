@@ -36,13 +36,23 @@ export async function POST(request: NextRequest) {
 
   let html: string
   try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(15_000) })
+    const res = await fetch(url, {
+      signal: AbortSignal.timeout(30_000),
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; PropulseDev SEOChecker)" },
+    })
     if (!res.ok) {
-      return NextResponse.json({ error: `Erreur HTTP ${res.status} — le site n'a pas répondu correctement` }, { status: 502 })
+      const errText = await res.text()
+      return NextResponse.json({
+        error: `Erreur HTTP ${res.status} — le site n'a pas répondu correctement`,
+        details: errText.slice(0, 1000),
+      }, { status: 502 })
     }
     html = await res.text()
   } catch {
-    return NextResponse.json({ error: "Impossible de récupérer le contenu de l'URL" }, { status: 504 })
+    return NextResponse.json({
+      error: "Impossible de récupérer le contenu de l'URL",
+      details: "Le site cible n'a pas répondu dans les 30s ou la connexion a été refusée",
+    }, { status: 504 })
   }
 
   function decodeEntities(text: string): string {

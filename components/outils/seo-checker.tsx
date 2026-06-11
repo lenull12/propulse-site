@@ -60,11 +60,17 @@ export function SEOChecker() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: url.trim() }),
       })
+      const text = await res.text()
       if (!res.ok) {
-        const err = await res.json()
+        let err: { error?: string }
+        try {
+          err = JSON.parse(text)
+        } catch {
+          throw new Error(`Erreur ${res.status} — le serveur a renvoyé une réponse inattendue`)
+        }
         throw new Error(err.error || `Erreur ${res.status}`)
       }
-      setResult(await res.json())
+      setResult(JSON.parse(text))
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur lors de l'analyse")
     } finally {
