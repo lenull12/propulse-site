@@ -18,7 +18,7 @@ const STACK: StackItem[] = [
     badge: "Framework",
     icon: "/svg/nextdotjs.svg",
     desc:
-      "Next.js est bien plus qu'un framework React : c'est le standard de facto pour les sites web modernes. Utilisé par TikTok, Twitch, Notion et des milliers d'entreprises, il combine génération de pages statiques ultra-rapides et rendu serveur dynamique selon les besoins de chaque page. Résultat : votre site charge en moins d'une seconde, Google le référence parfaitement (SEO natif sans plugin), et l'''expérience développeur permet de livrer plus vite, sans sacrifier la qualité. Pas de CMS lent, pas de plugins qui ralentissent — juste du code propre et efficace.",
+      "Next.js est bien plus qu'un framework React : c'est le standard de facto pour les sites web modernes. Utilisé par TikTok, Twitch, Notion et des milliers d'entreprises, il combine génération de pages statiques ultra-rapides et rendu serveur dynamique selon les besoins de chaque page. Résultat : votre site charge en moins d'une seconde, Google le référence parfaitement (SEO natif sans plugin), et l'expérience développeur permet de livrer plus vite, sans sacrifier la qualité. Pas de CMS lent, pas de plugins qui ralentissent — juste du code propre et efficace.",
     detail:
       "Next.js permet de générer des pages statiques ultra-rapides tout en gardant la flexibilité du rendu serveur. Résultat : des sites qui chargent instantanément, un SEO parfait, et une expérience développeur incomparable.",
     benefits: ["Pages statiques ultra-rapides", "SEO parfait dès la conception", "Scalable sans réécriture"],
@@ -28,7 +28,7 @@ const STACK: StackItem[] = [
     badge: "Bibliothèque",
     icon: "/svg/react.svg",
     desc:
-      "React est la bibliothèque JavaScript la plus utilisée au monde, créée et maintenue par Meta (Facebook, Instagram, WhatsApp). Son modèle à composants permet de construire des interfaces riches et interactives sans rechargement de page, exactement comme les applis que vos clients utilisent tous les jours. Netflix, Airbnb, Uber, Pinterest — tous font confiance à React pour gérer des millions d'''utilisateurs simultanés sans ralentir. Pour votre site, \u00e7a se traduit par une navigation fluide, des pages qui réagissent instantanément, et une base de code maintenable dans la durée.",
+      "React est la bibliothèque JavaScript la plus utilisée au monde, créée et maintenue par Meta (Facebook, Instagram, WhatsApp). Son modèle à composants permet de construire des interfaces riches et interactives sans rechargement de page, exactement comme les applis que vos clients utilisent tous les jours. Netflix, Airbnb, Uber, Pinterest — tous font confiance à React pour gérer des millions d'utilisateurs simultanés sans ralentir. Pour votre site, \u00e7a se traduit par une navigation fluide, des pages qui réagissent instantanément, et une base de code maintenable dans la durée.",
     detail:
       "React permet de créer des interfaces utilisateur complexes sans rechargement de page. Chaque élément est un composant réutilisable, ce qui rend le code plus propre, plus maintenable et plus rapide à faire évoluer.",
     benefits: ["UI réactive sans rechargement", "Composants réutilisables", "\u00c9cosystème mature et fiable"],
@@ -38,7 +38,7 @@ const STACK: StackItem[] = [
     badge: "Langage",
     icon: "/svg/typescript.svg",
     desc:
-      "TypeScript est aujourd'''hui le langage obligatoire dans toute la tech. Créé par Microsoft, il ajoute du typage statique à JavaScript — concrètement, \u00e7a signifie que des bugs entiers disparaissent avant m\u00eame d'''arriver en production. Microsoft (Office 365, Teams), Google, Airbnb et Slack ont converti des millions de lignes de code vers TypeScript pour cette raison. Pour vous, c'''est la garantie d'''un site fiable, sans bug surprise, et d'''une maintenance sereine : votre site continue de fonctionner parfaitement longtemps après sa mise en ligne.",
+      "TypeScript est aujourd'hui le langage obligatoire dans toute la tech. Créé par Microsoft, il ajoute du typage statique à JavaScript — concrètement, \u00e7a signifie que des bugs entiers disparaissent avant m\u00eame d'arriver en production. Microsoft (Office 365, Teams), Google, Airbnb et Slack ont converti des millions de lignes de code vers TypeScript pour cette raison. Pour vous, c'est la garantie d'un site fiable, sans bug surprise, et d'une maintenance sereine : votre site continue de fonctionner parfaitement longtemps après sa mise en ligne.",
     detail:
       "TypeScript ajoute du typage statique à JavaScript. Concrètement : moins de bugs en production, un code qui se documente tout seul, et une maintenance sereine sur le long terme.",
     benefits: ["Zéro bug de type en production", "Code auto-documenté", "Maintenance sereine"],
@@ -48,7 +48,7 @@ const STACK: StackItem[] = [
     badge: "CSS",
     icon: "/svg/tailwindcss.svg",
     desc:
-      "Tailwind CSS change complètement la fa\u00e7on dont on con\u00e7oit le design web. Fini les fichiers CSS interminables, les conflits de classes et les styles inutilisés qui ralentissent le chargement. Avec Tailwind, chaque style s'''applique directement dans le HTML via des classes utilitaires, ce qui permet de créer un design unique, cohérent et parfaitement responsive sans jamais écrire une ligne de CSS personnalisé. Le résultat : un développement plus rapide, un site plus léger, et une liberté de design totale.",
+      "Tailwind CSS change complètement la fa\u00e7on dont on con\u00e7oit le design web. Fini les fichiers CSS interminables, les conflits de classes et les styles inutilisés qui ralentissent le chargement. Avec Tailwind, chaque style s'applique directement dans le HTML via des classes utilitaires, ce qui permet de créer un design unique, cohérent et parfaitement responsive sans jamais écrire une ligne de CSS personnalisé. Le résultat : un développement plus rapide, un site plus léger, et une liberté de design totale.",
     detail:
       "Tailwind CSS permet de créer des designs uniques directement dans le HTML. Fini les fichiers CSS interminables, les conflits de classes, et les styles inutilisés qui ralentissent le chargement.",
     benefits: ["Design unique et cohérent", "Pas de CSS inutilisé", "Développement rapide"],
@@ -68,9 +68,9 @@ const STACK: StackItem[] = [
     badge: "Performance",
     icon: "/svg/lighthouse.svg",
     desc:
-      "Google Lighthouse est l'''outil officiel de Google pour mesurer la qualité d'''un site web : performance, accessibilité, SEO et bonnes pratiques. Un score Lighthouse 95+ est un signal fort envoyé à Google pour le classement dans les résultats de recherche, et c'''est aussi la garantie d'''une expérience fluide pour vos visiteurs — pages qui chargent en moins d'''une seconde, navigation sans accroc, site utilisable par tous. Avec notre stack, vous atteignez ce score sans effort, et on vous fournit un rapport complet à chaque livraison.",
+      "Google Lighthouse est l'outil officiel de Google pour mesurer la qualité d'un site web : performance, accessibilité, SEO et bonnes pratiques. Un score Lighthouse 95+ est un signal fort envoyé à Google pour le classement dans les résultats de recherche, et c'est aussi la garantie d'une expérience fluide pour vos visiteurs — pages qui chargent en moins d'une seconde, navigation sans accroc, site utilisable par tous. Avec notre stack, vous atteignez ce score sans effort, et on vous fournit un rapport complet à chaque livraison.",
     detail:
-      "Google Lighthouse mesure la performance, l'''accessibilité et le SEO de votre site. Avec notre stack, vous décrochez 95+ sans effort — un signal fort pour Google et une expérience fluide pour vos visiteurs.",
+      "Google Lighthouse mesure la performance, l'accessibilité et le SEO de votre site. Avec notre stack, vous décrochez 95+ sans effort — un signal fort pour Google et une expérience fluide pour vos visiteurs.",
     benefits: ["Meilleur classement Google", "Expérience utilisateur fluide", "Audit automatisé inclus"],
   },
 ]

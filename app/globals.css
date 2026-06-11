@@ -173,3 +173,12 @@ body {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 80px 80px;
 }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out;
+}

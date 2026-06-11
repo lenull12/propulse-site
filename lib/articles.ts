@@ -201,7 +201,7 @@ export const ARTICLES: Article[] = [
     category: "Site web",
     title: "Core Web Vitals : pourquoi 1 seconde de trop vous fait perdre 30% de visiteurs",
     excerpt:
-      "Un site qui met plus d'une seconde à charger, c'est 30% de visiteurs en moins. Découvrez pourquoi la vitesse est devenue le critère SEO n°1 en 2026.",
+      "Les Core Web Vitals sont devenus un critère de classement Google officiel. Découvrez comment chacun des trois indicateurs impacte votre référencement local.",
     metaDesc:
       "Les Core Web Vitals sont devenus le critère de classement n°1 de Google. Découvrez comment un site lent vous fait perdre des clients et comment y remédier.",
     metaKeywords: ["Core Web Vitals", "vitesse site", "PageSpeed", "temps chargement", "SEO technique"],
@@ -249,7 +249,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Découvrez comment optimiser votre site pour apparaître dans ChatGPT, Google AI Overviews et Perplexity. Le guide complet du GEO (Generative Engine Optimization).",
     metaKeywords: ["GEO", "ChatGPT Search", "AI Overviews", "Perplexity", "référencement IA"],
-    relatedSlugs: ["schema-markup-seo", "eeat-critere-seo", "core-web-vitals-1-seconde"],
+    relatedSlugs: ["schema-markup-seo", "eeat-critere-seo", "core-web-vitals-1-seconde", "notaire-numerique-relation-client"],
     wordCount: 984,
     readTime: "5 min",
     date: "3 mars 2026",
@@ -292,7 +292,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Le schéma markup (données structurées) est obligatoire pour apparaître dans les résultats enrichis Google et être cité par les IA. Guide complet pour les professionnels.",
     metaKeywords: ["schéma markup", "données structurées", "schema.org", "rich snippets", "SEO technique"],
-    relatedSlugs: ["apparaitre-chatgpt-google-ai-overviews", "eeat-critere-seo", "google-my-business-fiche-negligee"],
+    relatedSlugs: ["apparaitre-chatgpt-google-ai-overviews", "eeat-critere-seo", "google-my-business-fiche-negligee", "chirurgien-dentiste-site-pro"],
     wordCount: 955,
     readTime: "5 min",
     date: "10 mars 2026",
@@ -335,7 +335,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Le E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) est le critère SEO le plus important pour les professions réglementées. Guide complet pour l'optimiser.",
     metaKeywords: ["E-E-A-T", "SEO avocat", "autorité en ligne", "YMYL", "confiance Google"],
-    relatedSlugs: ["schema-markup-seo", "apparaitre-chatgpt-google-ai-overviews", "google-my-business-fiche-negligee"],
+    relatedSlugs: ["schema-markup-seo", "apparaitre-chatgpt-google-ai-overviews", "google-my-business-fiche-negligee", "notaire-numerique-relation-client"],
     wordCount: 973,
     readTime: "6 min",
     date: "17 mars 2026",
@@ -381,7 +381,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Le mobile-first est la norme. Découvrez pourquoi un site non adapté aux smartphones vous fait perdre des clients et comment l'optimiser.",
     metaKeywords: ["site mobile", "mobile-first", "responsive design", "site smartphone", "adaptation mobile"],
-    relatedSlugs: ["core-web-vitals-1-seconde", "vitesse-site-critere-numero-1", "schema-markup-seo"],
+    relatedSlugs: ["core-web-vitals-1-seconde", "vitesse-site-critere-numero-1", "schema-markup-seo", "site-kine-nice"],
     wordCount: 1000,
     readTime: "5 min",
     date: "24 mars 2026",
@@ -425,7 +425,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Un blog professionnel est le canal d'acquisition le plus rentable pour les indépendants. Découvrez comment attirer des clients sans payer de publicité.",
     metaKeywords: ["blog professionnel", "acquisition clients", "contenu SEO", "marketing gratuit", "attirer clients"],
-    relatedSlugs: ["eeat-critere-seo", "apparaitre-chatgpt-google-ai-overviews", "seo-ou-google-ads"],
+    relatedSlugs: ["eeat-critere-seo", "apparaitre-chatgpt-google-ai-overviews", "seo-ou-google-ads", "chirurgien-dentiste-site-pro"],
     wordCount: 1022,
     readTime: "5 min",
     date: "15 janvier 2026",
@@ -513,7 +513,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "5 signes qui montrent qu'il est temps de refaire votre site web. Performance, design, SEO, mobile : comment savoir si votre site a besoin d'une refonte.",
     metaKeywords: ["refonte site", "nouveau site web", "changer site", "site obsolète", "moderniser site"],
-    relatedSlugs: ["site-vitrine-ou-multipages", "core-web-vitals-1-seconde", "site-mobile-first"],
+    relatedSlugs: ["site-vitrine-ou-multipages", "core-web-vitals-1-seconde", "site-mobile-first", "site-avocat-lyon"],
     wordCount: 954,
     readTime: "5 min",
     date: "30 mars 2026",
@@ -532,7 +532,6 @@ export const ARTICLES: Article[] = [
 "**Signe n°4 : le design semble daté :**",
       "Un site avec un design des années 2018-2020 donne une impression de négligence et de manque de sérieux. Les visiteurs jugent la crédibilité d'un professionnel en moins d'une seconde, et le design est le premier critère qu'ils évaluent, avant même le contenu. Si votre site a l'air vieux, vous paraissez moins compétent et moins digne de confiance, quel que soit votre niveau d'expertise réel.",
       "Les standards esthétiques évoluent vite sur le web : les tendances graphiques, les polices, les mises en page et les animations qui étaient modernes il y a trois ou quatre ans peuvent aujourd'hui donner une impression d'amateurisme et de site abandonné, ce qui nuit directement à votre image professionnelle.",
-      "**Signe n°5 : votre activité a évolué :**",
       "**Signe n°5 : votre activité a évolué :**",
       "Votre cabinet a changé : nouveaux services, nouvelle équipe, nouveau positionnement, nouvelle adresse. Peut-être avez-vous déménagé dans un nouveau quartier, ou vous êtes-vous spécialisé dans un domaine que vous ne maîtrisiez pas il y a trois ans. Votre site doit refléter votre activité actuelle, pas celle d'il y a plusieurs années. Un décalage entre ce que vous faites réellement et ce que votre site présente crée de la confusion chez les prospects et nuit à votre crédibilité.",
       "**Quand déclencher la refonte :**",
@@ -594,7 +593,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "80% des sites de professionnels indépendants sont invisibles sur Google. Découvrez pourquoi et comment passer de la page 10 à la page 1 avec des actions concrètes.",
     metaKeywords: ["site invisible Google", "SEO pro", "classement Google", "page 1 Google", "référencement local"],
-    relatedSlugs: ["google-my-business-fiche-negligee", "core-web-vitals-1-seconde", "seo-ou-google-ads"],
+    relatedSlugs: ["google-my-business-fiche-negligee", "core-web-vitals-1-seconde", "seo-ou-google-ads", "site-restaurant-lille"],
     wordCount: 954,
     readTime: "5 min",
     date: "12 avril 2026",
@@ -636,7 +635,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Guide complet de création de site internet pour avocat. Conformité RIN, SEO local, design, prix : tout savoir pour créer un site qui attire des clients.",
     metaKeywords: ["création site avocat", "site avocat", "site internet cabinet", "créer site avocat", "prix site avocat"],
-    relatedSlugs: ["eeat-critere-seo", "google-my-business-fiche-negligee", "core-web-vitals-1-seconde"],
+    relatedSlugs: ["eeat-critere-seo", "google-my-business-fiche-negligee", "core-web-vitals-1-seconde", "site-avocat-lyon"],
     wordCount: 983,
     readTime: "6 min",
     date: "8 janvier 2026",
@@ -780,7 +779,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Guide SEO pour restaurateur : comment être trouvé sur Google, optimiser sa fiche Google Business Profile et attirer plus de clients sans payer de pub.",
     metaKeywords: ["SEO restaurateur", "restaurant Google", "visibilité restaurant", "Google Business Profile restaurant", "attirer clients restaurant"],
-    relatedSlugs: ["google-my-business-fiche-negligee", "site-mobile-first", "core-web-vitals-1-seconde"],
+    relatedSlugs: ["google-my-business-fiche-negligee", "site-mobile-first", "core-web-vitals-1-seconde", "site-restaurant-lille"],
     wordCount: 990,
     readTime: "5 min",
     date: "5 février 2026",
@@ -906,7 +905,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Guide de visibilité locale pour kinésithérapeute : comment un site internet optimisé SEO vous aide à attirer plus de patients dans votre cabinet.",
     metaKeywords: ["site kiné", "création site kinésithérapeute", "SEO kiné", "visibilité locale kiné", "attirer patients kiné"],
-    relatedSlugs: ["google-my-business-fiche-negligee", "site-mobile-first", "passer-de-3-a-5-etoiles-google"],
+    relatedSlugs: ["google-my-business-fiche-negligee", "site-mobile-first", "passer-de-3-a-5-etoiles-google", "site-kine-nice"],
     wordCount: 1015,
     readTime: "5 min",
     date: "26 février 2026",
@@ -1018,6 +1017,7 @@ export const ARTICLES: Article[] = [
       "**Budget pour un site d'avocat à Lyon :**",
       "Comptez 1 000 € à 3 500 € selon le nombre de pages et les fonctionnalités. En comparaison, une page de publicité dans un journal local coûte souvent plus cher pour un résultat ponctuel. Un site, lui, attire des clients tous les jours sans dépense supplémentaire.",
       "L'optimisation Google Business Profile et les schémas SEO (LocalBusiness, Article, Person) sont des éléments techniques à intégrer pour maximiser la visibilité. Les premiers résultats sur Google apparaissent généralement sous trois à six mois. Avec un seul dossier amené par le site, l'investissement est rentabilisé et le cabinet bénéficie d'un canal d'acquisition durable qui continue de porter ses fruits année après année.",
+      "À Lyon, le marché du droit est particulièrement concurrentiel dans les arrondissements centraux (1er, 2e, 6e) où se concentrent les cabinets d'affaires et les études notariales. Un site bien référencé permet à un avocat lyonnais de capter une clientèle locale sans se noyer dans la masse. Les recherches comme 'avocat droit immobilier Lyon 6' ou 'avocat commerce Lyon Part-Dieu' génèrent un trafic très qualifié, car l'internaute a déjà un besoin précis et cherche un professionnel de proximité. C'est exactement pour ce type de requêtes que nous optimisons nos sites : plutôt que de viser des mots-clés trop larges, nous ciblons des expressions qui traduisent une intention d'engagement immédiate.",
     ],
   },
   {
@@ -1057,6 +1057,7 @@ export const ARTICLES: Article[] = [
       "La création de contenu de qualité est le meilleur levier pour se démarquer à Paris. Un cabinet qui publie des analyses juridiques approfondies, des commentaires d'arrêts récents ou des guides pratiques se positionne comme une référence dans son domaine. Google valorise ce contenu expert et le classe favorablement, même face à des concurrents plus établis mais qui publient peu ou pas de contenu de qualité.",
       "**Budget :**",
       "Pour un site d'avocat à Paris, comptez au minimum 2 000 € pour un site multipages complet avec blog. Le retour sur investissement est rapide : un seul dossier amené par le site peut couvrir son coût pour plusieurs années. Avec un site performant et une stratégie de contenu régulière, le cabinet peut compter sur un flux constant de prospects qualifiés sans dépendre des annuaires payants ou de la publicité traditionnelle, qui coûtent souvent bien plus cher pour un résultat moins mesurable.",
+      "À Paris, une spécificité importante est la recherche par arrondissement : de nombreux justiciables tapent 'avocat Paris 8' ou 'avocat Paris 16' plutôt que simplement 'avocat Paris'. En optimisant le site pour ces requêtes géographiques fines, un cabinet du 8e arrondissement peut apparaître en tête des résultats pour son secteur sans concurrencer directement les gros cabinets du 2e ou du 17e. C'est une stratégie de niche géographique qui fonctionne particulièrement bien dans une ville aussi dense que Paris, où chaque arrondissement a sa propre dynamique économique et judiciaire.",
     ],
   },
   {
@@ -1099,6 +1100,7 @@ export const ARTICLES: Article[] = [
       "**Le petit plus marseillais :**",
       "Mettez en avant votre connaissance du tissu local. Partenariats avec des notaires, agences immobilières, experts-comptables marseillais. Mentionnez votre participation à des événements locaux (conférences, salons, associations professionnelles). C'est ce qui rassure un client marseillais : il veut un avocat qui connaît le terrain, qui comprend les spécificités locales et qui est implanté dans la région depuis suffisamment longtemps pour avoir un réseau de partenaires de confiance.",
       "Budget : 1 000 € à 3 500 € pour un site complet, avec optimisation des recherches locales marseillaises. Un seul dossier amené par le site peut représenter plusieurs milliers d'euros d'honoraires, rentabilisant l'investissement dès la première affaire. Avec un site bien référencé, le cabinet bénéficie d'une visibilité durable sur le marché marseillais sans dépendre des seules recommandations.",
+      "Le marché marseillais présente des disparités géographiques fortes : les quartiers du Roucas-Blanc, du Prado ou de la Corniche concentrent une clientèle aisée en droit immobilier et successoral, tandis que le centre-ville et les territoires voisins d'Aix-en-Provence génèrent une demande plus diversifiée en droit commercial et de la famille. En adaptant le référencement et le contenu du site à ces spécificités territoriales, un cabinet peut capter des prospects très ciblés. Les recherches comme 'avocat divorce Marseille' ou 'avocat droit immobilier Aix' sont autant de portes d'entrée vers une clientèle locale déjà en phase de sélection active.",
     ],
   },
   {
@@ -1145,6 +1147,7 @@ export const ARTICLES: Article[] = [
       "**Combien ça coûte et combien ça rapporte :**",
       "Un site d'architecte coûte 1 000 à 3 500 € selon le nombre de projets à présenter. Un seul projet détecté via le site peut représenter des honoraires conséquents. Le retour sur investissement peut être immédiat dès le premier contact qualifié.",
       "Un portfolio épuré, avec galerie photo plein écran, fiches projet détaillées et filtres par type de réalisation, compatible mobile et optimisé pour les recherches lyonnaises, est la clé d'une présence en ligne efficace. Avec un site performant et une stratégie de contenu régulière, un architecte lyonnais peut compter sur un flux constant de demandes de devis sans investir dans des canaux publicitaires coûteux.",
+      "Lyon connaît un dynamisme immobilier notable dans des secteurs comme la Confluence, Vaise ou le quartier de la Part-Dieu, générant une demande soutenue en maîtrise d'œuvre pour des projets de rénovation et de construction neuve. Un architecte qui présente des réalisations locales sur son site — avant/après d'un appartement haussmannien rénové, extension d'une maison à Sainte-Foy-lès-Lyon ou réhabilitation d'un commerce dans le Vieux Lyon — capte l'attention des propriétaires du secteur qui recherchent un professionnel familier des contraintes architecturales et urbanistiques de la ville.",
     ],
   },
   {
@@ -1184,6 +1187,7 @@ export const ARTICLES: Article[] = [
       "Un blog est un excellent moyen d'attirer du trafic qualifié sur votre site. Publiez des articles sur des sujets pratiques qui intéressent les propriétaires bordelais : 'Comment entretenir sa chaudière à Bordeaux', 'Quand faut-il refaire l'électricité de son appartement', 'Les travaux de rénovation les plus rentables avant une vente immobilière à Bordeaux'. Chaque article répond à une question précise que les internautes tapent dans Google et constitue une porte d'entrée qualifiée vers votre entreprise.",
       "**Budget pour un site d'artisan à Bordeaux :**",
       "Entre 1 000 € et 2 000 € pour un site complet avec galerie photos et formulaire de contact. Amorti dès le premier chantier décroché via le site. Avec un site bien référencé, vous pouvez compter sur plusieurs demandes de devis par mois sans dépenser un euro en publicité, ce qui rend cet investissement bien plus rentable qu'une campagne Google Ads qui s'arrête dès que vous ne payez plus.",
+      "Bordeaux connaît un marché de la rénovation particulièrement actif dans les quartiers historiques comme les Chartrons, Saint-Pierre ou Saint-Michel, où les copropriétés anciennes nécessitent des travaux réguliers. Un artisan qui publie des photos de ses chantiers bordelais sur son site — rénovation d'appartement rue du Pas-Saint-Georges, réfection de toiture sur les quais, installation électrique dans une maison du quartier Nansouty — inspire confiance aux prospects locaux qui cherchent quelqu'un qui connaît déjà les spécificités du bâti bordelais.",
     ],
   },
   {
@@ -1225,7 +1229,7 @@ export const ARTICLES: Article[] = [
     metaDesc:
       "Création de site internet pour kinésithérapeute à Nice : comment attirer une patientèle locale et saisonnière avec un site optimisé SEO.",
     metaKeywords: ["site kiné Nice", "création site kiné Nice", "kiné Nice site web", "SEO kiné Nice"],
-    relatedSlugs: ["kine-visibilite-locale", "avis-google-5-etoiles-automatique", "site-mobile-first"],
+    relatedSlugs: ["kine-visibilite-locale", "eeat-critere-seo", "site-mobile-first"],
     wordCount: 1050,
     readTime: "5 min",
     date: "13 mai 2026",

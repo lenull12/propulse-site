@@ -3,10 +3,15 @@ import { PhoneReveal } from "@/components/ui/phone-reveal"
 
 const FOOTER_LINKS = {
   Services: [
-    { label: "Solutions", href: "/solutions" },
+    { label: "Création de site web", href: "/solutions/creation-site-web" },
+    { label: "SEO & réputation locale", href: "/solutions/seo-reputation-locale" },
     { label: "À propos", href: "/a-propos" },
     { label: "Audit gratuit", href: "/contact" },
     { label: "Voir les démos", href: "/demos" },
+  ],
+  Outils: [
+    { label: "Simulateur de site", href: "/simulateur" },
+    { label: "Analyse PageSpeed", href: "/outils/pagespeed" },
   ],
   Ressources: [
     { label: "Blog", href: "/blog" },

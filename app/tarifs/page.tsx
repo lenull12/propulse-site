@@ -3,6 +3,7 @@ import Link from "next/link"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { Subscriptions } from "@/components/tarifs/subscriptions"
+import { PricingBars } from "@/components/ui/pricing-bars"
 
 export const metadata: Metadata = {
   title: "Tarifs — PropulseDev",
@@ -119,18 +120,23 @@ export default function TarifsPage() {
 
       {/* ============ HERO ============ */}
       <section className="border-b border-white/10 bg-background px-6 pb-20 pt-40 md:px-15">
-        <div className="mx-auto max-w-[800px]">
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Tarifs</p>
-          <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
-            Des prix fixes,
-            <br />
-            <span className="text-white/30">zéro surprise.</span>
-          </h1>
-          <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
-            Un audit gratuit et sans engagement pour chiffrer votre projet. Ensuite,
-            vous choisissez la formule qui correspond à vos besoins. Paiement en deux fois :
-            <span className="text-foreground"> 30% à la commande, 70% à la mise en ligne</span>.
-          </p>
+        <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-10 md:flex-row md:gap-16">
+          <div className="flex-1 max-w-[640px]">
+            <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Tarifs</p>
+            <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
+              Des prix fixes,
+              <br />
+              <span className="text-white/30">zéro surprise.</span>
+            </h1>
+            <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
+              Un audit gratuit et sans engagement pour chiffrer votre projet. Ensuite,
+              vous choisissez la formule qui correspond à vos besoins. Paiement en deux fois :
+              <span className="text-foreground"> 30% à la commande, 70% à la mise en ligne</span>.
+            </p>
+          </div>
+          <div className="flex-1 w-full max-w-[400px]">
+            <PricingBars />
+          </div>
         </div>
       </section>
 

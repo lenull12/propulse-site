@@ -16,8 +16,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/demos`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
     { url: `${base}/mentions-legales`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.2 },
+    { url: `${base}/outils`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/outils/pagespeed`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${base}/outils/seo-checker`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${base}/outils/meta-generator`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${base}/outils/mobile-friendly`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/solutions/creation-site-web`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/solutions/seo-reputation-locale`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${base}/simulateur`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/tarifs`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
   ]
 

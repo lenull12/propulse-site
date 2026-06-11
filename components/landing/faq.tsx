@@ -2,41 +2,9 @@
 
 import { useState } from "react"
 import { Reveal } from "@/components/ui/reveal"
+import { FAQS } from "@/lib/faq"
 
-const FAQS = [
-  {
-    q: "Combien coûte un site web ?",
-    a: "Un site vitrine sur-mesure démarre à 1 000 €. Le prix final dépend du nombre de pages, des fonctionnalités et de votre secteur. L'audit initial est toujours offert et sans engagement — c'est lui qui permet de chiffrer précisément votre projet.",
-  },
-  {
-    q: "Combien de temps pour livrer mon site ?",
-    a: "Entre 1 et 3 semaines selon la complexité. Dès la validation du devis, nous vous envoyons un planning détaillé avec chaque étape. Vous avez une visibilité complète sur l'avancement du projet.",
-  },
-  {
-    q: "Je n'ai aucune connaissance technique. Est-ce un problème ?",
-    a: "C'est exactement pour vous que nous travaillons. Nous nous occupons de tout — hébergement, nom de domaine, mises à jour, sécurité. Vous recevez un site clé en main, avec une formation courte pour gérer votre contenu si vous le souhaitez.",
-  },
-  {
-    q: "Que se passe-t-il après la livraison ?",
-    a: "Nous restons disponibles pour les ajustements post-livraison pendant 30 jours. Au-delà, une maintenance mensuelle optionnelle est disponible pour les mises à jour, sauvegardes et suivi des performances.",
-  },
-  {
-    q: "Comment fonctionne le système d'avis Google ?",
-    a: "Nous configurons un système automatisé qui envoie un SMS ou un QR code à vos clients satisfaits pour les inviter à laisser un avis 5 étoiles. Les clients insatisfaits sont redirigés vers un formulaire privé — leur avis ne part pas sur Google. Résultat : votre note monte sans friction.",
-  },
-  {
-    q: "Est-ce que mon site sera bien positionné sur Google ?",
-    a: "Chaque site est construit avec les bonnes pratiques SEO dès le départ : structure technique, balises optimisées, vitesse de chargement, responsive mobile. Pour le référencement local, nous travaillons aussi votre fiche Google My Business. Le SEO prend du temps mais les bases sont solides dès le lancement.",
-  },
-  {
-    q: "Comment se fait le paiement ?",
-    a: "30% à la commande pour lancer le projet, 70% à la mise en ligne. Paiement par virement. Pas de frais cachés.",
-  },
-  {
-    q: "L'abonnement est-il obligatoire ?",
-    a: "Non. Votre site vous appartient, hébergement et domaine offerts 1 an. Vous pouvez souscrire un abonnement Zen (29 €), Performance (59 €) ou Business (89 €) quand vous le souhaitez. Résiliable à tout moment.",
-  },
-]
+const LANDING_FAQS = [FAQS[1], FAQS[2], FAQS[3], FAQS[4], FAQS[5], FAQS[6], FAQS[0], FAQS[13]]
 
 export function Faq() {
   const [open, setOpen] = useState<number | null>(null)
@@ -60,7 +28,7 @@ export function Faq() {
 
         {/* Accordéon */}
         <div className="flex flex-col divide-y divide-white/5">
-          {FAQS.map((faq, i) => (
+          {LANDING_FAQS.map((faq, i) => (
             <div key={i} className="group">
               <button
                 onClick={() => setOpen(open === i ? null : i)}
