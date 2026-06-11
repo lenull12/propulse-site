@@ -135,6 +135,52 @@ npm run start    → Démarrer le serveur de production
 - Utiliser les outils `memory` (create_entities, create_relations, add_observations) pour sauvegarder les décisions, préférences et faits importants du projet entre les sessions
 - Au début de chaque session, lire le graphe avec `read_graph` ou `search_nodes` pour rappeler le contexte
 
+## SEO Blog
+
+Le blog est le principal levier d'acquisition organique. Chaque article doit respecter les règles suivantes :
+
+### Structure d'un article
+- **Titre (H1)** : 50-60 caractères, accroche + mot-clé principal, pas de clickbait
+- **Introduction** : 100-150 mots, décrit le problème + annonce la solution, mot-clé dans le premier paragraphe
+- **Corps** : 800-1200 mots, 3-4 sous-parties (H2), paragraphes courts (2-4 phrases), un H3 par H2 si nécessaire
+- **Conclusion** : 80-100 mots, résumé + CTA doux vers "/contact"
+- **Liens internes** : 2-3 liens vers d'autres articles du blog + 1 lien vers une page service ou la page contact
+- **Pas de liens externes sortants** dans le corps (sauf source indispensable → alors en note de bas de page)
+
+### SEO on-page
+- **Méta description** : 150-160 caractères, mot-clé principal présent, promesse de valeur
+- **URL (slug)** : mot-clé principal en kebab-case, pas de stop words
+- **Schéma JSON-LD** : `Article` obligatoire (name, description, datePublished, author) — à injecter dans le `<head>` via la page `[slug]/page.tsx`
+- **Mots-clés** : 1 mot-clé principal + 2-3 mots-clés longue traîne naturels
+- **E-E-A-T** : ton expert, pas générique. Phrases courtes, données chiffrées, exemples concrets
+- **GEO (Generative Engine Optimization)** : contenu qui répond à des questions précises = cité par ChatGPT/Perplexity
+
+### Contenu
+- **Longue traîne avant tout** : "créer un site d'avocat à Lyon" plutôt que "création site web"
+- **Ton** : "nous", professionnel mais pas jargonneux. Le lecteur doit comprendre sans être expert
+- **Villes cibles** : Lyon, Paris, Marseille, Bordeaux, Lille, Toulouse, Nice
+- **Métiers cibles** : avocats, artisans, architectes, restaurateurs, experts-comptables, kinés, dentistes, notaires
+- **Fréquence** : 2-3 articles par mois minimum
+- **Engagement** : pas de contenu putaclic. Chaque article doit aider le lecteur à prendre une décision éclairée
+
+### Liens internes automatiques
+- Fin de chaque article : section "Articles liés" avec 3 articles pertinents (basée sur `relatedSlugs` dans les données)
+- 1 lien contextuel dans le corps vers une page service ou `/contact`
+
+## Cold Mailing
+
+### Script d'envoi
+- `scripts/send-cold-email.mjs` — envoie via API Resend avec `COLD_EMAIL_API_KEY` (dédiée, dans `.env.local`)
+- Usage : `node scripts/send-cold-email.mjs --import-csv` / `--all` / `--index=N` / `--email=x --first_name=...`
+- 30s délai entre envois, confirmation avant chaque envoi
+- `Reply-To: contact@propulsedev.fr`
+- Données prospects dans `data/prospects.mjs`
+
+### Template
+- **Objet** : `Proposition de modernisation de votre site — Cabinet {{{first_name}}}`
+- Passage en gras : `{{{practice_area}}}`, "premier vecteur de réassurance", "capter davantage de demandes qualifiées", "gratuitement et sans engagement une maquette visuelle"
+- **Signature** : Raphaël TRAN, Développeur web / Consultant en visibilité digitale, PropulseDev, 06 95 38 27 56, propulsedev.fr
+
 ## Règles générales
 
 - Ne pas ajouter de commentaires dans le code sauf si demandé
@@ -142,4 +188,5 @@ npm run start    → Démarrer le serveur de production
 - Privilégier les classes Tailwind au CSS custom
 - Les nouvelles sections landing vont dans `components/landing/`
 - Les données statiques (articles, niches) dans `lib/` sous forme de fichiers TS
+- Les maquettes clients (lead chaud) vont dans `public/demo/nom-du-cabinet/index.html` puis on partage l'URL `propulsedev.fr/demo/nom-du-cabinet`
 - Ne jamais utiliser d'entités HTML (`&apos;`, `&amp;`, `&lt;`, `&gt;`) dans les chaînes JavaScript — toujours le caractère direct (`'`, `&`, `<`, `>`). Les entités HTML ne sont valides qu'en JSX pur (contenu entre balises), pas dans les strings JS (`"..."`, `'...'`, `` `...` ``)

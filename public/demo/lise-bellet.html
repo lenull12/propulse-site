@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="robots" content="noindex, nofollow">
+<title>Lise BELLET — Cabinet d'avocat à Paris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Inter, system-ui, -apple-system, sans-serif; background: #faf9f6; color: #1a1a1a; -webkit-font-smoothing: antialiased; }
+
+nav { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(250,249,246,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); }
+nav > div { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; }
+.logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #1a1a1a; }
+.logo em { font-style: italic; color: #b8860b; }
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-links a { color: rgba(26,26,26,0.65); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; white-space: nowrap; }
+.nav-links a:hover { color: #b8860b; }
+
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle { cursor: pointer; color: rgba(26,26,26,0.65); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; background: none; border: none; font-family: inherit; padding: 0; white-space: nowrap; }
+.nav-dropdown-toggle:hover { color: #b8860b; }
+.nav-dropdown-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: #fff; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px; padding: 8px; min-width: 210px; box-shadow: 0 12px 40px rgba(0,0,0,0.1); opacity: 0; visibility: hidden; transition: all .2s; z-index: 100; }
+.nav-dropdown:hover .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+.nav-dropdown-menu a { display: block; padding: 8px 14px; border-radius: 6px; color: rgba(26,26,26,0.65); font-size: 13px; }
+.nav-dropdown-menu a:hover { background: #faf9f6; color: #b8860b; }
+.btn-cta { background: #b8860b; color: #fff; border: none; padding: 10px 24px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .3s; text-decoration: none; letter-spacing: 0.3px; }
+.btn-cta:hover { background: #9a7209; transform: translateY(-1px); box-shadow: 0 4px 15px rgba(184,134,11,0.25); }
+
+.hero { padding: 140px 24px 80px; background: #faf9f6; }
+.hero-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(184,134,11,0.1); color: #b8860b; font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px; letter-spacing: 0.3px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px,3.8vw,52px); font-weight: 700; line-height: 1.15; margin-bottom: 12px; color: #1a1a1a; }
+.hero h1 span { display: block; font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; color: rgba(26,26,26,0.45); font-size: 0.65em; margin-top: 6px; }
+.hero p { font-size: 17px; line-height: 1.7; color: rgba(26,26,26,0.7); max-width: 480px; margin-bottom: 32px; }
+.hero-phone { display: inline-flex; align-items: center; gap: 10px; background: #1a1a1a; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; transition: all .3s; }
+.hero-phone:hover { background: #333; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+.hero-phone small { font-weight: 400; font-size: 13px; opacity: 0.7; }
+.hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+.hero-visual img { width: 100%; max-width: 440px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.12); aspect-ratio: 3/4; object-fit: cover; }
+
+.section { padding: 100px 24px; }
+.section-alt { background: #fff; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.label { display: inline-flex; align-items: center; gap: 6px; background: rgba(184,134,11,0.1); color: #b8860b; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 16px; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,3vw,40px); font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: #1a1a1a; }
+h2 span { font-weight: 400; font-style: italic; color: rgba(26,26,26,0.4); display: block; font-size: 0.7em; }
+.section-desc { font-size: 16px; line-height: 1.7; color: rgba(26,26,26,0.6); max-width: 560px; margin-bottom: 48px; }
+
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.value-card { background: #faf9f6; border-radius: 12px; padding: 32px; text-align: center; }
+.value-card-icon { font-size: 28px; margin-bottom: 16px; }
+.value-card h3 { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 8px; color: #1a1a1a; }
+.value-card p { font-size: 14px; line-height: 1.6; color: rgba(26,26,26,0.6); }
+
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.service-card { background: #faf9f6; border-radius: 12px; padding: 28px; transition: all .3s; }
+.service-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+.service-card-icon { font-size: 24px; margin-bottom: 12px; }
+.service-card h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 6px; color: #1a1a1a; }
+.service-card p { font-size: 14px; line-height: 1.6; color: rgba(26,26,26,0.6); }
+
+.approach-text { max-width: 720px; }
+.approach-text p { font-size: 16px; line-height: 1.8; color: rgba(26,26,26,0.7); margin-bottom: 20px; }
+.approach-list { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 600px; margin-top: 28px; }
+.approach-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(26,26,26,0.7); }
+.approach-list li::before { content: "—"; color: #b8860b; font-weight: 700; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.contact-info h3 { font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 6px; }
+.contact-info p { font-size: 14px; line-height: 1.7; color: rgba(26,26,26,0.6); margin-bottom: 4px; }
+.contact-info strong { color: #1a1a1a; }
+.contact-map { border-radius: 12px; overflow: hidden; }
+.contact-phone-large { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; background: #1a1a1a; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; transition: all .3s; }
+.contact-phone-large:hover { background: #333; }
+
+.partners { padding: 60px 24px; background: #fff; text-align: center; }
+.partners-inner { max-width: 900px; margin: 0 auto; }
+.partners-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: rgba(26,26,26,0.3); font-weight: 600; margin-bottom: 24px; }
+.partners-grid { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px 32px; }
+.partners-grid a { opacity: 0.5; transition: opacity .3s; }
+.partners-grid a:hover { opacity: 1; }
+.partners-grid img { height: 44px; max-width: 140px; object-fit: contain; }
+
+footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(0,0,0,0.06); }
+footer p { font-size: 13px; color: rgba(26,26,26,0.4); }
+footer a { color: #b8860b; text-decoration: none; }
+
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero p { max-width: 100%; }
+  .values-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .approach-list { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div>
+  <a href="#" style="text-decoration:none"><div class="logo">Lise BELLET <em>Avocat</em></div></a>
+  <div class="nav-links">
+    <a href="#">Accueil</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-toggle">Domaines d'expertise ▾</span>
+      <div class="nav-dropdown-menu">
+        <a href="#services">Divorce</a>
+        <a href="#services">Garde d'enfants</a>
+        <a href="#services">Pension alimentaire</a>
+        <a href="#services">Médiation familiale</a>
+        <a href="#services">PACS &amp; Concubinage</a>
+        <a href="#services">Droit international</a>
+        <a href="#services">Autres domaines</a>
+      </div>
+    </div>
+    <a href="#approche">Qui suis-je</a>
+    <a href="#contact">Contact</a>
+    <a class="btn-cta" href="tel:+33612907303">06 12 90 73 03</a>
+  </div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+  <div>
+    <div class="hero-badge">Cabinet d'avocat — Paris 15ᵉ</div>
+    <h1>
+      Maître Lise BELLET
+      <span>Avocate en droit de la famille &amp; médiatrice</span>
+    </h1>
+    <p>Un accompagnement humain et rigoureux dans vos affaires familiales : divorce, médiation, garde d'enfants et pension alimentaire.</p>
+    <a class="hero-phone" href="tel:+33612903073">
+      <span>06 12 90 73 03</span>
+      <small>Urgences — réactive sous 24h</small>
+    </a>
+  </div>
+  <div class="hero-visual">
+    <img src="/demo/lise-bellet.jpg" alt="Maître Lise BELLET" style="width:100%;max-width:440px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.12);aspect-ratio:3/4;object-fit:cover;">
+  </div>
+</div>
+</section>
+
+<section class="section" id="services">
+<div class="section-inner">
+  <div class="label">— Domaines d'intervention</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:48px">
+    <div>
+      <h2 style="margin-bottom:12px">Des services sur mesure <span>pour chaque situation familiale</span></h2>
+      <p style="font-size:16px;line-height:1.7;color:rgba(26,26,26,0.6);margin:0">Du divorce au droit des enfants, en passant par la médiation et les questions de pension, chaque dossier est traité avec la même rigueur et la même humanité.</p>
+    </div>
+    <div><img src="/demo/famille.jpg" alt="Famille" style="width:100%;border-radius:16px;max-height:320px;object-fit:cover;"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-card-icon">⚖</div>
+      <h3>Divorce</h3>
+      <p>Divorce contentieux, par consentement mutuel, ou droit collaboratif. Je vous accompagne à chaque étape pour défendre vos intérêts et ceux de vos proches.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">🤝</div>
+      <h3>Médiation familiale</h3>
+      <p>Une approche apaisée pour trouver des solutions durables dans l'intérêt de tous, en particulier des enfants. Médiation conventionnelle ou judiciaire.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">👶</div>
+      <h3>Garde d'enfants &amp; autorité parentale</h3>
+      <p>Droit de visite et d'hébergement, résidence alternée, autorité parentale conjointe ou exclusive. Je vous conseille pour préserver le lien parent-enfant.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">📋</div>
+      <h3>Pension alimentaire</h3>
+      <p>Fixation, révision et recouvrement de la pension alimentaire. Évaluation des besoins et des capacités contributives de chaque parent.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">📄</div>
+      <h3>PACS &amp; Concubinage</h3>
+      <p>Rédaction, modification et dissolution de PACS. Conseil et assistance en matière de concubinage et de séparation.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-card-icon">🌍</div>
+      <h3>Droit international de la famille</h3>
+      <p>Divorces internationaux, garde d'enfants dans un contexte transfrontalier, enlèvement parental. Une expertise adaptée aux situations complexes.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section section-alt" id="approche">
+<div class="section-inner">
+  <div class="label">— Ma philosophie</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-bottom:32px">
+    <div>
+      <h2 style="margin-bottom:12px">Une avocate à votre écoute <span>pour vous guider avec humanité</span></h2>
+      <div class="approach-text" style="margin-top:0">
+        <p>La relation avec mes clients repose avant tout sur <strong>l'écoute</strong>, la <strong>disponibilité</strong> et la <strong>réactivité</strong>. Chaque situation familiale est unique et mérite une attention particulière, avec des conseils sur-mesure et de qualité.</p>
+        <p>Maître Lise BELLET met à votre disposition son savoir-faire et privilégie les solutions les mieux adaptées à votre situation : règlement amiable, coaching judiciaire, ou défense efficace devant les juridictions.</p>
+        <ul class="approach-list">
+          <li>Écoute &amp; humanité</li>
+          <li>Disponibilité &amp; réactivité</li>
+          <li>Suivi personnalisé</li>
+          <li>Rigueur &amp; compétence</li>
+          <li>Conseils sur-mesure</li>
+          <li>Confidentialité absolue</li>
+        </ul>
+      </div>
+    </div>
+    <div><img src="/demo/lise-bellet2.jpg" alt="Maître Lise BELLET" style="width:100%;border-radius:16px;max-height:480px;object-fit:cover;"></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="section-inner">
+  <div class="label">— Contact</div>
+  <h2>Prenez rendez-vous <span>ou posez-moi vos questions</span></h2>
+  <p class="section-desc">Que ce soit pour une première consultation ou une urgence, je suis à votre disposition.</p>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Lise BELLET</h3>
+      <p><strong>Cabinet d'avocat — Paris 15ᵉ</strong></p>
+      <p>4, rue Auguste Bartholdi<br>75015 Paris</p>
+      <br>
+      <p><strong>Téléphone</strong><br>06 12 90 73 03</p>
+      <br>
+      <p><strong>Accès</strong><br>Métro : La Motte-Picquet Grenelle (6, 8, 10), Dupleix (6)<br>Bus : 42, 80, 82</p>
+      <a class="contact-phone-large" href="tel:+33612903073">📞 06 12 90 73 03</a>
+    </div>
+    <div class="contact-map">
+      <iframe src="https://maps.google.com/maps?q=4%20rue%20Auguste%20Bartholdi%2075015%20Paris&output=embed"
+        width="100%" height="320" style="border:0;border-radius:12px;" allowfullscreen loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="partners">
+<div class="partners-inner">
+  <div class="partners-label">Membres &amp; partenaires</div>
+  <div class="partners-grid">
+    <a href="https://gemediat.org" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-1-Generation-Mediation.jpg" alt="Génération Médiation"></a>
+    <a href="https://cnb.avocat.fr/" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-2-Conseil-National-des-Barreaux.jpg" alt="Conseil National des Barreaux"></a>
+    <a href="https://www.avocatparis.org" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-3-Ordre-des-Avocats-de-Paris.jpg" alt="Ordre des Avocats de Paris"></a>
+    <a href="https://www.icp.fr" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-4-Institut-Catholique-de-Paris.jpg" alt="Institut Catholique de Paris"></a>
+    <a href="https://www.droit-collaboratif.org" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-5-Afcpdc-Droit-Collaboratif.jpg" alt="AFCPDC Droit Collaboratif"></a>
+    <a href="https://www.mediateurseuropeens.org" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-6-Association-de-Mediateurs-Europeens.jpg" alt="Association de Médiateurs Européens"></a>
+    <a href="https://www.apmf.fr/" target="_blank"><img src="http://www.avocat-bellet.fr/wp-content/uploads/2025/10/Partenaire-7-APMF.jpg" alt="APMF"></a>
+  </div>
+</div>
+</section>
+
+<footer>
+  <p>PropulseDev — Proposition de refonte du site <a href="https://www.avocat-bellet.fr/" target="_blank">avocat-bellet.fr</a></p>
+</footer>
+
+</body>
+</html>

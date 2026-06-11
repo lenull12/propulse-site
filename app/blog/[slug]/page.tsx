@@ -3,7 +3,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
-import { getArticle, getAllArticleSlugs } from "@/lib/articles"
+import { getArticle, getAllArticleSlugs, getRelatedArticles } from "@/lib/articles"
 import { renderLine } from "@/lib/markdown-to-html"
 
 type Props = { params: Promise<{ slug: string }> }
@@ -18,7 +18,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {}
   return {
     title: `${article.title} — PropulseDev`,
-    description: article.excerpt,
+    description: article.metaDesc,
+    keywords: article.metaKeywords.join(", "),
   }
 }
 
@@ -27,8 +28,26 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle(slug)
   if (!article) notFound()
 
+  const related = getRelatedArticles(slug)
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.metaDesc,
+    datePublished: article.date,
+    author: {
+      "@type": "Organization",
+      name: "PropulseDev",
+    },
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <SiteNav forceDark />
 
       <article className="bg-[#faf9f6] px-6 pt-40 pb-24 md:px-15">
@@ -84,6 +103,31 @@ export default async function ArticlePage({ params }: Props) {
               </svg>
             </Link>
           </div>
+
+          {/* Articles liés */}
+          {related.length > 0 && (
+            <div className="mt-16">
+              <h2 className="mb-6 font-mono text-xl font-bold text-gray-900">
+                Articles liés
+              </h2>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {related.map((r) => (
+                  <Link
+                    key={r.slug}
+                    href={`/blog/${r.slug}`}
+                    className="group rounded-xl border border-gray-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-sm"
+                  >
+                    <span className="mb-2 inline-flex w-fit rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-[1.5px] text-gray-500">
+                      {r.category}
+                    </span>
+                    <h3 className="font-mono text-sm font-bold leading-snug text-gray-900 transition-colors group-hover:text-gray-600">
+                      {r.title}
+                    </h3>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </article>
 
