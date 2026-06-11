@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/outils/pagespeed`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/outils/seo-checker`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/outils/meta-generator`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${base}/outils/mobile-friendly`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${base}/solutions/creation-site-web`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/solutions/seo-reputation-locale`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${base}/simulateur`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },

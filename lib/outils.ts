@@ -41,12 +41,4 @@ export const OUTILS: Outil[] = [
     href: "/outils/meta-generator",
     status: "ready",
   },
-  {
-    id: "mobile-friendly",
-    title: "Test Mobile Friendly",
-    description:
-      "Vérifiez si votre site est optimisé pour le mobile avec Google Mobile-Friendly Test. Détectez les problèmes d'affichage sur smartphone.",
-    href: "/outils/mobile-friendly",
-    status: "ready",
-  },
 ]

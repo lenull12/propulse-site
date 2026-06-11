@@ -27,6 +27,20 @@ export default function SEOCheckerPage() {
             </p>
           </div>
           <SEOChecker />
+          <div className="mt-12 text-center">
+            <p className="text-sm text-white/40 mb-4">
+              Des problèmes détectés ? Nous pouvons optimiser le SEO de votre site pour vous.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-black text-sm font-semibold hover:shadow-[0_0_25px_rgba(200,240,0,0.3)] transition-all duration-200"
+            >
+              Demander un audit SEO complet
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </main>
       <SiteFooter />

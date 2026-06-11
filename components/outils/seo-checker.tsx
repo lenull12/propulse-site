@@ -11,6 +11,7 @@ type SEOResult = {
   h1Count: number
   totalImages: number
   imagesWithoutAlt: number
+  imagesWithoutAltSrcs: string[]
   hasRobots: boolean
   robotsContent: string | null
   hasCanonical: boolean
@@ -169,10 +170,24 @@ export function SEOChecker() {
               {result.imagesWithoutAlt === 0 ? <CheckIcon /> : <WarningIcon />}
               <span className="text-white/70">
                 {result.totalImages > 0
-                  ? `${result.imagesWithoutAlt} / ${result.totalImages} images sans attribut alt`
+                  ? `${result.totalImages - result.imagesWithoutAlt}/${result.totalImages} images avec attribut alt`
                   : "Aucune image détectée"}
               </span>
             </div>
+            {result.imagesWithoutAltSrcs.length > 0 && (
+              <div className="mt-2 space-y-1">
+                {result.imagesWithoutAltSrcs.slice(0, 5).map((src, i) => (
+                  <p key={i} className="text-xs text-white/40 truncate pl-5">
+                    {src}
+                  </p>
+                ))}
+                {result.imagesWithoutAltSrcs.length > 5 && (
+                  <p className="text-xs text-white/25 pl-5">
+                    et {result.imagesWithoutAltSrcs.length - 5} autre{result.imagesWithoutAltSrcs.length - 5 > 1 ? "s" : ""}...
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

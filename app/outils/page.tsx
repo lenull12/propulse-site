@@ -7,7 +7,7 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Outils gratuits — PropulseDev",
   description:
-    "Simulateur de site, analyse PageSpeed, analyse SEO, test Mobile Friendly et générateur de balises méta. Des outils gratuits pour votre projet web.",
+    "Simulateur de site, analyse PageSpeed, analyse SEO et générateur de balises méta. Des outils gratuits pour votre projet web.",
   openGraph: {
     title: "Outils gratuits — PropulseDev",
     description: "Simulateur, analyse SEO, PageSpeed et plus. Gratuit.",
@@ -42,12 +42,6 @@ const ICONS: Record<string, React.ReactNode> = {
       <path d="M12 19h8" />
     </svg>
   ),
-  "mobile-friendly": (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8f000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="5" y="2" width="14" height="20" rx="2" />
-      <line x1="12" y1="18" x2="12.01" y2="18" />
-    </svg>
-  ),
 }
 
 const CTA_LABELS: Record<string, string> = {
@@ -55,7 +49,6 @@ const CTA_LABELS: Record<string, string> = {
   pagespeed: "Analyser",
   "seo-checker": "Analyser",
   "meta-generator": "Générer",
-  "mobile-friendly": "Tester",
 }
 
 export default function OutilsPage() {

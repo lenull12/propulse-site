@@ -55,7 +55,7 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     })
   }
 
-  const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${key}&strategy=${strategy || "mobile"}`
+  const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(url)}&key=${key}&strategy=${strategy || "mobile"}&category=PERFORMANCE&category=ACCESSIBILITY&category=SEO&category=BEST_PRACTICES&locale=fr`
 
   let googleRes: Response
   try {

@@ -27,6 +27,20 @@ export default function MetaGeneratorPage() {
             </p>
           </div>
           <MetaGenerator />
+          <div className="mt-12 text-center">
+            <p className="text-sm text-white/40 mb-4">
+              Besoin d&apos;un site complet avec des balises méta optimisées ? Nous nous chargeons de tout.
+            </p>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-black text-sm font-semibold hover:shadow-[0_0_25px_rgba(200,240,0,0.3)] transition-all duration-200"
+            >
+              Créer mon site
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </main>
       <SiteFooter />

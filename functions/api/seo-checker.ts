@@ -11,6 +11,7 @@ interface SEOCheckerResponse {
   h1Count: number
   totalImages: number
   imagesWithoutAlt: number
+  imagesWithoutAltSrcs: string[]
   hasRobots: boolean
   robotsContent: string | null
   hasCanonical: boolean
@@ -60,9 +61,35 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     })
   }
 
+  function decodeEntities(text: string): string {
+    return text
+      .replace(/&eacute;/g, "é")
+      .replace(/&egrave;/g, "è")
+      .replace(/&ecirc;/g, "ê")
+      .replace(/&euml;/g, "ë")
+      .replace(/&agrave;/g, "à")
+      .replace(/&acirc;/g, "â")
+      .replace(/&icirc;/g, "î")
+      .replace(/&iuml;/g, "ï")
+      .replace(/&ocirc;/g, "ô")
+      .replace(/&ucirc;/g, "û")
+      .replace(/&ugrave;/g, "ù")
+      .replace(/&uuml;/g, "ü")
+      .replace(/&auml;/g, "ä")
+      .replace(/&ccedil;/g, "ç")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&nbsp;/g, " ")
+      .replace(/&#(\d+);/g, (_, code: string) => String.fromCharCode(Number(code)))
+  }
+
   const extract = (pattern: RegExp, group = 1): string | null => {
     const match = html.match(pattern)
-    return match ? (match[group] || "").trim() || null : null
+    const raw = match ? (match[group] || "").trim() || null : null
+    return raw ? decodeEntities(raw) : null
   }
 
   const title = extract(/<title[^>]*>([\s\S]*?)<\/title>/i)
@@ -73,16 +100,19 @@ export async function onRequestPost(context: { request: Request; env: Record<str
 
   const h1Matches = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)
   const h1s = h1Matches
-    ? h1Matches.map(h => h.replace(/<[^>]*>/g, "").trim()).filter(Boolean)
+    ? h1Matches.map(h => decodeEntities(h.replace(/<[^>]*>/g, "").trim())).filter(Boolean)
     : []
 
   const imgMatches = html.match(/<img[^>]*>/gi) || []
   let totalImages = 0
   let imagesWithoutAlt = 0
+  const imagesWithoutAltSrcs: string[] = []
   for (const img of imgMatches) {
     if (/src=["'][^"']*["']/i.test(img)) {
       totalImages++
       if (!/alt=["'][^"']*["']/i.test(img)) {
+        const src = img.match(/src=["']([^"']*)["']/i)?.[1] || ""
+        if (src) imagesWithoutAltSrcs.push(src)
         imagesWithoutAlt++
       }
     }
@@ -97,6 +127,7 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     h1Count: h1s.length,
     totalImages,
     imagesWithoutAlt,
+    imagesWithoutAltSrcs,
     hasRobots: robotsContent !== null,
     robotsContent,
     hasCanonical: canonicalHref !== null,

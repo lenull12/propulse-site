@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useCallback } from "react"
+import { getAuditTranslation } from "@/lib/audit-descriptions"
 
 type AuditResults = {
   scores: {
@@ -31,6 +32,13 @@ type AuditResults = {
     }>
   } | null
 }
+
+type ResultsMap = {
+  mobile: AuditResults | null
+  desktop: AuditResults | null
+}
+
+type Strategy = "mobile" | "desktop"
 
 function ScoreRing({ value, label, size = 100 }: { value: number | null; label: string; size?: number }) {
   const radius = (size - 20) / 2
@@ -75,17 +83,50 @@ function ScoreRing({ value, label, size = 100 }: { value: number | null; label: 
   )
 }
 
-type Strategy = "mobile" | "desktop"
+function fetchResults(url: string, strategy: Strategy): Promise<AuditResults> {
+  return fetch("/api/pagespeed", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url, strategy }),
+  }).then(async res => {
+    if (!res.ok) {
+      const err = await res.json()
+      throw new Error(err.details || err.error || `Erreur ${res.status}`)
+    }
+    return res.json()
+  })
+}
+
+function MobileIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="5" y="2" width="14" height="20" rx="2" />
+      <line x1="12" y1="18" x2="12.01" y2="18" />
+    </svg>
+  )
+}
+
+function DesktopIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  )
+}
 
 export function AuditSection({ standalone }: { standalone?: boolean }) {
   const [url, setUrl] = useState("")
-  const [strategy, setStrategy] = useState<Strategy>("mobile")
   const [loading, setLoading] = useState(false)
-  const [results, setResults] = useState<AuditResults | null>(null)
+  const [results, setResults] = useState<ResultsMap>({ mobile: null, desktop: null })
+  const [activeStrategy, setActiveStrategy] = useState<Strategy>("mobile")
   const [error, setError] = useState("")
   const [expandedRecommendation, setExpandedRecommendation] = useState<string | null>(null)
 
-  const handleAnalyze = async () => {
+  const activeResults = results[activeStrategy]
+
+  const handleAnalyze = useCallback(async () => {
     if (!url.trim()) return
     if (!/^https?:\/\/.+/.test(url.trim())) {
       setError("L'URL doit commencer par http:// ou https://")
@@ -94,28 +135,24 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
 
     setLoading(true)
     setError("")
-    setResults(null)
+    setResults({ mobile: null, desktop: null })
 
     try {
-      const res = await fetch("/api/pagespeed", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim(), strategy }),
-      })
-
-      if (!res.ok) {
-        const err = await res.json()
-        throw new Error(err.details || err.error || `Erreur ${res.status}`)
-      }
-
-      const data: AuditResults = await res.json()
-      setResults(data)
+      const [mobileData, desktopData] = await Promise.all([
+        fetchResults(url.trim(), "mobile"),
+        fetchResults(url.trim(), "desktop"),
+      ])
+      setResults({ mobile: mobileData, desktop: desktopData })
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur lors de l'analyse")
     } finally {
       setLoading(false)
     }
-  }
+  }, [url])
+
+  const current = activeResults
+  const otherStrategy = activeStrategy === "mobile" ? "desktop" : "mobile"
+  const otherReady = results[otherStrategy] !== null
 
   return (
     <section className={standalone ? "" : "mt-32 pt-16 border-t border-white/5"}>
@@ -170,23 +207,41 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
           <div className="flex items-center gap-4 mt-4">
             <span className="text-xs text-white/40">Stratégie :</span>
             <div className="flex bg-white/5 rounded-lg p-0.5">
-              {(["mobile", "desktop"] as Strategy[]).map(s => (
-                <button
-                  key={s}
-                  type="button"
-                  onClick={() => setStrategy(s)}
-                  className={`px-4 py-1.5 rounded-md text-xs font-medium transition-all ${
-                    strategy === s
-                      ? "bg-accent text-black"
-                      : "text-white/50 hover:text-white/80"
-                  }`}
-                >
-                  {s === "mobile" ? "Mobile" : "Desktop"}
-                </button>
-              ))}
+              {(["mobile", "desktop"] as Strategy[]).map(s => {
+                const active = s === activeStrategy
+                const hasData = results[s] !== null
+                return (
+                  <button
+                    key={s}
+                    type="button"
+                    disabled={!hasData}
+                    onClick={() => {
+                      setActiveStrategy(s)
+                      setExpandedRecommendation(null)
+                    }}
+                    className={`flex items-center gap-1.5 px-4 py-1.5 rounded-md text-xs font-medium transition-all ${
+                      active
+                        ? "bg-accent text-black"
+                        : hasData
+                          ? "text-white/50 hover:text-white/80 cursor-pointer"
+                          : "text-white/20 cursor-not-allowed"
+                    }`}
+                  >
+                    {s === "mobile" ? <MobileIcon /> : <DesktopIcon />}
+                    {s === "mobile" ? "Mobile" : "Desktop"}
+                    {hasData && !active && (
+                      <span className="ml-1 w-1.5 h-1.5 rounded-full bg-green-500" />
+                    )}
+                  </button>
+                )
+              })}
+            </div>
             </div>
           </div>
-        </div>
+
+          <p className="mt-5 text-center text-xs text-white/25">
+            ⏱ L&apos;analyse peut prendre jusqu&apos;à 30 secondes — Google analyse votre site en temps réel.
+          </p>
 
         {error && (
           <div className="mt-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-sm text-red-400">
@@ -208,23 +263,23 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
           </div>
         )}
 
-        {results && (
+        {!loading && current && (
           <>
             <div className="mt-10">
               <h3 className="text-lg font-bold text-foreground mb-6 text-center">Scores généraux</h3>
               <div className="flex justify-center gap-6 md:gap-12 flex-wrap">
-                <ScoreRing value={results.scores.performance} label="Performance" />
-                <ScoreRing value={results.scores.accessibility} label="Accessibilité" />
-                <ScoreRing value={results.scores.seo} label="SEO" />
-                <ScoreRing value={results.scores.bestPractices} label="Bonnes pratiques" />
+                <ScoreRing value={current.scores.performance} label="Performance" />
+                <ScoreRing value={current.scores.accessibility} label="Accessibilité" />
+                <ScoreRing value={current.scores.seo} label="SEO" />
+                <ScoreRing value={current.scores.bestPractices} label="Bonnes pratiques" />
               </div>
             </div>
 
-            {results.loadingExperience?.overallCategory && (
+            {current.loadingExperience?.overallCategory && (
               <div className="mt-10 p-6 rounded-xl bg-white/5 border border-white/10">
                 <h3 className="text-lg font-bold text-foreground mb-4">Core Web Vitals</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {Object.entries(results.loadingExperience.metrics).map(([key, metric]) => {
+                  {Object.entries(current.loadingExperience.metrics).map(([key, metric]) => {
                     const labelMap: Record<string, string> = {
                       FIRST_CONTENTFUL_PAINT_MS: "FCP",
                       LARGEST_CONTENTFUL_PAINT_MS: "LCP",
@@ -250,56 +305,66 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
               </div>
             )}
 
-            {results.recommendations.length > 0 && (
+            {current.recommendations.length > 0 && (
               <div className="mt-10">
                 <h3 className="text-lg font-bold text-foreground mb-4">Recommandations</h3>
                 <p className="text-sm text-white/40 mb-6">
-                  {results.recommendations.length} opportunités d&apos;amélioration détectées.
+                  {current.recommendations.length} opportunités d&apos;amélioration détectées.
                   Cliquez sur une recommandation pour plus de détails.
                 </p>
                 <div className="space-y-2">
-                  {results.recommendations.map(rec => (
-                    <div key={rec.id} className="rounded-xl border border-white/10 overflow-hidden">
-                      <button
-                        type="button"
-                        onClick={() => setExpandedRecommendation(expandedRecommendation === rec.id ? null : rec.id)}
-                        className="w-full flex items-center gap-3 p-4 text-left bg-white/5 hover:bg-white/10 transition-colors"
-                      >
-                        <div
-                          className={`w-2 h-2 rounded-full shrink-0 ${
-                            rec.score >= 90 ? "bg-green-500"
-                            : rec.score >= 50 ? "bg-yellow-500"
-                            : "bg-red-500"
-                          }`}
-                        />
-                        <span className="flex-1 text-sm font-medium text-foreground">{rec.title}</span>
-                        <span className={`text-xs font-mono ${
-                          rec.score >= 90 ? "text-green-500"
-                          : rec.score >= 50 ? "text-yellow-500"
-                          : "text-red-500"
-                        }`}>
-                          {rec.score}%
-                        </span>
-                        <svg
-                          className={`w-4 h-4 text-white/30 transition-transform ${
-                            expandedRecommendation === rec.id ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
+                  {current.recommendations.map(rec => {
+                    const translation = getAuditTranslation(rec.id)
+                    return (
+                      <div key={rec.id} className="rounded-xl border border-white/10 overflow-hidden">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedRecommendation(expandedRecommendation === rec.id ? null : rec.id)}
+                          className="w-full flex items-center gap-3 p-4 text-left bg-white/5 hover:bg-white/10 transition-colors"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </button>
-                      {expandedRecommendation === rec.id && (
-                        <div className="px-4 pb-4 pt-0">
-                          <div className="pl-5 text-sm text-white/50 leading-relaxed border-l border-white/10">
-                            {rec.description || "Aucun détail supplémentaire."}
+                          <div
+                            className={`w-2 h-2 rounded-full shrink-0 ${
+                              rec.score >= 80 ? "bg-emerald-500"
+                              : rec.score >= 50 ? "bg-yellow-500"
+                              : rec.score >= 30 ? "bg-orange-500"
+                              : "bg-red-500"
+                            }`}
+                          />
+                          <span className="flex-1 text-sm font-medium text-foreground">
+                            {translation ? translation.title : rec.title}
+                          </span>
+                          <span className={`whitespace-nowrap text-[11px] font-bold tracking-wider uppercase ${
+                            rec.score >= 80 ? "text-emerald-500"
+                            : rec.score >= 50 ? "text-yellow-500"
+                            : rec.score >= 30 ? "text-orange-500"
+                            : "text-red-500"
+                          }`}>
+                            {rec.score >= 80 ? "MODÉRÉ"
+                            : rec.score >= 50 ? "IMPORTANT"
+                            : rec.score >= 30 ? "URGENT"
+                            : "CRITIQUE"}
+                          </span>
+                          <svg
+                            className={`w-4 h-4 text-white/30 transition-transform ${
+                              expandedRecommendation === rec.id ? "rotate-180" : ""
+                            }`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {expandedRecommendation === rec.id && (
+                          <div className="px-4 pb-4 pt-0">
+                            <div className="pl-5 text-sm text-white/50 leading-relaxed border-l border-white/10">
+                              {translation ? translation.description : (rec.description || "Aucun détail supplémentaire.")}
+                            </div>
                           </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                        )}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             )}
