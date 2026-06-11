@@ -89,11 +89,17 @@ function fetchResults(url: string, strategy: Strategy): Promise<AuditResults> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url, strategy }),
   }).then(async res => {
+    const text = await res.text()
     if (!res.ok) {
-      const err = await res.json()
+      let err: { error?: string; details?: string }
+      try {
+        err = JSON.parse(text)
+      } catch {
+        throw new Error(`Erreur ${res.status} — le serveur a renvoyé une réponse inattendue`)
+      }
       throw new Error(err.details || err.error || `Erreur ${res.status}`)
     }
-    return res.json()
+    return JSON.parse(text) as AuditResults
   })
 }
 
@@ -138,17 +144,18 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
     setResults({ mobile: null, desktop: null })
 
     try {
-      const [mobileData, desktopData] = await Promise.all([
-        fetchResults(url.trim(), "mobile"),
-        fetchResults(url.trim(), "desktop"),
-      ])
-      setResults({ mobile: mobileData, desktop: desktopData })
+      const activeData = await fetchResults(url.trim(), activeStrategy)
+      setResults(prev => ({ ...prev, [activeStrategy]: activeData }))
+
+      const otherStrategy = activeStrategy === "mobile" ? "desktop" : "mobile"
+      const otherData = await fetchResults(url.trim(), otherStrategy)
+      setResults(prev => ({ ...prev, [otherStrategy]: otherData }))
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur lors de l'analyse")
     } finally {
       setLoading(false)
     }
-  }, [url])
+  }, [url, activeStrategy])
 
   const current = activeResults
   const otherStrategy = activeStrategy === "mobile" ? "desktop" : "mobile"
@@ -240,7 +247,7 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
           </div>
 
           <p className="mt-5 text-center text-xs text-white/25">
-            ⏱ L&apos;analyse peut prendre jusqu&apos;à 30 secondes — Google analyse votre site en temps réel.
+            ⏱ Les résultats {activeStrategy === "mobile" ? "mobiles" : "desktop"} apparaissent dès réception (~20-40s). Les résultats {activeStrategy === "mobile" ? "desktop" : "mobiles"} arrivent en arrière-plan.
           </p>
 
         {error && (
@@ -263,7 +270,7 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
           </div>
         )}
 
-        {!loading && current && (
+        {current && (
           <>
             <div className="mt-10">
               <h3 className="text-lg font-bold text-foreground mb-6 text-center">Scores généraux</h3>

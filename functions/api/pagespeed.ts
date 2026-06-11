@@ -59,9 +59,9 @@ export async function onRequestPost(context: { request: Request; env: Record<str
 
   let googleRes: Response
   try {
-    googleRes = await fetch(apiUrl, { signal: AbortSignal.timeout(30_000) })
+    googleRes = await fetch(apiUrl, { signal: AbortSignal.timeout(60_000) })
   } catch {
-    return new Response(JSON.stringify({ error: "Timeout — le service Google n'a pas répondu dans les 30s" }), {
+    return new Response(JSON.stringify({ error: "Timeout — le service Google n'a pas répondu dans les 60s" }), {
       status: 504,
       headers: { "Content-Type": "application/json" },
     })
@@ -79,7 +79,20 @@ export async function onRequestPost(context: { request: Request; env: Record<str
     })
   }
 
-  const data = await googleRes.json()
+  let data: any
+  try {
+    data = await googleRes.json()
+  } catch {
+    const errText = await googleRes.text()
+    const cleanUrl = apiUrl.replace(key, "***")
+    return new Response(JSON.stringify({
+      error: "Réponse invalide de Google",
+      details: `L'API a renvoyé du contenu inattendu (HTML probablement). Vérifiez votre clé API.\nURL: ${cleanUrl}\nDébut réponse: ${errText.slice(0, 1000)}`,
+    }), {
+      status: 502,
+      headers: { "Content-Type": "application/json" },
+    })
+  }
   const lr = data.lighthouseResult
   if (!lr) {
     return new Response(JSON.stringify({ error: "Réponse inattendue de l'API" }), {

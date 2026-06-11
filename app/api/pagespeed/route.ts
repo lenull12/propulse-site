@@ -51,9 +51,9 @@ export async function POST(request: NextRequest) {
 
   let googleRes: Response
   try {
-    googleRes = await fetch(apiUrl, { signal: AbortSignal.timeout(30_000) })
+    googleRes = await fetch(apiUrl, { signal: AbortSignal.timeout(60_000) })
   } catch {
-    return NextResponse.json({ error: "Timeout — le service Google n'a pas répondu dans les 30s" }, { status: 504 })
+    return NextResponse.json({ error: "Timeout — le service Google n'a pas répondu dans les 60s" }, { status: 504 })
   }
 
   if (!googleRes.ok) {
@@ -61,7 +61,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: `Erreur API Google: ${googleRes.status}`, details: errText }, { status: googleRes.status })
   }
 
-  const data = await googleRes.json()
+  let data: any
+  try {
+    data = await googleRes.json()
+  } catch {
+    const errText = await googleRes.text()
+    return NextResponse.json({
+      error: "Réponse invalide de Google",
+      details: `L'API a renvoyé du contenu inattendu (HTML probablement). Vérifiez votre clé API.\nDébut réponse: ${errText.slice(0, 1000)}`,
+    }, { status: 502 })
+  }
   const lr = data.lighthouseResult
   if (!lr) {
     return NextResponse.json({ error: "Réponse inattendue de l'API" }, { status: 502 })
