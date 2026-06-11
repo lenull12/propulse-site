@@ -105,7 +105,7 @@ export function AuditSection({ standalone }: { standalone?: boolean }) {
 
       if (!res.ok) {
         const err = await res.json()
-        throw new Error(err.error || `Erreur ${res.status}`)
+        throw new Error(err.details || err.error || `Erreur ${res.status}`)
       }
 
       const data: AuditResults = await res.json()

@@ -385,6 +385,26 @@ export function SiteNav({ forceDark }: { forceDark?: boolean }) {
                       <polyline points="12 5 19 12 12 19" />
                     </svg>
                   </Link>
+                  <Link
+                    href="/outils/meta-generator"
+                    onClick={() => setActiveMenu(null)}
+                    className="group flex items-center gap-3.5 rounded-lg px-4 py-3 transition-colors hover:bg-white/5"
+                  >
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/5 text-white/60 transition-transform group-hover:scale-110">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 17l6-6-6-6" />
+                        <path d="M12 19h8" />
+                      </svg>
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium text-foreground">Générateur de balises méta</span>
+                      <span className="text-xs font-light text-white/35">Title, meta, OG et Twitter</span>
+                    </span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="ml-auto shrink-0 text-white/20 transition-all group-hover:translate-x-1 group-hover:text-accent" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
                 </div>
               )}
 
@@ -569,6 +589,19 @@ export function SiteNav({ forceDark }: { forceDark?: boolean }) {
                 </svg>
               </span>
               <span className="text-base font-medium text-foreground/70">Test Mobile Friendly</span>
+            </Link>
+            <Link
+              href="/outils/meta-generator"
+              onClick={() => setMenuOpen(false)}
+              className={`flex items-center gap-3 py-3 border-b border-white/5 transition-colors ${pathname === "/outils/meta-generator" ? "text-accent" : "hover:text-accent"}`}
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 text-white/50">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 17l6-6-6-6" />
+                  <path d="M12 19h8" />
+                </svg>
+              </span>
+              <span className="text-base font-medium text-foreground/70">Générateur de balises méta</span>
             </Link>
           </div>
 

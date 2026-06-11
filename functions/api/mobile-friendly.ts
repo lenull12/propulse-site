@@ -53,16 +53,11 @@ export async function onRequestPost(context: { request: Request; env: Record<str
 
   if (!googleRes.ok) {
     const errText = await googleRes.text()
-    const isForbidden = googleRes.status === 403
     return new Response(JSON.stringify({
-      error: isForbidden
-        ? "Erreur API Google: 403 — voir les détails ci-dessous"
-        : `Erreur API Google: ${googleRes.status}`,
-      details: isForbidden
-        ? { body: errText.slice(0, 2000) }
-        : errText,
+      error: `Erreur API Google: ${googleRes.status}`,
+      details: `Body: ${errText.slice(0, 2000)}`,
     }), {
-      status: isForbidden ? 200 : googleRes.status,
+      status: googleRes.status,
       headers: { "Content-Type": "application/json" },
     })
   }

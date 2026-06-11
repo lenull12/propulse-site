@@ -40,7 +40,7 @@ export function MobileFriendlyTool() {
       })
       if (!res.ok) {
         const err = await res.json()
-        throw new Error(err.error || `Erreur ${res.status}`)
+        throw new Error(err.details || err.error || `Erreur ${res.status}`)
       }
       setResult(await res.json())
     } catch (e) {
