@@ -1,100 +1,212 @@
 export const prospects = [
   {
-    "email": "contact.yamada.avocat@gmail.com",
-    "first_name": "Yamada",
-    "practice_area": "droit de la famille",
-    "city": "Paris",
-    "firm_site": "yamada-avocat.fr"
+    "email": "linda.arif-fusibet@avocat.fr",
+    "first_name": "Arif-Fusibet",
+    "niche": "avocat",
+    "practice_area": "",
+    "city": "Asnières",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
   },
   {
-    "email": "contact@lexvocatis.com",
-    "first_name": "SEVERIN LE FOURN",
-    "practice_area": "droit des affaires",
-    "city": "Paris",
-    "firm_site": "lexvocatis.com"
+    "email": "martel.vignes@paris.notaires.fr",
+    "first_name": "Martel & Vignes",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Choisy-le-Roi",
+    "firm_site": "martel-vignes-notaires.com",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "avocats@latremouille.fr",
-    "first_name": "Latrémouille",
-    "practice_area": "droit de la responsabilité civile",
-    "city": "Paris",
-    "firm_site": "latremouille-avocats.fr"
+    "email": "etude.thiais@paris.notaires.fr",
+    "first_name": "MARTEL",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Thiais",
+    "firm_site": "francois-martel.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "contact@lafont-dugal.com",
-    "first_name": "Lafont",
-    "practice_area": "droit fiscal",
-    "city": "Paris",
-    "firm_site": "lafont-dugal.com"
+    "email": "dominique.andre@92041.notaires.fr",
+    "first_name": "Fontaine",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Antony",
+    "firm_site": "andre-fontaine-lavoixseligmann.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "contact@sba-avocats.com",
-    "first_name": "Babonneau",
-    "practice_area": "droit pénal",
-    "city": "Paris",
-    "firm_site": "sba-avocats.com"
+    "email": "chatenay.notaires@paris.notaires.fr",
+    "first_name": "FURON",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Châtenay-Malabry",
+    "firm_site": "office-chatenay-malabry-laplace-penin-courtet-furon.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "mvion@mev-avocat.com",
-    "first_name": "Vion",
-    "practice_area": "droit commercial",
-    "city": "Paris",
-    "firm_site": "mev-avocat.com"
+    "email": "etude@cvl.notaires.fr",
+    "first_name": "Chambry",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Malakoff",
+    "firm_site": "notaires-chambry-malakoff.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "sabine.sultan@cabinetdanino.com",
-    "first_name": "DANINO",
-    "practice_area": "droit du travail",
+    "email": "alesia.notaires@paris.notaires.fr",
+    "first_name": "Prudhon",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "cabinetdanino.com"
+    "firm_site": "prudhon-bentata.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "contact@avocat-griolet.com",
-    "first_name": "Griolet",
-    "practice_area": "droit des personnes",
+    "email": "bhl@bhl.notaires.fr",
+    "first_name": "Bidel",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "avocat-griolet.com"
+    "firm_site": "bhl-paris.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "sr@rouan-avocat.fr",
-    "first_name": "Rouan",
-    "practice_area": "droit social",
-    "city": "Paris",
-    "firm_site": "rouan-avocat.fr"
+    "email": "etude.leraincy@paris.notaires.fr",
+    "first_name": "PEPIN",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Le Raincy",
+    "firm_site": "le-raincy-paris-notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "lily.ravon@avocat.fr",
-    "first_name": "Ravon",
-    "practice_area": "droit financier",
+    "email": "paul-etienne.dupont@paris.notaires.fr",
+    "first_name": "Dupont",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "ravon-avocate.com"
+    "firm_site": "dupont-paris.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "bilski@bilskiavocat.com",
-    "first_name": "Bilski",
-    "practice_area": "droit immobilier",
+    "email": "contact@mb.notaires.fr",
+    "first_name": "Milhac",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "bilskiavocat.com"
+    "firm_site": "notaires-marais-bastille.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "jonathan@pouget-avocat.fr",
-    "first_name": "Pouget",
-    "practice_area": "droit du numérique",
-    "city": "Aix-en-Provence",
-    "firm_site": "pouget-avocat.fr"
+    "email": "richard-lenoir@paris.notaires.fr",
+    "first_name": "Derain",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Paris",
+    "firm_site": "derain-proust.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "contact@oolith.eu",
-    "first_name": "Paricheva",
-    "practice_area": "droit de la propriété intellectuelle",
+    "email": "sophie.deparades@paris.notaires.fr",
+    "first_name": "de PARADES",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "oolith.eu"
+    "firm_site": "de-parades-marais-paris.notaires.fr",
+    "has_site": true,
+    "https": true
   },
   {
-    "email": "cdoubliez@alphee-avocats.com",
-    "first_name": "DOUBLIEZ",
-    "practice_area": "droit pénal",
+    "email": "pierre.tailhardat@paris.notaires.fr",
+    "first_name": "TAILHARDAT",
+    "niche": "notaire",
+    "practice_area": "",
     "city": "Paris",
-    "firm_site": "avocats-5malraux.com"
+    "firm_site": "dct-notaires.fr",
+    "has_site": true,
+    "https": true
+  },
+  {
+    "email": "notairespariscentre@npc.notaires.fr",
+    "first_name": "Euvrard",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Paris",
+    "firm_site": "notaires-paris-centre.com",
+    "has_site": true,
+    "https": true
+  },
+  {
+    "email": "officedefresnes@paris.notaires.fr",
+    "first_name": "Lecup",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Fresnes",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
+  },
+  {
+    "email": "caroline.garcon-protais@92083.notaires.fr",
+    "first_name": "GARCON-PROTAIS",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Châtenay-Malabry",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
+  },
+  {
+    "email": "etudebricca.clamart@paris.notaires.fr",
+    "first_name": "Bricca",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Clamart",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
+  },
+  {
+    "email": "bruno.garnier@paris.notaires.fr",
+    "first_name": "Lembo",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Paris",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
+  },
+  {
+    "email": "contact@sfez.notaires.fr",
+    "first_name": "Sfez",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Paris",
+    "firm_site": "",
+    "has_site": false,
+    "https": false
+  },
+  {
+    "email": "diane.foucteau@dwr.notaires.fr",
+    "first_name": "Foucteau",
+    "niche": "notaire",
+    "practice_area": "",
+    "city": "Paris",
+    "firm_site": "dwr.notaires.fr",
+    "has_site": true,
+    "https": false
   }
 ]

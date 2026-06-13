@@ -1,8 +1,11 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { ARTICLES, getCategories, slugifyCategory } from "@/lib/articles"
+
+const hasImage = (path: string) => path && (path.startsWith("/") || path.startsWith("http"))
 
 export const metadata: Metadata = {
   title: "Blog — PropulseDev",
@@ -11,6 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog — PropulseDev",
     description: "Conseils concrets pour booster votre visibilité en ligne.",
+    images: [{ url: "/og-default.svg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — PropulseDev",
+    description: "Conseils concrets pour booster votre visibilité en ligne.",
+    images: ["/og-default.svg"],
   },
 }
 
@@ -67,9 +77,17 @@ export default function BlogIndexPage() {
             href={`/blog/${ARTICLES[0].slug}`}
             className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md lg:flex-row"
           >
-            <div className="flex h-64 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono lg:h-auto lg:w-[480px] lg:shrink-0">
-              {ARTICLES[0].image}
-            </div>
+            {hasImage(ARTICLES[0].image) ? (
+              <Image
+                src={ARTICLES[0].image}
+                alt={ARTICLES[0].title}
+                width={480}
+                height={320}
+                className="h-64 object-cover lg:h-full lg:w-[480px] lg:shrink-0"
+              />
+            ) : (
+              <div className="flex h-64 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono lg:h-auto lg:w-[480px] lg:shrink-0" />
+            )}
             <div className="flex flex-1 flex-col p-8">
               <span className="mb-3 inline-flex w-fit rounded-full border border-gray-200 bg-gray-50 px-4 py-1.5 text-xs font-medium uppercase tracking-[1.5px] text-gray-500">
                 {ARTICLES[0].category}
@@ -106,10 +124,17 @@ export default function BlogIndexPage() {
                       href={`/blog/${article.slug}`}
                       className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
                     >
-                      {/* Image placeholder */}
-                      <div className="flex h-48 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono">
-                        {article.image}
-                      </div>
+                      {hasImage(article.image) ? (
+                        <Image
+                          src={article.image}
+                          alt={article.title}
+                          width={400}
+                          height={225}
+                          className="h-48 w-full object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-48 items-center justify-center bg-gray-100 text-gray-400 text-sm font-mono" />
+                      )}
 
                       <div className="flex flex-1 flex-col p-6">
                         {/* Catégorie */}

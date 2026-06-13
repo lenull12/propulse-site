@@ -95,8 +95,25 @@ export function DemosPreview() {
                   propulse.dev — {active.title} / {currentDesign?.title ?? ""}
                 </span>
 
+                {/* Bouton ouvrir dans un nouvel onglet */}
+                {currentDesign && (
+                  <a
+                    href={currentDesign.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-auto flex items-center gap-1 text-[11px] text-gray-400 hover:text-[#c8f000] transition-colors"
+                  >
+                    Ouvrir
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      <polyline points="15 3 21 3 21 9" />
+                      <line x1="10" y1="14" x2="21" y2="3" />
+                    </svg>
+                  </a>
+                )}
+
                 {/* Indicateur de page mobile */}
-                <span className="ml-auto text-[11px] text-gray-400 font-mono md:hidden">
+                <span className="text-[11px] text-gray-400 font-mono md:hidden">
                   {designIndex + 1}/{designs.length}
                 </span>
               </div>
@@ -168,6 +185,10 @@ export function DemosPreview() {
               </div>
             )}
           </div>
+
+          <p className="mt-6 text-center text-[12px] text-gray-500">
+            Les noms, personnes, adresses et photos sont fictifs — à but illustratif uniquement.
+          </p>
 
           <div className="text-center">
             <Link

@@ -66,6 +66,10 @@ export default async function HubPage({ params }: PageProps) {
         </div>
       </section>
 
+      <p className="px-6 pb-12 text-center text-[12px] text-white/40">
+        Les noms, personnes, adresses et photos sont fictifs — à but illustratif uniquement.
+      </p>
+
       <section className="border-t border-white/10 bg-white/[0.02] px-6 py-25 text-center md:px-15">
         <div className="mx-auto flex max-w-[600px] flex-col items-center gap-5">
           <p className="text-[11px] uppercase tracking-[3px] text-accent">

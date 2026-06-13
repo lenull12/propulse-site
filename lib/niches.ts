@@ -96,6 +96,36 @@ export const NICHES: Record<string, Niche> = {
     ],
   },
 
+  notaires: {
+    icon: "📜",
+    menuLabel: "Notaires",
+    menuSub: "Études notariales",
+    tag: "Secteur notarial",
+    title: "Études notariales",
+    subtitle:
+      "Des sites qui incarnent la rigueur et la tradition notariale, avec une présentation moderne. Chaque design est pensé pour rassurer vos clients dès la première visite.",
+    designs: [
+      {
+        id: "classique",
+        tag: "Institutionnel",
+        title: "Le Classique",
+        description:
+          "Design sobre et institutionnel, palette marine et or, typographie serif élégante. Idéal pour les études établies qui veulent inspirer confiance.",
+        badge: "Populaire",
+        url: "/demos/notaires/classique/index.html",
+      },
+      {
+        id: "moderne",
+        tag: "Contemporain",
+        title: "Le Moderne",
+        description:
+          "Design épuré et contemporain, mise en avant des services et de l'équipe. Parfait pour les études qui veulent moderniser leur image.",
+        badge: "Nouveau",
+        url: "/demos/notaires/moderne/index.html",
+      },
+    ],
+  },
+
   architectes: {
     icon: "🏛️",
     menuLabel: "Architectes",

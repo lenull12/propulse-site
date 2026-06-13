@@ -2,6 +2,7 @@
 
 const ITEMS = [
   { icon: "⚖️", label: "Avocats" },
+  { icon: "📜", label: "Notaires" },
   { icon: "📊", label: "Experts-comptables" },
   { icon: "🏛️", label: "Architectes" },
   { icon: "🏥", label: "Médecins & Cliniques" },

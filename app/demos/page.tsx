@@ -51,6 +51,10 @@ export default function DemosIndexPage() {
         </div>
       </section>
 
+      <p className="px-6 pb-12 text-center text-[12px] text-white/40">
+        Les noms, personnes, adresses et photos sont fictifs — à but illustratif uniquement.
+      </p>
+
       <SiteFooter />
     </>
   )

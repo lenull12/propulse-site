@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
 import { getArticle, getAllArticleSlugs, getRelatedArticles } from "@/lib/articles"
-import { renderLine } from "@/lib/markdown-to-html"
+import { renderContent } from "@/lib/markdown-to-html"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -16,10 +17,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const article = getArticle(slug)
   if (!article) return {}
+  const hasValidImage = article.image && (article.image.startsWith("/") || article.image.startsWith("http"))
+  const ogImage = hasValidImage ? article.image : "/og-default.svg"
   return {
     title: `${article.title} — PropulseDev`,
     description: article.metaDesc,
     keywords: article.metaKeywords.join(", "),
+    openGraph: {
+      title: `${article.title} — PropulseDev`,
+      description: article.metaDesc,
+      type: "article",
+      publishedTime: article.date,
+      images: [{ url: ogImage, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} — PropulseDev`,
+      description: article.metaDesc,
+      images: [ogImage],
+    },
   }
 }
 
@@ -30,15 +46,36 @@ export default async function ArticlePage({ params }: Props) {
 
   const related = getRelatedArticles(slug)
 
+  const baseUrl = "https://propulsedev.fr"
+  const articleUrl = `${baseUrl}/blog/${slug}`
+  const hasValidImage = article.image && (article.image.startsWith("/") || article.image.startsWith("http"))
+  const ogImage = hasValidImage ? article.image : "/og-default.svg"
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
     description: article.metaDesc,
+    image: ogImage.startsWith("http") ? ogImage : `${baseUrl}${ogImage}`,
     datePublished: article.date,
+    dateModified: article.date,
     author: {
+      "@type": "Person",
+      name: "Raphaël Tran",
+      url: `${baseUrl}/a-propos`,
+    },
+    publisher: {
       "@type": "Organization",
       name: "PropulseDev",
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/og-default.svg`,
+      },
+    },
+    url: articleUrl,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
     },
   }
 
@@ -82,9 +119,22 @@ export default async function ArticlePage({ params }: Props) {
             <span>{article.readTime}</span>
           </div>
 
+          {/* Image */}
+          {hasValidImage && (
+            <div className="mb-10 overflow-hidden rounded-xl">
+              <Image
+                src={article.image}
+                alt={article.title}
+                width={800}
+                height={420}
+                className="w-full object-cover"
+              />
+            </div>
+          )}
+
           {/* Contenu */}
           <div className="flex flex-col">
-            {article.content.map((line, i) => renderLine(line, i, true))}
+            {renderContent(article.content, true)}
           </div>
 
           {/* CTA */}

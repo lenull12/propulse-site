@@ -119,6 +119,24 @@ document.querySelectorAll(".fade-in").forEach(el => {
   observer.observe(el);
 });
 
+// FAQ ACCORDION
+document.querySelectorAll(".faq-question").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.closest(".faq-item");
+    const isOpen = item.classList.contains("open");
+
+    document.querySelectorAll(".faq-item.open").forEach((openItem) => {
+      openItem.classList.remove("open");
+      openItem.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    });
+
+    if (!isOpen) {
+      item.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
 // NAV SCROLL EFFECT
 const nav = document.querySelector(".nav");
 window.addEventListener("scroll", () => {
@@ -128,3 +146,20 @@ window.addEventListener("scroll", () => {
     nav.style.borderBottomColor = "rgba(201, 168, 76, 0.15)";
   }
 });
+
+// CONTACT FORM
+const contactForm = document.getElementById("contactForm");
+const contactSuccess = document.getElementById("contactSuccess");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector("button[type='submit']");
+    submitBtn.textContent = "Envoi en cours...";
+    submitBtn.disabled = true;
+    setTimeout(() => {
+      contactForm.style.display = "none";
+      contactSuccess.classList.add("active");
+    }, 800);
+  });
+}

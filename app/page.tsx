@@ -17,6 +17,24 @@ import Image from "next/image"
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "PropulseDev",
+            url: "https://propulsedev.fr",
+            email: "contact@propulsedev.fr",
+            telephone: "+33 6 95 38 27 56",
+            founder: { "@type": "Person", name: "Raphaël Tran" },
+            description:
+              "Création de sites web haut de gamme et visibilité Google locale pour les professionnels indépendants.",
+            areaServed: "FR",
+            sameAs: ["https://propulsedev.fr"],
+          }),
+        }}
+      />
       <SiteNav />
       <main>
         <Hero />

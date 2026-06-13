@@ -11,6 +11,20 @@ export default function FaqPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
+          }),
+        }}
+      />
       <SiteNav />
       <main>
         {/* Hero */}

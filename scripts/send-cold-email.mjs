@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from 'fs'
+import { niches, buildSubject, buildFullEmail } from '../lib/cold-email-config.mjs'
 
 const envRaw = readFileSync('.env.local', 'utf-8')
 const apiKey = envRaw
@@ -13,8 +14,21 @@ if (!apiKey) {
 }
 
 function buildEmailHtml(p) {
-  return `
-<!DOCTYPE html>
+  const config = niches[p.niche] || niches['avocat']
+  const subject = buildSubject(p, config)
+  const bodyText = buildFullEmail(p, config)
+
+  const bodyHtml = bodyText
+    .split('\n')
+    .map(line => {
+      if (!line) return '<br>'
+      return `<p style="margin:0 0 8px;font-size:14px;line-height:1.6;color:#1a1a1a;font-family:Inter,Helvetica,Arial,sans-serif">${line.replace(/\n/g, '<br>')}</p>`
+    })
+    .join('\n')
+
+  return {
+    subject,
+    html: `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background:#f5f5f5;font-family:Inter,Helvetica,Arial,sans-serif">
@@ -22,36 +36,20 @@ function buildEmailHtml(p) {
     <tr>
       <td align="center" style="padding:40px 16px">
         <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:8px;overflow:hidden">
-          <tr><td style="padding:32px 32px 0;font-size:15px;line-height:1.7;color:#1a1a1a">
-            <p style="margin:0 0 20px">Maître ${p.first_name},</p>
-
-            <p style="margin:0 0 20px">Je me permets de vous contacter après avoir étudié la présence en ligne de votre cabinet. Votre expertise reconnue en <b>${p.practice_area}</b> à ${p.city} a particulièrement retenu mon attention.</p>
-
-            <p style="margin:0 0 20px">En analysant votre site internet, j'ai remarqué que sa structure actuelle ne valorise pas pleinement votre savoir-faire face aux nouveaux critères du web en 2026 (notamment la vitesse de chargement sur mobile et la conversion des visiteurs en clients). À l'heure où les justiciables comparent énormément en ligne, un site parfaitement optimisé est devenu le <b>premier vecteur de réassurance</b>.</p>
-
-            <p style="margin:0 0 20px">J'ai identifié 2 ou 3 ajustements techniques et visuels simples sur votre site ${p.firm_site} qui permettraient de <b>capter davantage de demandes qualifiées</b> sur ${p.city}.</p>
-
-            <p style="margin:0 0 20px">Pour vous projeter concrètement, je vous propose de vous préparer <b>gratuitement et sans engagement une maquette visuelle</b> de ce que pourrait être une version modernisée de votre site.</p>
-
-            <p style="margin:0 0 20px">Seriez-vous ouvert à ce que je vous l'envoie par e-mail la semaine prochaine ?</p>
-
-            <p style="margin:0 0 8px">Bien cordialement,</p>
-
-            <p style="margin:0 0 2px"><b>Raphaël TRAN</b></p>
-            <p style="margin:0 0 2px">Développeur web / Consultant en visibilité digitale</p>
-            <p style="margin:0 0 2px"><b>PropulseDev</b></p>
-            <p style="margin:0 0 2px">06 95 38 27 56</p>
-            <p style="margin:0"><a href="https://propulsedev.fr" style="color:#c8f000;text-decoration:none;font-weight:600">propulsedev.fr</a></p>
+          <tr><td style="padding:32px 32px 0;font-size:14px;line-height:1.6;color:#1a1a1a;font-family:Inter,Helvetica,Arial,sans-serif">
+${bodyHtml}
           </td></tr>
         </table>
       </td>
     </tr>
   </table>
 </body>
-</html>`.trim()
+</html>`.trim(),
+  }
 }
 
 async function sendEmail(p) {
+  const { subject, html } = buildEmailHtml(p)
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -62,8 +60,8 @@ async function sendEmail(p) {
       from: 'PropulseDev <contact@propulsedev.fr>',
       reply_to: 'contact@propulsedev.fr',
       to: [p.email],
-      subject: `Proposition de modernisation de votre site — Cabinet ${p.first_name}`,
-      html: buildEmailHtml(p),
+      subject,
+      html,
     }),
   })
 
@@ -98,13 +96,19 @@ if (args['import-csv']) {
     .map(line => {
       const cols = line.split(';')
       const url = (cols[4] || '').trim()
-      const firm_site = url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '')
+      const has_site = url !== 'NA' && url.startsWith('http')
+      const firm_site = has_site ? url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/.*$/, '') : ''
+      const niche = (cols[5] || 'avocat').trim().toLowerCase()
+      const httpsCol = (cols[6] || '').trim().toLowerCase()
       return {
         email: (cols[0] || '').trim(),
         first_name: (cols[1] || '').trim(),
-        practice_area: (cols[2] || '').trim(),
+        niche: niches[niche] ? niche : 'avocat',
+        practice_area: has_site ? (cols[2] || '').trim() : '',
         city: (cols[3] || '').trim(),
         firm_site,
+        has_site,
+        https: has_site ? httpsCol !== 'oui' : false,
       }
     })
 
@@ -131,9 +135,12 @@ if (args.all) {
   prospects = [{
     email: args.email,
     first_name: args.first_name,
+    niche: args.niche || 'avocat',
     practice_area: args.practice_area || '',
     city: args.city || '',
     firm_site: args.firm_site || '',
+    has_site: !!args.firm_site,
+    https: args.https !== 'oui',
   }]
 } else {
   console.error('Usage :')
@@ -154,16 +161,22 @@ let failed = 0
 
 for (let i = 0; i < prospects.length; i++) {
   const p = prospects[i]
+  const config = niches[p.niche] || niches['avocat']
+  const { subject } = buildEmailHtml(p)
 
   console.log(`\n${'='.repeat(50)}`)
   console.log(`Prospect ${i + 1}/${prospects.length}`)
   console.log(`  Email        : ${p.email}`)
   console.log(`  Nom          : ${p.first_name}`)
+  console.log(`  Niche        : ${p.niche}`)
   console.log(`  Spécialité   : ${p.practice_area}`)
   console.log(`  Ville        : ${p.city}`)
-  console.log(`  Site         : ${p.firm_site}`)
-  console.log(`  Objet        : Proposition de modernisation de votre site — Cabinet ${p.first_name}`)
+  console.log(`  Site         : ${p.has_site ? p.firm_site + (p.https === false ? ' (⚠ non sécurisé)' : '') : '(pas de site)'}`)
+  console.log(`  Objet        : ${subject}`)
   console.log(`${'='.repeat(50)}`)
+  console.log()
+  console.log(buildFullEmail(p, config))
+  console.log()
 
   try {
     await sendEmail(p)

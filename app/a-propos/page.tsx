@@ -313,6 +313,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {[
                 { icon: "⚖️", title: "Avocats", desc: "Cabinets juridiques et avocats indépendants" },
+                { icon: "📜", title: "Notaires", desc: "Études notariales et offices" },
                 { icon: "📊", title: "Experts-comptables", desc: "Cabinets d'expertise comptable" },
                 { icon: "🏛️", title: "Architectes", desc: "Cabinets d'architecture" },
                 { icon: "🍽️", title: "Restaurateurs", desc: "Restaurants, brasseries, traiteurs" },

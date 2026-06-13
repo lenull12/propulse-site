@@ -12,6 +12,8 @@ const FOOTER_LINKS = {
   Outils: [
     { label: "Simulateur de site", href: "/simulateur" },
     { label: "Analyse PageSpeed", href: "/outils/pagespeed" },
+    { label: "Analyse SEO", href: "/outils/seo-checker" },
+    { label: "Générateur de balises méta", href: "/outils/meta-generator" },
   ],
   Ressources: [
     { label: "Blog", href: "/blog" },
@@ -21,6 +23,7 @@ const FOOTER_LINKS = {
   ],
   Légal: [
     { label: "Mentions légales", href: "/mentions-legales" },
+    { label: "Politique de confidentialité", href: "/confidentialite" },
     { label: "CGV", href: "/cgv" },
   ],
 }
