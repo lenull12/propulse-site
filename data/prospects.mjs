@@ -1,15 +1,5 @@
 export const prospects = [
   {
-    "email": "linda.arif-fusibet@avocat.fr",
-    "first_name": "Arif-Fusibet",
-    "niche": "avocat",
-    "practice_area": "",
-    "city": "Asnières",
-    "firm_site": "",
-    "has_site": false,
-    "https": false
-  },
-  {
     "email": "martel.vignes@paris.notaires.fr",
     "first_name": "Martel & Vignes",
     "niche": "notaire",

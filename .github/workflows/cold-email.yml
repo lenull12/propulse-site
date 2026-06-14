@@ -1,0 +1,42 @@
+name: Cold Email Campaign
+
+on:
+  schedule:
+    - cron: "30 6 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      email:
+        description: "Email de test"
+        required: false
+        type: string
+      first_name:
+        description: "Prénom du test"
+        required: false
+        type: string
+      niche:
+        description: "Niches (ex: notaire)"
+        required: false
+        type: string
+        default: "notaire"
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Envoi planifié (cron)
+        if: github.event_name == 'schedule'
+        run: node scripts/send-cold-email.mjs --all
+        env:
+          COLD_EMAIL_API_KEY: ${{ secrets.COLD_EMAIL_API_KEY }}
+      - name: Envoi test (workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        run: node scripts/send-cold-email.mjs --email="$EMAIL" --first_name="$FIRST_NAME" --niche="$NICHE"
+        env:
+          COLD_EMAIL_API_KEY: ${{ secrets.COLD_EMAIL_API_KEY }}
+          EMAIL: ${{ inputs.email }}
+          FIRST_NAME: ${{ inputs.first_name }}
+          NICHE: ${{ inputs.niche }}
