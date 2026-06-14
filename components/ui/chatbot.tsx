@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useRef, useEffect } from "react"
 import Link from "next/link"
 import { CHAT_FLOW, type ChatStep } from "@/lib/chatbot-data"
 
@@ -21,6 +21,16 @@ function CloseIcon() {
   )
 }
 
+function formatMessage(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g)
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i} className="font-semibold text-foreground">{part.slice(2, -2)}</strong>
+    }
+    return part
+  })
+}
+
 type Message = {
   text: string
   isBot: boolean
@@ -31,29 +41,30 @@ export function ChatBot() {
   const [history, setHistory] = useState<Message[]>([{ text: CHAT_FLOW.root.message, isBot: true }])
   const [currentStep, setCurrentStep] = useState<ChatStep>(CHAT_FLOW.root)
 
-  const goToStep = useCallback((nextId: string) => {
-    const step = CHAT_FLOW[nextId]
-    if (!step) return
-    setHistory((prev) => [...prev, { text: step.message, isBot: true }])
-    setCurrentStep(step)
+  const toggleOpen = useCallback(() => {
+    setOpen((prev) => !prev)
   }, [])
 
   const handleSuggestion = useCallback(
-    (nextId: string) => {
-      setHistory((prev) => [...prev, { text: nextId === "root" ? "🏠 Retour à l'accueil" : "", isBot: false }])
-      goToStep(nextId)
+    (suggestion: { label: string; nextId: string }) => {
+      const step = CHAT_FLOW[suggestion.nextId]
+      if (!step) return
+      setHistory((prev) => [...prev, { text: suggestion.label, isBot: false }, { text: step.message, isBot: true }])
+      setCurrentStep(step)
     },
-    [goToStep],
+    [],
   )
 
-  const toggleOpen = useCallback(() => {
-    if (!open) {
-      // Réinitialiser quand on rouvre
-      setHistory([{ text: CHAT_FLOW.root.message, isBot: true }])
-      setCurrentStep(CHAT_FLOW.root)
-    }
-    setOpen((prev) => !prev)
-  }, [open])
+  const resetChat = useCallback(() => {
+    setHistory([{ text: CHAT_FLOW.root.message, isBot: true }])
+    setCurrentStep(CHAT_FLOW.root)
+  }, [])
+
+  const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [history])
 
   return (
     <>
@@ -78,23 +89,32 @@ export function ChatBot() {
               <p className="text-sm font-semibold text-foreground">PropulseDev</p>
               <p className="text-[11px] text-green-400">● En ligne</p>
             </div>
+            <button
+              onClick={resetChat}
+              className="text-[11px] text-white/30 transition-colors hover:text-accent"
+              aria-label="Nouvelle conversation"
+              title="Nouvelle conversation"
+            >
+              ↺
+            </button>
           </div>
 
           {/* Messages */}
-          <div className="flex max-h-[400px] flex-col gap-3 overflow-y-auto px-5 py-4">
+          <div className="flex max-h-[400px] flex-col gap-3 overflow-y-auto px-5 py-4 scrollbar-thin">
             {history.map((msg, i) => (
               <div key={i} className={`flex ${msg.isBot ? "justify-start" : "justify-end"}`}>
                 <div
                   className={`max-w-[85%] whitespace-pre-line rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
                     msg.isBot
-                      ? "rounded-tl-sm border border-white/10 bg-white/5 text-foreground"
-                      : "rounded-tr-sm bg-accent/20 text-foreground"
+                      ? "rounded-tl-sm border border-white/10 bg-white/5 text-foreground/90"
+                      : "rounded-tr-sm bg-accent/20 text-foreground font-medium"
                   }`}
                 >
-                  {msg.text}
+                  {formatMessage(msg.text)}
                 </div>
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Suggestions */}
@@ -104,8 +124,8 @@ export function ChatBot() {
                 {currentStep.suggestions.map((s) => (
                   <button
                     key={s.nextId}
-                    onClick={() => handleSuggestion(s.nextId)}
-                    className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[12px] text-foreground transition-all hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
+                    onClick={() => handleSuggestion(s)}
+                    className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-[12px] text-foreground/80 transition-all hover:border-accent/50 hover:bg-accent/10 hover:text-accent"
                   >
                     {s.label}
                   </button>

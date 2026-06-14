@@ -106,6 +106,15 @@ export const NICHES: Record<string, Niche> = {
       "Des sites qui incarnent la rigueur et la tradition notariale, avec une présentation moderne. Chaque design est pensé pour rassurer vos clients dès la première visite.",
     designs: [
       {
+        id: "chic",
+        tag: "Premium",
+        title: "Le Chic",
+        description:
+          "Design luxueux noir et or, pour une étude qui veut marquer sa différence. Ambiance cabinet d'exception.",
+        badge: "Nouveau",
+        url: "/demos/notaires/chic/index.html",
+      },
+      {
         id: "classique",
         tag: "Institutionnel",
         title: "Le Classique",
@@ -119,7 +128,7 @@ export const NICHES: Record<string, Niche> = {
         tag: "Contemporain",
         title: "Le Moderne",
         description:
-          "Design épuré et contemporain, mise en avant des services et de l'équipe. Parfait pour les études qui veulent moderniser leur image.",
+          "Design épuré et contemporain, bento grid moderne, palette crème et marine. Parfait pour les études qui veulent moderniser leur image.",
         badge: "Nouveau",
         url: "/demos/notaires/moderne/index.html",
       },
