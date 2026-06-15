@@ -2,13 +2,11 @@ import { readFileSync, writeFileSync } from 'fs'
 import { niches, buildSubject, buildFullEmail } from '../lib/cold-email-config.mjs'
 
 const envRaw = readFileSync('.env.local', 'utf-8')
-const apiKey = process.env.COLD_EMAIL_API_KEY || (
-  envRaw
-    .split('\n')
-    .find(l => l.startsWith('COLD_EMAIL_API_KEY='))
-    ?.split('=')[1]
-    ?.trim()
-)
+const apiKey = envRaw
+  .split('\n')
+  .find(l => l.startsWith('COLD_EMAIL_API_KEY='))
+  ?.split('=')[1]
+  ?.trim()
 
 if (!apiKey) {
   console.error('✗ COLD_EMAIL_API_KEY introuvable dans .env.local')
