@@ -37,6 +37,7 @@ const SECTIONS = [
     content: (
       <>
         <p>Pour les créations de site : 30% du montant total à la commande, 70% à la mise en ligne. Le paiement s&apos;effectue par virement bancaire.</p>
+        <p>Pour le renouvellement annuel hébergement/domaine (59 € TTC) : la facture est émise à la date anniversaire de la mise en ligne. Le paiement est dû sous 15 jours. Passé ce délai, le site peut être mis hors ligne jusqu&apos;à régularisation.</p>
         <p>Pour les abonnements mensuels : la mensualité est due le 1er de chaque mois. En cas de retard de paiement, des pénalités de trois fois le taux d&apos;intérêt légal sont applicables. Passé un délai de 15 jours après relance, l&apos;abonnement peut être suspendu.</p>
       </>
     ),
@@ -46,6 +47,7 @@ const SECTIONS = [
     content: (
       <>
         <p>Le site est livré sur un environnement de preview accessible au client. Le client dispose de 14 jours calendaires pour tester le site et demander des ajustements. La mise en ligne définitive a lieu après validation écrite du client (email accepté). Passé ce délai sans réponse, le site est considéré comme accepté.</p>
+        <p>Une fois le site en ligne, PropulseDev assure gratuitement pendant 12 mois la maintenance courante : mises à jour de sécurité des dépendances, surveillance de l&apos;uptime, backups hebdomadaires et renouvellement du nom de domaine. Au-delà, ces services sont facturés 59 € TTC par an (renouvellement domaine + hébergement + maintenance).</p>
       </>
     ),
   },
@@ -72,8 +74,9 @@ const SECTIONS = [
     title: "7. Nom de domaine",
     content: (
       <>
-        <p>Le nom de domaine offert dans le cadre des formules est un domaine standard de premier niveau (.fr, .com, .net, .org). Tout surcoût lié à un nom de domaine premium ou à une extension exotique est à la charge du client et sera mentionné dans le devis.</p>
-        <p>En cas de résiliation de l&apos;abonnement, le nom de domaine est transféré au client sur demande écrite. Le client reste propriétaire de son nom de domaine en toutes circonstances.</p>
+        <p>Le nom de domaine offert la 1ʳᵉ année dans le cadre des formules est un domaine standard de premier niveau (.fr, .com, .net, .org). Tout surcoût lié à un nom de domaine premium ou à une extension exotique est à la charge du client et sera mentionné dans le devis.</p>
+        <p>À compter de la 2ᵉ année, le nom de domaine est renouvelé automatiquement dans le cadre de l&apos;offre de renouvellement à 59 € TTC par an (domaine + hébergement + maintenance sécurité). Le client est prévenu 30 jours avant chaque renouvellement.</p>
+        <p>En cas de résiliation de l&apos;abonnement mensuel ou de l&apos;offre de renouvellement, le nom de domaine est transféré au client sur demande écrite. Le client reste propriétaire de son nom de domaine en toutes circonstances.</p>
       </>
     ),
   },

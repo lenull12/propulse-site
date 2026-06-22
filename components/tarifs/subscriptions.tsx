@@ -79,12 +79,12 @@ export function Subscriptions() {
     <section className="border-t border-white/5 bg-[#050505] px-6 py-24 md:px-15">
       <div className="mx-auto max-w-[1100px]">
         <div className="mb-14 text-center">
-          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Abonnements mensuels</p>
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-white/30">Optionnel</p>
           <h2 className="mb-3 font-mono text-[clamp(24px,3vw,36px)] font-black leading-[1.15] text-foreground">
-            Votre site <span className="text-white/30">évolue avec vous</span>
+            Options <span className="text-white/30">de suivi mensuel</span>
           </h2>
           <p className="text-sm font-light text-gray-500">
-            Hébergement, mises à jour, audits SEO et modifications. Résiliable à tout moment.
+            Des abonnements facultatifs pour ceux qui veulent aller plus loin. Résiliables à tout moment.
           </p>
         </div>
 

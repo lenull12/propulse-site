@@ -29,7 +29,7 @@ const PLANS = [
       "Formulaire de contact intégré",
       "Stack Next.js + Tailwind CSS",
       "Hébergement Cloudflare Pages — CDN mondial",
-      "Nom de domaine .fr offert 1 an*",
+      "Mises à jour sécurité incluses 1 an",
       "Certificat SSL automatique",
       "Protection DDoS & firewall Cloudflare",
       "SEO technique de base",
@@ -55,7 +55,7 @@ const PLANS = [
       "Blog / Actualités intégré",
       "Stack Next.js + Tailwind CSS",
       "Hébergement Cloudflare Pages — CDN mondial",
-      "Nom de domaine .fr offert 1 an*",
+      "Mises à jour sécurité incluses 1 an",
       "Certificat SSL automatique",
       "Protection DDoS & firewall Cloudflare",
       "Cache edge — temps de chargement < 1s",
@@ -89,7 +89,7 @@ const PLANS = [
       "Blog / Actualités intégré",
       "Stack Next.js + Tailwind CSS",
       "Hébergement Cloudflare Pages — CDN mondial",
-      "Nom de domaine .fr offert 1 an*",
+      "Mises à jour sécurité incluses 1 an",
       "Certificat SSL automatique",
       "Protection DDoS & firewall Cloudflare",
       "Cache edge — temps de chargement < 1s",
@@ -124,15 +124,18 @@ export default function TarifsPage() {
           <div className="flex-1 max-w-[640px]">
             <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Tarifs</p>
             <h1 className="mb-5 font-mono text-[clamp(36px,5vw,60px)] font-black leading-[1.1] text-balance text-foreground">
-              Des prix fixes,
+              Votre site clé en main,
               <br />
-              <span className="text-white/30">zéro surprise.</span>
+              <span className="text-white/30">domaine + hébergement offerts.</span>
             </h1>
             <p className="max-w-[560px] text-base font-light leading-relaxed text-gray-400">
-              Un audit gratuit et sans engagement pour chiffrer votre projet. Ensuite,
-              vous choisissez la formule qui correspond à vos besoins. Paiement en deux fois :
+              Audit gratuit pour chiffrer votre projet. Vous choisissez votre formule, on s&apos;occupe de tout :
+              création, hébergement, domaine, sécurité, mises à jour. Paiement en deux fois&nbsp;:
               <span className="text-foreground"> 30% à la commande, 70% à la mise en ligne</span>.
             </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/[0.03] px-5 py-2">
+              <span className="text-accent text-sm font-medium">✓ Domaine .fr + hébergement Cloudflare offerts 1 an</span>
+            </div>
           </div>
           <div className="flex-1 w-full max-w-[400px]">
             <PricingBars />
@@ -181,6 +184,13 @@ export default function TarifsPage() {
                 <p className="mt-1 text-xs text-white/30 font-light">30% à la commande</p>
               </div>
 
+              {/* Offert 1 an */}
+              <div className="mb-6 rounded-lg border border-accent/20 bg-accent/[0.03] px-4 py-3 text-center">
+                <p className="text-xs font-medium text-accent leading-relaxed">
+                  Domaine .fr + Hébergement Cloudflare<br className="sm:hidden" /> offerts pendant 1 an
+                </p>
+              </div>
+
               {/* Features */}
               <ul className="mb-10 flex flex-1 flex-col gap-3">
                 {plan.features.map((feat) => (
@@ -222,7 +232,39 @@ export default function TarifsPage() {
         </div>
       </section>
 
-
+      {/* ============ SÉCURITÉ & HÉBERGEMENT ============ */}
+      <section className="border-t border-white/5 bg-[#050505] px-6 py-20 md:px-15">
+        <div className="mx-auto max-w-[900px] text-center">
+          <p className="mb-4 text-[11px] font-medium uppercase tracking-[3px] text-accent">Sérénité</p>
+          <h2 className="mb-4 font-mono text-[clamp(24px,3vw,36px)] font-black leading-[1.15] text-foreground">
+            On s&apos;occupe de tout<span className="text-white/30">, même après la livraison</span>
+          </h2>
+          <p className="mb-8 text-sm font-light leading-relaxed text-gray-400 max-w-[600px] mx-auto">
+            Votre site est livré clé en main et nous assurons sa maintenance courante
+            (mises à jour de sécurité, monitoring, backups) pendant toute la première année.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[700px] mx-auto">
+            {[
+              { icon: "🛡️", title: "Sécurité", desc: "SSL, pare-feu, mises à jour, monitoring 24/7" },
+              { icon: "☁️", title: "Hébergement", desc: "Cloudflare Pages, cache edge mondial, uptime 99.9%" },
+              { icon: "🔁", title: "Backups", desc: "Sauvegardes automatiques hebdomadaires" },
+            ].map((item) => (
+              <div key={item.title} className="rounded-xl border border-white/10 bg-white/[0.02] p-5 text-left">
+                <span className="text-xl mb-2 block">{item.icon}</span>
+                <p className="font-mono text-sm font-bold text-foreground mb-1">{item.title}</p>
+                <p className="text-xs text-gray-500 font-light">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 rounded-xl border border-white/10 bg-accent/[0.02] px-6 py-6 max-w-[600px] mx-auto">
+            <p className="text-sm text-gray-300 font-light">
+              <span className="text-accent font-semibold">Après la 1ʳᵉ année</span>, votre domaine et votre hébergement sont renouvelés
+              automatiquement pour <span className="text-foreground font-semibold">seulement 59 €/an</span>.
+              Pas de surprise, pas de frais cachés.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ============ COMPARAISON RAPIDE ============ */}
       <section className="border-t border-white/5 bg-background px-6 py-24 md:px-15">
@@ -324,14 +366,9 @@ export default function TarifsPage() {
               Toutes les formules incluent l'hébergement, le nom de domaine et la stack technique Next.js + Cloudflare.
               Les fonctionnalités liées aux avis Google sont disponibles via l'abonnement Business.
             </p>
-            <p className="text-[10px] text-white/10">
-              * Offre valable pour un nom de domaine standard (.fr, .com, .net, .org). Les domaines premium ou exotiques font l&apos;objet d&apos;un devis séparé.
-            </p>
           </div>
         </div>
       </section>
-
-      <Subscriptions />
 
       {/* ============ DEVIS PERSONNALISÉ ============ */}
       <section className="border-t border-white/5 bg-[#050505] px-6 py-24 md:px-15">
@@ -355,6 +392,8 @@ export default function TarifsPage() {
           </Link>
         </div>
       </section>
+
+      <Subscriptions />
 
       <SiteFooter />
     </>

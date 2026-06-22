@@ -22,9 +22,11 @@ const SERVICES = [
   {
     number: "02",
     title: "Refonte de site web",
-    text: "Création d'un site sur-mesure d'une rapidité extrême, optimisé pour transformer vos simples visiteurs en clients actifs.",
+    text: "Site clé en main, livré avec tout ce qu'il faut pour être tranquille. On s'occupe de la création, de l'hébergement, du domaine et de la sécurité.",
     features: [
       "Vitesse de chargement garantie > 95%",
+      "Domaine .fr + Hébergement offerts 1 an",
+      "Mises à jour sécurité incluses 1 an",
       "Structure UX pensée pour la conversion",
       "Optimisation SEO locale poussée",
     ],
