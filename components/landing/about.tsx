@@ -14,11 +14,11 @@ const VALUES = [
   },
   {
     number: "12+",
-    label: "Ans d'expérience",
+    label: "12+ ans d&apos;expérience",
   },
   {
     number: "3j",
-    label: "Audit offert sous 24h",
+    label: "Audit offert sous 48h",
   },
 ]
 
@@ -84,9 +84,9 @@ export function About() {
                 résultats Google, invisibles aux yeux de leurs futurs clients.
               </p>
               <p>
-                Nous sommes une équipe de développeurs et d&apos;experts SEO passionnés,
-                avec plus de 12 ans d&apos;expérience cumulée dans la conception de sites
-                web performants. Notre spécialité ? Allier un design moderne et technique
+                Nous sommes un développeur passionné, entouré d&apos;un réseau
+                d&apos;experts SEO et de créatifs mobilisés selon les besoins de chaque
+                projet — avec plus de 12 ans d&apos;expérience dans le web.
                 — construit avec les frameworks les plus avancés (Next.js, React) — à
                 une stratégie de référencement local ultra-ciblée.
               </p>

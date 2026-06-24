@@ -108,7 +108,7 @@ export function SiteFooter() {
             © 2026 PropulseDev — Tous droits réservés
           </p>
           <p className="text-[12px] text-white/20 font-light font-mono">
-            Fait avec ♥ en Île-de-France
+            Fait par Raphaël TRAN - Fondateur de PropulseDev
           </p>
         </div>
 

@@ -2,21 +2,38 @@
 
 ## Contexte général
 
-PropulseDev est une agence digitale freelance (je suis un développeur web freelance). J'accompagne les professionnels indépendants (avocats, architectes, restaurateurs, artisans, etc.) à améliorer leur visibilité Google et à inspirer confiance via leur site web.
+PropulseDev est une agence digitale freelance (développeur web freelance). Accompagne les professionnels indépendants (avocats, architectes, restaurateurs, artisans, etc.) à améliorer leur visibilité Google et à inspirer confiance via leur site web.
+
+**Positionnement public (site)** : généraliste sur de nombreux métiers (avocats, notaires, experts-comptables, architectes, médecins, restaurants, artisans, agences immo, coiffeurs, garages, naturopathes...). **Cible réellement prospectée actuellement : avocats** (Barreau de Paris, démarchage direct) — le reste du positionnement généraliste sert la crédibilité/SEO, pas un canal d'acquisition actif aujourd'hui.
+
+**Stade** : début d'activité. Pas encore de portfolio client réel ni d'avis Google. Les ★★★★★ sur le site sont une **promesse / branding** (pas un claim d'avis existants). Les "50+ sites livrés" et "4.9★" sont des objectifs / projections, pas des résultats actuels. Les démos présentées sont fictives. C'est assumé — le site vend une vision, pas un historique.
+
+**Chiffres clés affichés (site)** : 50+ sites livrés, note moyenne 4.9, 12+ ans d'expérience, audit sous 48h, PageSpeed 95+/98+ garanti selon formule.
+
+**Contact** : contact@propulsedev.fr / +33 6 95 38 27 56
 
 ### Offres
 - **Prix fixe** : refonte complète site web + optimisation SEO (Starter 1 000€ / Pro 2 000€ / Premium 3 500€)
+  - Starter : 1 page, livré 5-7j, PageSpeed 95+
+  - Pro (recommandé) : 5 pages max, livré 1-2 sem., blog inclus, QR code, formation 30min
+  - Premium : 10 pages max, livré 2-4 sem., design sur-mesure, contenu rédigé, monitoring 24/7, audit trimestriel
+  - Toutes formules : domaine .fr + hébergement Cloudflare **offerts 1 an**, puis **59€/an** renouvellement
 - **Abonnements mensuels** (résiliables à tout moment) :
   - **Zen** 29 €/mois — hébergement, domaine, màj sécurité, backups, 2 modifs/mois
   - **Performance** 59 €/mois — Zen + audit SEO mensuel + suivi classement, 5 modifs/mois
   - **Business** 89 €/mois — Performance + filtrage avis Google + prioritaire, 10 modifs/mois
+  - Sans abonnement : modifs à la carte (texte 30€, photo 25€, section 80€, page 150-300€)
 - **Paiement** : 30% acompte, 70% à la mise en ligne
+- **Stratégie de vente** : l'abonnement/SEO est secondaire dans le pitch, relégué au second plan — le produit principal est le site clé en main (Starter/Pro/Premium)
 
 ### Cible
 Professionnels indépendants ayant besoin d'un bon référencement local (SEO local) et d'un site qui inspire la confiance.
 
 ### Ton
-Utiliser **"nous"** sur le site (pas "je") pour faire plus professionnel. Le contenu textuel est en français.
+Utiliser **"nous"** sur le site (pas "je") pour faire plus professionnel. 
+⚠️ **Équilibre à trouver** : le "nous" ne doit pas mentir sur la réalité solo. 
+Phrases à utiliser : "un développeur passionné entouré d'un réseau d'experts", pas "une équipe de développeurs".
+Le contenu textuel est en français.
 
 ## Flux client
 
@@ -68,6 +85,8 @@ Pas de CMS headless. Le client demande → on modifie.
 - **CSS** : Tailwind CSS v4 avec `@theme` dans `globals.css`
 - **Polices** : Inter (body, `--font-inter`), JetBrains Mono (titres, `--font-jetbrains-mono`)
 - **Déploiement** : Cloudflare Pages
+- **Repo** : GitHub (lenull12/propulse-site)
+- **Code local** : C:\Users\Admin\Documents\Projects\PropulseDev
 
 ## Conventions de code
 
@@ -80,6 +99,7 @@ Pas de CMS headless. Le client demande → on modifie.
 - Contenu textuel en français
 - `next/link` pour la navigation interne
 - Éviter les dépendances externes quand possible
+- Ne jamais utiliser d'entités HTML (`&apos;`, `&amp;`, `&lt;`, `&gt;`) dans les chaînes JavaScript — toujours le caractère direct (`'`, `&`, `<`, `>`). Les entités HTML ne sont valides qu'en JSX pur (contenu entre balises), pas dans les strings JS (`"..."`, `'...'`, `` `...` ``)
 
 ## Palette Tailwind personnalisée
 
@@ -130,11 +150,6 @@ npm run start    → Démarrer le serveur de production
   - Typos contrastées (gras/maigre dans les titres)
 - Notre accent #c8f000 doit être utilisé pour les glows, bordures et éléments mis en avant
 
-## Mémoire persistante (MCP memory)
-
-- Utiliser les outils `memory` (create_entities, create_relations, add_observations) pour sauvegarder les décisions, préférences et faits importants du projet entre les sessions
-- Au début de chaque session, lire le graphe avec `read_graph` ou `search_nodes` pour rappeler le contexte
-
 ## SEO Blog
 
 Le blog est le principal levier d'acquisition organique. Chaque article doit respecter les règles suivantes :
@@ -181,6 +196,12 @@ Le blog est le principal levier d'acquisition organique. Chaque article doit res
 - Passage en gras : `{{{practice_area}}}`, "premier vecteur de réassurance", "capter davantage de demandes qualifiées", "gratuitement et sans engagement une maquette visuelle"
 - **Signature** : Raphaël TRAN, Développeur web / Consultant en visibilité digitale, PropulseDev, 06 95 38 27 56, propulsedev.fr
 
+## Pipeline de prospection (focus actuel : avocats)
+- **Source principale** : Annuaire du Barreau de Paris (avocatparis.org), scraping en cours de mise en place
+- **Canal sortant** : cold email (voir section Cold Mailing ci-dessus) + LinkedIn (5-8 invitations/jour, profil "fondateur" couvrant PropulseDev + OlympeAI)
+- **Funnel naturel** : PropulseDev (site) → OlympeAI (upsell agent IA) une fois la relation établie
+- **Outil de vente** : démos sectorielles en ligne (propulsedev.fr/demos/avocats, /notaires, /experts-comptables, /architectes), maquettes lead chaud dans `public/demo/nom-du-cabinet/`
+
 ## Règles générales
 
 - Ne pas ajouter de commentaires dans le code sauf si demandé
@@ -189,4 +210,8 @@ Le blog est le principal levier d'acquisition organique. Chaque article doit res
 - Les nouvelles sections landing vont dans `components/landing/`
 - Les données statiques (articles, niches) dans `lib/` sous forme de fichiers TS
 - Les maquettes clients (lead chaud) vont dans `public/demo/nom-du-cabinet/index.html` puis on partage l'URL `propulsedev.fr/demo/nom-du-cabinet`
-- Ne jamais utiliser d'entités HTML (`&apos;`, `&amp;`, `&lt;`, `&gt;`) dans les chaînes JavaScript — toujours le caractère direct (`'`, `&`, `<`, `>`). Les entités HTML ne sont valides qu'en JSX pur (contenu entre balises), pas dans les strings JS (`"..."`, `'...'`, `` `...` ``)
+- Ne jamais commit de tokens, API keys, ou infos clients
+- Le pricing affiché sur /tarifs doit rester cohérent avec ce fichier — toute modification de grille doit être reflétée des deux côtés
+
+## ⚠️ Risques identifiés
+_À compléter._

@@ -1,28 +1,36 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export function PhoneReveal({ className = "", label = "Afficher le numéro", revealedClassName }: { className?: string; label?: string; revealedClassName?: string }) {
-  const [show, setShow] = useState(false)
+export function PhoneReveal({ className = "", label = "📞 Appelez-nous" }: { className?: string; label?: string }) {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Avant hydratation : placeholder sans numéro — protège des scrapers HTML
+  if (!mounted) {
+    return (
+      <span className={`text-sm transition-colors ${className}`}>
+        📞 Appelez-nous
+      </span>
+    )
+  }
+
+  // Après hydratation : numéro visible et cliquable sans clic intermédiaire
   const phone = process.env.NEXT_PUBLIC_PHONE ?? ""
-
   if (!phone) return null
 
   return (
-    <button
-      onClick={() => setShow(true)}
-      className={`w-fit text-sm transition-colors cursor-pointer ${className}`}
+    <a
+      href={`tel:${phone}`}
+      className={`text-sm transition-colors cursor-pointer ${className}`}
     >
-      {show ? (
-        <span className={`font-mono tracking-wider ${revealedClassName ?? "text-accent"}`}>
-          📞{" "}
-          {phone.replace(/(\d{2})(?=\d)/g, "$1 ")}
-        </span>
-      ) : (
-        <span className="hover:opacity-70 transition-opacity">
-          📞 {label}
-        </span>
-      )}
-    </button>
+      <span className="font-mono tracking-wider">
+        📞{" "}
+        {phone.replace(/(\d{2})(?=\d)/g, "$1 ")}
+      </span>
+    </a>
   )
 }

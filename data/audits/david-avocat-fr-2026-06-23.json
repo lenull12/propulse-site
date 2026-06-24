@@ -1,0 +1,230 @@
+{
+  "url": "https://www.david-avocat.fr/",
+  "domain": "www.david-avocat.fr",
+  "https": true,
+  "seo": {
+    "title": "avocat nantes droit travail (licenciement) famille (divorce) - Cabinet David | avocat | Nantes",
+    "title_length": 94,
+    "meta_description": "Avocat intervenant dans les domaines du droit du travail (licenciement) et de la famille (divorce) situé à La Montagne 44 à proximité de NANTES.",
+    "meta_description_length": 144,
+    "h1_tags": [
+      "Vous êtes…",
+      "Pour me rejoindre :",
+      "Partager ce site",
+      "Le point sur vos droits | Dernières publications"
+    ],
+    "h1_count": 4,
+    "viewport": "",
+    "language": "fr-FR",
+    "og_title": "avocat nantes droit travail (licenciement) famille (divorce)",
+    "og_description": "Avocat intervenant dans les domaines du droit du travail (licenciement) et de la famille (divorce) situé à La Montagne 44 à proximité de NANTES.",
+    "og_image": "",
+    "canonical": "https://www.david-avocat.fr/",
+    "robots": "index, follow, archive",
+    "schema_ld_json": false,
+    "schema_types": []
+  },
+  "technique": {
+    "css_files": 4,
+    "js_files": 8,
+    "forms": 0,
+    "images_total": 9,
+    "images_without_alt": 8,
+    "telephone_links": [],
+    "mailto_links": [],
+    "linkedin_links": 2,
+    "contact_page_indicators": 1,
+    "copyright_year": null
+  },
+  "cms": {
+    "cms": "Jimdo",
+    "indicators": [
+      "Jimdo signature"
+    ],
+    "generator_meta": "Jimdo Creator"
+  },
+  "diagnostic": {
+    "score": 0,
+    "issues": [
+      "Titre trop long (94 car.) — sera tronqué dans Google",
+      "4 balises H1 — une seule est recommandée",
+      "Pas de meta viewport 'width=device-width' — site probablement non responsive",
+      "OG image manquante — partage sans visuel = taux de clic divisé par 3",
+      "Aucun balisage schema.org — pas de rich snippet Google (carte cabinet, avis...)",
+      "8/9 images sans attribut alt (89%) — problème d'accessibilité et SEO images",
+      "Aucun formulaire de contact — les leads passent à côté",
+      "Pas de lien téléphone cliquable (tel:) — gênant sur mobile",
+      "Site construit avec Jimdo Creator — un générateur amateur aux templates très limités, design rarement à jour",
+      "Email en @orange.fr — pour un cabinet d'avocats, une adresse @orange.fr ne rassure pas. Attendu : prenom@nom-cabinet.fr",
+      "Widget Google Maps intégré en iframe sur l'accueil — ralentit le chargement, donne un aspect non professionnel",
+      "Structure HTML sans balises sémantiques (header, nav, main, section) — code non structuré, mauvais SEO",
+      "8 polices différentes utilisées (\"Times New Roman\", Verdana, Arial, Helvetica, sans-serif, \"Trebuchet MS\", Verdana, sans-serif, Arial, Helvetica, sans-serif) — pas de hiérarchie typographique cohérente, aspect amateur",
+      "Police Times New Roman détectée — cette police a disparu du web professionnel depuis 2015. À remplacer par Inter, Lora ou Merriweather",
+      "Aucune balise HTML5 sémantique (header, nav, main, footer, article) — structure en « soupe de divs », mauvaise pour le SEO et l'accessibilité",
+      "Aucun layout moderne (ni CSS Grid, ni Flexbox) — technique de mise en page qui date d'avant 2015",
+      "Pas de couleur d'accent/secondaire — le design manque de contraste et de hiérarchie visuelle",
+      "Aucune photo professionnelle (13 images mais toutes en petit format ou icônes) — un cabinet d'avocats sans photo du cabinet ou de l'avocat rassure moins",
+      "Absence totale d'ombres et de profondeur visuelle — design « plat » qui donne un aspect vieillot",
+      "Menu non fixe (non sticky) — navigation inconfortable sur mobile, le visiteur perd le fil",
+      "Page d'accueil non structurée en sections visuelles — pas de hiérarchie claire, le visiteur ne sait pas où regarder",
+      "8 polices différentes utilisées (\"Times New Roman\", Verdana, Arial, Helvetica, sans-serif, \"Trebuchet MS\", Verdana, sans-serif, Arial, Helvetica, sans-serif) — pas de hiérarchie typographique cohérente, aspect amateur",
+      "Police Times New Roman détectée — cette police a disparu du web professionnel depuis 2015. À remplacer par Inter, Lora ou Merriweather",
+      "Aucune balise HTML5 sémantique (header, nav, main, footer, article) — structure en « soupe de divs », mauvaise pour le SEO et l'accessibilité",
+      "Aucun layout moderne (ni CSS Grid, ni Flexbox) — technique de mise en page qui date d'avant 2015",
+      "Pas de couleur d'accent/secondaire — le design manque de contraste et de hiérarchie visuelle",
+      "Aucune photo professionnelle (13 images mais toutes en petit format ou icônes) — un cabinet d'avocats sans photo du cabinet ou de l'avocat rassure moins",
+      "Absence totale d'ombres et de profondeur visuelle — design « plat » qui donne un aspect vieillot",
+      "Menu non fixe (non sticky) — navigation inconfortable sur mobile, le visiteur perd le fil",
+      "Page d'accueil non structurée en sections visuelles — pas de hiérarchie claire, le visiteur ne sait pas où regarder"
+    ],
+    "good_points": [
+      "Meta description bien calibrée",
+      "Langue déclarée : fr-FR"
+    ],
+    "design_issues": [
+      "8 polices différentes utilisées (\"Times New Roman\", Verdana, Arial, Helvetica, sans-serif, \"Trebuchet MS\", Verdana, sans-serif, Arial, Helvetica, sans-serif) — pas de hiérarchie typographique cohérente, aspect amateur",
+      "Police Times New Roman détectée — cette police a disparu du web professionnel depuis 2015. À remplacer par Inter, Lora ou Merriweather",
+      "Aucune balise HTML5 sémantique (header, nav, main, footer, article) — structure en « soupe de divs », mauvaise pour le SEO et l'accessibilité",
+      "Aucun layout moderne (ni CSS Grid, ni Flexbox) — technique de mise en page qui date d'avant 2015",
+      "Pas de couleur d'accent/secondaire — le design manque de contraste et de hiérarchie visuelle",
+      "Aucune photo professionnelle (13 images mais toutes en petit format ou icônes) — un cabinet d'avocats sans photo du cabinet ou de l'avocat rassure moins",
+      "Absence totale d'ombres et de profondeur visuelle — design « plat » qui donne un aspect vieillot",
+      "Menu non fixe (non sticky) — navigation inconfortable sur mobile, le visiteur perd le fil",
+      "Page d'accueil non structurée en sections visuelles — pas de hiérarchie claire, le visiteur ne sait pas où regarder"
+    ],
+    "design_good": []
+  },
+  "design": {
+    "colors": {
+      "palette": [
+        {
+          "color": "rgb(102,102,102)",
+          "count": 1159
+        },
+        {
+          "color": "rgba(17,17,17,0.5)",
+          "count": 512
+        },
+        {
+          "color": "rgb(0,0,0)",
+          "count": 142
+        },
+        {
+          "color": "rgb(238,238,238)",
+          "count": 47
+        },
+        {
+          "color": "rgb(17,17,17)",
+          "count": 45
+        },
+        {
+          "color": "rgb(255,255,255)",
+          "count": 25
+        },
+        {
+          "color": "rgb(78,80,86)",
+          "count": 11
+        },
+        {
+          "color": "rgb(204,204,204)",
+          "count": 8
+        },
+        {
+          "color": "rgb(238,238,238)rgb(102,88,88)rgb(238,238,238)rgb(238,238,238)",
+          "count": 7
+        },
+        {
+          "color": "rgb(25,123,255)",
+          "count": 7
+        },
+        {
+          "color": "rgb(193,14,51)",
+          "count": 5
+        },
+        {
+          "color": "rgba(17,17,17,0.05)",
+          "count": 5
+        }
+      ],
+      "paletteSize": 12,
+      "hasDarkBackground": false,
+      "hasAccentColor": false,
+      "dominantColors": [
+        "rgb(102,102,102)",
+        "rgba(17,17,17,0.5)",
+        "rgb(0,0,0)",
+        "rgb(238,238,238)",
+        "rgb(17,17,17)"
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        "\"Times New Roman\"",
+        "Verdana, Arial, Helvetica, sans-serif",
+        "\"Trebuchet MS\", Verdana, sans-serif",
+        "Arial, Helvetica, sans-serif",
+        "Helvetica, Arial, sans-serif",
+        "\"Times New Roman\", serif",
+        "Roboto, Arial, sans-serif",
+        "\"Brandon Text\", Asap, Verdana, Arial, sans-serif"
+      ],
+      "fontSizes": [
+        [
+          "12px",
+          371
+        ],
+        [
+          "16px",
+          82
+        ],
+        [
+          "11px",
+          9
+        ],
+        [
+          "15px",
+          4
+        ],
+        [
+          "13px",
+          4
+        ]
+      ],
+      "headingCount": {
+        "h1": 4,
+        "h2": 0,
+        "h3": 0
+      }
+    },
+    "layout": {
+      "pageWidth": 1440,
+      "maxWidth": "none",
+      "sections": 0,
+      "semanticTags": {
+        "header": false,
+        "footer": false,
+        "nav": false,
+        "main": false,
+        "article": false
+      },
+      "hasStickyHeader": false,
+      "usesCSSGrid": false,
+      "usesFlexbox": false,
+      "usesCustomProperties": true,
+      "totalCSSRules": 667,
+      "shadows": 0,
+      "roundedCorners": 19
+    },
+    "images": {
+      "total": 13,
+      "professionalSize": 0,
+      "withoutAlt": 0
+    },
+    "cta": {
+      "totalCTALinks": 7,
+      "ctaTexts": [
+        "contact"
+      ]
+    }
+  }
+}

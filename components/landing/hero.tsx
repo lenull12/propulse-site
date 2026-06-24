@@ -35,8 +35,17 @@ export function Hero() {
             <p className="mb-8 max-w-[640px] text-sm md:text-base font-light leading-relaxed text-gray-400">
               Des sites internet sur-mesure et performants pour les professionnels.
               <br className="hidden sm:block" />
-              Optimiser votre visibilité locale, c'est sécuriser vos futurs clients.
+              Optimiser votre visibilité locale, c&apos;est attirer de nouveaux clients.
             </p>
+
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/20 bg-accent/[0.04] px-4 py-1.5 text-xs font-semibold text-accent">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Sites à partir de 1 000 €
+              </span>
+            </div>
 
             <div className="flex flex-wrap gap-3 mb-10">
               <Link
@@ -64,7 +73,7 @@ export function Hero() {
               </div>
               <div>
                 <p className="font-mono text-3xl md:text-5xl font-black text-foreground">24h</p>
-                <p className="mt-1 text-[10px] md:text-[11px] uppercase tracking-[2px] text-gray-400">Audit livré</p>
+                <p className="mt-1 text-[10px] md:text-[11px] uppercase tracking-[2px] text-gray-400">Audit livré sous 48h</p>
               </div>
               <div>
                 <p className="font-mono text-3xl md:text-5xl font-black text-foreground">+200<span className="text-accent">%</span></p>

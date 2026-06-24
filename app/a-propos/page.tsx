@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 const VALUES = [
   { number: "50+", label: "Sites livrés" },
   { number: "4.9", label: "Note moyenne" },
-  { number: "12+", label: "Ans d'expérience" },
-  { number: "24h", label: "Audit offert sous 24h" },
+  { number: "12+", label: "12+ ans d&apos;expérience" },
+  { number: "48h", label: "Audit offert sous 48h" },
 ]
 
 const MANIFESTE = [

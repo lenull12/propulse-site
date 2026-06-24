@@ -12,15 +12,32 @@
     "@marsidev/react-turnstile": "^1.5.2",
     "next": "^15.5.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "resend": "^6.12.4"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "puppeteer": "^25.2.0",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.6.0"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenull12/propulse-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lenull12/propulse-site/issues"
+  },
+  "homepage": "https://github.com/lenull12/propulse-site#readme"
 }

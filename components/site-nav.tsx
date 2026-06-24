@@ -172,7 +172,7 @@ export function SiteNav({ forceDark }: { forceDark?: boolean }) {
               >
                 Prendre RDV
               </Link>
-              <PhoneReveal className="rounded-full bg-accent px-5 py-2 text-xs font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(200,240,0,0.4)]" revealedClassName="text-black" label="Appelez-nous" />
+              <PhoneReveal className="rounded-full bg-accent px-5 py-2 text-xs font-semibold text-black transition-all hover:shadow-[0_0_20px_rgba(200,240,0,0.4)]" label="Appelez-nous" />
             </div>
 
             {/* Burger mobile */}

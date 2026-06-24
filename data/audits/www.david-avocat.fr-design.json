@@ -1,0 +1,133 @@
+{
+  "colors": {
+    "palette": [
+      {
+        "color": "rgb(102,102,102)",
+        "count": 1159
+      },
+      {
+        "color": "rgba(17,17,17,0.5)",
+        "count": 512
+      },
+      {
+        "color": "rgb(0,0,0)",
+        "count": 142
+      },
+      {
+        "color": "rgb(238,238,238)",
+        "count": 47
+      },
+      {
+        "color": "rgb(17,17,17)",
+        "count": 45
+      },
+      {
+        "color": "rgb(255,255,255)",
+        "count": 25
+      },
+      {
+        "color": "rgb(78,80,86)",
+        "count": 11
+      },
+      {
+        "color": "rgb(204,204,204)",
+        "count": 8
+      },
+      {
+        "color": "rgb(238,238,238)rgb(102,88,88)rgb(238,238,238)rgb(238,238,238)",
+        "count": 7
+      },
+      {
+        "color": "rgb(25,123,255)",
+        "count": 7
+      },
+      {
+        "color": "rgb(193,14,51)",
+        "count": 5
+      },
+      {
+        "color": "rgba(17,17,17,0.05)",
+        "count": 5
+      }
+    ],
+    "paletteSize": 12,
+    "hasDarkBackground": false,
+    "hasAccentColor": false,
+    "dominantColors": [
+      "rgb(102,102,102)",
+      "rgba(17,17,17,0.5)",
+      "rgb(0,0,0)",
+      "rgb(238,238,238)",
+      "rgb(17,17,17)"
+    ]
+  },
+  "typography": {
+    "fontFamilies": [
+      "\"Times New Roman\"",
+      "Verdana, Arial, Helvetica, sans-serif",
+      "\"Trebuchet MS\", Verdana, sans-serif",
+      "Arial, Helvetica, sans-serif",
+      "Helvetica, Arial, sans-serif",
+      "\"Times New Roman\", serif",
+      "Roboto, Arial, sans-serif",
+      "\"Brandon Text\", Asap, Verdana, Arial, sans-serif"
+    ],
+    "fontSizes": [
+      [
+        "12px",
+        371
+      ],
+      [
+        "16px",
+        82
+      ],
+      [
+        "11px",
+        9
+      ],
+      [
+        "15px",
+        4
+      ],
+      [
+        "13px",
+        4
+      ]
+    ],
+    "headingCount": {
+      "h1": 4,
+      "h2": 0,
+      "h3": 0
+    }
+  },
+  "layout": {
+    "pageWidth": 1440,
+    "maxWidth": "none",
+    "sections": 0,
+    "semanticTags": {
+      "header": false,
+      "footer": false,
+      "nav": false,
+      "main": false,
+      "article": false
+    },
+    "hasStickyHeader": false,
+    "usesCSSGrid": false,
+    "usesFlexbox": false,
+    "usesCustomProperties": true,
+    "totalCSSRules": 667,
+    "shadows": 0,
+    "roundedCorners": 19
+  },
+  "images": {
+    "total": 13,
+    "professionalSize": 0,
+    "withoutAlt": 0
+  },
+  "cta": {
+    "totalCTALinks": 7,
+    "ctaTexts": [
+      "contact"
+    ]
+  }
+}
