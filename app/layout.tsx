@@ -29,8 +29,10 @@ export const metadata: Metadata = {
   description:
     "Nous aidons les professionnels indépendants à transformer leur présence en ligne en machine à clients : audit, refonte web et gestion automatisée de la réputation Google.",
   icons: {
-    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%23c8f000%22><path d=%22M12 .587l3.668 7.431 8.2 1.192-5.934 5.784 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.133 9.41l8.2-1.192z%22/></svg>",
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "fr_FR",
