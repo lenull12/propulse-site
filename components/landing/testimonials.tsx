@@ -28,12 +28,12 @@ import { Reveal } from "@/components/ui/reveal"
 
 export function Testimonials() {
   return (
-    <section className="relative bg-[#f5f4f0] px-6 py-24 md:px-12 overflow-hidden border-t border-black/5">
+    <section className="relative bg-background px-6 py-24 md:px-12 overflow-hidden border-t border-white/5">
       <Reveal>
       <div className="relative z-10 mx-auto max-w-[1200px]">
         <div className="text-center mb-16">
-          <p className="text-sm font-medium tracking-wide text-gray-500 mb-3">Témoignages</p>
-          <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-gray-900">
+          <p className="text-sm font-medium tracking-wide text-gray-400 mb-3">Témoignages</p>
+          <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-foreground">
             Ce que disent nos clients.
           </h2>
         </div>
@@ -42,17 +42,17 @@ export function Testimonials() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="flex flex-col items-center text-center gap-5 rounded-2xl border border-black/10 bg-white p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]"
+              className="flex flex-col items-center text-center gap-5 rounded-2xl border border-white/[0.06] bg-surface p-8 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(0,0,0,0.2)]"
             >
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-black/5 text-lg font-bold text-gray-700">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/[0.06] text-lg font-bold text-gray-300">
                 {t.initials}
               </div>
-              <blockquote className="text-base font-light leading-relaxed text-gray-700">
+              <blockquote className="text-base font-light leading-relaxed text-gray-300">
                 « {t.quote} »
               </blockquote>
               <div>
-                <p className="text-sm font-semibold text-gray-900">{t.name}</p>
-                <p className="text-xs text-gray-500 mt-1">{t.role}</p>
+                <p className="text-sm font-semibold text-foreground">{t.name}</p>
+                <p className="text-xs text-gray-400 mt-1">{t.role}</p>
               </div>
               <div className="flex gap-1 text-[#c8f000]">
                 {Array.from({ length: 5 }).map((_, i) => (

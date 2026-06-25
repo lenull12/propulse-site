@@ -77,9 +77,9 @@ export function Process() {
   }
 
   return (
-    <section id="process" className="relative bg-[#000000] px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 ">
+    <section id="process" className="relative bg-background px-6 py-32 md:px-12 overflow-hidden border-t border-white/5 ">
       {/* Halo lumineux en arrière-plan */}
-      <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#14b8a6] opacity-[0.02] blur-[150px] pointer-events-none" />
+      <div className="absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-[#c8f000] opacity-[0.02] blur-[150px] pointer-events-none" />
       
       <div className="relative z-10 mx-auto max-w-[1400px]">
         <div className="inline-flex items-center gap-3 mb-4">
@@ -112,7 +112,7 @@ export function Process() {
                   onClick={() => handleStepClick(idx)}
                   className={`group relative text-left p-6 rounded-[16px] border transition-all duration-500 overflow-hidden cursor-pointer ${
                     isActive
-                      ? "bg-[#0a0a0a] border-white/10"
+                      ? "bg-surface border-white/10"
                       : "bg-transparent border-transparent hover:border-white/5 hover:bg-white/[0.01]"
                   }`}
                 >
@@ -146,7 +146,7 @@ export function Process() {
 
           {/* Détails de l'étape active à droite (col-span 7) */}
           <div className="lg:col-span-7 flex">
-            <div className="w-full flex flex-col justify-between rounded-[20px] border border-white/5 bg-[#0a0a0a]/40 p-8 md:p-12 relative overflow-hidden">
+            <div className="w-full flex flex-col justify-between rounded-[20px] border border-white/5 bg-surface/40 p-8 md:p-12 relative overflow-hidden">
               {/* Filigrane géant en arrière-plan */}
               <div className="absolute -right-6 -bottom-10 font-mono text-[180px] font-black text-white/[0.01] select-none pointer-events-none">
                 {STEPS[activeStep].num}

@@ -50,11 +50,11 @@ export function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative bg-[#000000] px-6 py-32 md:px-12 overflow-hidden"
+      className="relative bg-background px-6 py-32 md:px-12 overflow-hidden"
     >
       {/* Halo lumineux */}
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#c8f000] opacity-[0.02] blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[#14b8a6] opacity-[0.015] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[300px] h-[300px] rounded-full bg-[#c8f000] opacity-[0.015] blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-[1200px]">
         {/* En-tête */}

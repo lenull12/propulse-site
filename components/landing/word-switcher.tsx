@@ -69,14 +69,7 @@ export function WordSwitcher() {
       <span
         className={`inline-block font-mono text-nowrap transform ${classes}`}
         style={{
-          background: "linear-gradient(to right, #14b8a6, #00f0ff, #c8f000)",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent",
-          WebkitTextFillColor: "transparent",
-          filter: "none !important",
-          forcedColorAdjust: "none",
-          WebkitFilter: "none !important",
+          color: "#c8f000",
         }}
       >
         {WORDS[index]}

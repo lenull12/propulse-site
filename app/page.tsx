@@ -1,8 +1,9 @@
 import { SiteNav } from "@/components/site-nav"
 import { SiteFooter } from "@/components/site-footer"
-import { Hero } from "@/components/landing/hero"
+import { HeroV2 } from "@/components/landing/hero-v2"
+import { FeatureGrid } from "@/components/landing/feature-grid"
 import { Problem } from "@/components/landing/problem"
-import { Capabilities } from "@/components/landing/capabilities"
+import { ProductCards } from "@/components/landing/product-cards"
 import { DemosPreview } from "@/components/landing/demos-preview"
 import { Services } from "@/components/landing/services"
 import { Process } from "@/components/landing/process"
@@ -37,10 +38,11 @@ export default function HomePage() {
       />
       <SiteNav />
       <main>
-        <Hero />
+        <HeroV2 />
+        <FeatureGrid />
         <MarqueeTech />
         <Problem />
-        <Capabilities />
+        <ProductCards />
         <LiveMetrics />
         <DemosPreview />
         <Marquee />

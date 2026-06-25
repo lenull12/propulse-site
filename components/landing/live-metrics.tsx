@@ -47,12 +47,12 @@ function Counter({ value, suffix, decimals }: { value: number; suffix: string; d
 
 export function LiveMetrics() {
   return (
-    <section className="relative bg-[#f5f4f0] px-6 py-24 md:px-12 border-t border-black/5 overflow-hidden">
+    <section className="relative bg-background px-6 py-24 md:px-12 border-t border-white/5 overflow-hidden">
       {/* Grille de fond subtile */}
       <div
         className="absolute inset-0 pointer-events-none opacity-30"
         style={{
-          backgroundImage: "linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -64,19 +64,19 @@ export function LiveMetrics() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
             </span>
-            <p className="text-xs font-medium tracking-[3px] uppercase text-gray-500">Résultats en chiffres</p>
+            <p className="text-xs font-medium tracking-[3px] uppercase text-gray-400">Résultats en chiffres</p>
           </div>
-          <h2 className="font-mono text-[clamp(2rem,4vw,3.2rem)] font-black leading-[1.15] text-gray-900">
+          <h2 className="font-mono text-[clamp(2rem,4vw,3.2rem)] font-black leading-[1.15] text-foreground">
           <span className="block">Des résultats mesurables,</span>
           <span className="block text-gray-400">pas des promesses.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-black/8 border border-black/8 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/[0.04] border border-white/[0.04] rounded-2xl overflow-hidden">
           {METRICS.map((m) => (
-            <div key={m.label} className="flex flex-col items-center justify-center gap-3 bg-[#f5f4f0] px-8 py-12 text-center">
+            <div key={m.label} className="flex flex-col items-center justify-center gap-3 bg-surface px-8 py-12 text-center">
               <Counter value={m.value} suffix={m.suffix} decimals={m.decimals} />
-              <span className="text-xs font-medium uppercase tracking-[2px] text-gray-500 leading-relaxed">{m.label}</span>
+              <span className="text-xs font-medium uppercase tracking-[2px] text-gray-400 leading-relaxed">{m.label}</span>
             </div>
           ))}
         </div>

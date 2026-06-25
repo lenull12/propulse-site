@@ -53,6 +53,7 @@ const PLANS = [
       "Site multipages (5 pages max)",
       "Design responsive + animations",
       "Blog / Actualités intégré",
+      "Chatbot IA intégré (questions, qualification, RDV par mail)",
       "Stack Next.js + Tailwind CSS",
       "Hébergement Cloudflare Pages — CDN mondial",
       "Mises à jour sécurité incluses 1 an",
@@ -87,6 +88,7 @@ const PLANS = [
       "Animations avancées & micro-interactions",
       "Page d'atterrissage campagne dédiée",
       "Blog / Actualités intégré",
+      "Chatbot IA intégré (questions, qualification, RDV par mail)",
       "Stack Next.js + Tailwind CSS",
       "Hébergement Cloudflare Pages — CDN mondial",
       "Mises à jour sécurité incluses 1 an",
@@ -323,6 +325,7 @@ export default function TarifsPage() {
               // === FONCTIONNALITÉS ===
               { label: "Formulaire de contact", starter: true, pro: true, premium: true },
               { label: "Blog / Actualités", starter: false, pro: true, premium: true },
+              { label: "Chatbot IA intégré", starter: false, pro: true, premium: true },
               { label: "QR code personnalisé", starter: false, pro: true, premium: true },
               { label: "QR code dynamique & générateur illimité", starter: false, pro: false, premium: true },
               { label: "Pages légales (mentions, CGV, RGPD)", starter: false, pro: true, premium: true },

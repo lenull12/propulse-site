@@ -49,11 +49,11 @@ export function DemosPreview() {
       <Reveal>
       <div className="relative z-10 mx-auto max-w-[1200px]">
         <div className="text-center mb-20">
-          <p className="text-sm font-medium tracking-wide text-gray-500 mb-4">Réalisations</p>
+          <p className="text-sm font-medium tracking-wide text-gray-600 mb-4">Réalisations</p>
           <h2 className="font-mono text-[clamp(2rem,4vw,3.5rem)] font-black leading-[1.15] text-gray-900">
             Des sites qui marchent
           </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-lg font-light leading-relaxed text-gray-500">
+          <p className="mt-6 max-w-2xl mx-auto text-lg font-light leading-relaxed text-gray-600">
             Sélectionnez un secteur et découvrez un aperçu des designs réalisés.
           </p>
         </div>
@@ -91,7 +91,7 @@ export function DemosPreview() {
                 <span className="h-3 w-3 rounded-full bg-black/10" />
                 <span className="h-3 w-3 rounded-full bg-black/10" />
                 <span className="h-3 w-3 rounded-full bg-black/10" />
-                <span className="ml-3 text-xs text-gray-400 font-mono">
+                <span className="ml-3 text-xs text-gray-500 font-mono">
                   propulse.dev — {active.title} / {currentDesign?.title ?? ""}
                 </span>
 
@@ -101,7 +101,7 @@ export function DemosPreview() {
                     href={currentDesign.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="ml-auto flex items-center gap-1 text-[11px] text-gray-400 hover:text-[#c8f000] transition-colors"
+                    className="ml-auto flex items-center gap-1 text-[11px] text-gray-500 hover:text-[#c8f000] transition-colors"
                   >
                     Ouvrir
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -113,7 +113,7 @@ export function DemosPreview() {
                 )}
 
                 {/* Indicateur de page mobile */}
-                <span className="text-[11px] text-gray-400 font-mono md:hidden">
+                <span className="text-[11px] text-gray-500 font-mono md:hidden">
                   {designIndex + 1}/{designs.length}
                 </span>
               </div>
@@ -128,7 +128,7 @@ export function DemosPreview() {
                   />
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center py-24 text-gray-400">
+                <div className="flex flex-col items-center justify-center py-24 text-gray-500">
                   <p className="text-lg font-medium text-gray-700">Aucun design disponible</p>
                 </div>
               )}
@@ -149,7 +149,7 @@ export function DemosPreview() {
                 {/* Prev mobile */}
                 <button
                   onClick={goPrev}
-                  className="flex md:hidden items-center justify-center w-8 h-8 rounded-full border border-black/10 text-gray-500 transition-all hover:bg-[#c8f000] hover:text-black"
+                  className="flex md:hidden items-center justify-center w-8 h-8 rounded-full border border-black/10 text-gray-600 transition-all hover:bg-[#c8f000] hover:text-black"
                   aria-label="Design précédent"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -175,7 +175,7 @@ export function DemosPreview() {
                 {/* Next mobile */}
                 <button
                   onClick={goNext}
-                  className="flex md:hidden items-center justify-center w-8 h-8 rounded-full border border-black/10 text-gray-500 transition-all hover:bg-[#c8f000] hover:text-black"
+                  className="flex md:hidden items-center justify-center w-8 h-8 rounded-full border border-black/10 text-gray-600 transition-all hover:bg-[#c8f000] hover:text-black"
                   aria-label="Design suivant"
                 >
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -186,7 +186,7 @@ export function DemosPreview() {
             )}
           </div>
 
-          <p className="mt-6 text-center text-[12px] text-gray-500">
+          <p className="mt-6 text-center text-[12px] text-gray-600">
             Les noms, personnes, adresses et photos sont fictifs — à but illustratif uniquement.
           </p>
 

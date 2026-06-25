@@ -6,7 +6,7 @@ import { ParticlesBackground } from "./particles-background"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-[#000000] overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-background overflow-hidden">
       {/* Particules de fond */}
       <ParticlesBackground
         count={40}
